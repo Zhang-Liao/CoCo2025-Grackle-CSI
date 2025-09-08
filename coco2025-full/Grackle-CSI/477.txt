@@ -1,0 +1,14 @@
+NO
+
+Problem:
+ f(x,x) -> x
+ f(x,e()) -> x
+ f(e(),x) -> x
+ f(x,i(x)) -> e()
+ f(i(x),x) -> e()
+
+Proof:
+ Nonconfluence Processor:
+  terms: i(e()) *<- f(i(e()),e()) ->* e()
+  Qed
+

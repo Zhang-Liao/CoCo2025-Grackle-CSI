@@ -1,0 +1,17 @@
+NO
+
+Problem:
+ a() -> f(f(h(a(),c())))
+ h(h(h(c(),f(h(f(h(h(c(),c()),c())),b()))),h(h(a(),c()),h(f(a()),h(f(f(c())),h(c(),b()))))),
+   h(f(a()),c()))
+ -> c()
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(h(h(c(),f(h(f(h(h(c(),c()),c())),b()))),h(h(f(f(h(f(f(h(f(f(h(a(),c()))),c()))),c()))),
+                                                       c()),h(f(a()),h(f(f(c())),h(c(),b()))))),
+           h(f(a()),c())) *<- h(h(h(c(),f(h(f(h(h(c(),c()),c())),b()))),
+                                  h(h(a(),c()),h(f(a()),h(f(f(c())),h(c(),b()))))),
+                                h(f(a()),c())) ->* c()
+  Qed
+

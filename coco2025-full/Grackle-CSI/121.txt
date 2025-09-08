@@ -1,0 +1,121 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ dbl(x) -> +(x,x)
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(x,y))
+  dbl(x) -> +(x,x)
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,y) -> +(y,x)
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         +(0(),y) -> y
+         +(s(x),y) -> s(+(x,y))
+         dbl(x) -> +(x,x)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x) = s(+(x,0())), s(+(0(),x256)) = s(x256), s(+(s(x),x258)) = 
+  s(+(x,s(x258))), s(y) = s(+(0(),y)), s(+(x261,0())) = s(x261), s(+(x263,s(y))) = 
+  s(+(s(x263),y))
+  
+   CP(S,P union P^-1) = 
+  +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), x = +(0(),x), +(x,y) = 
+  +(+(x,y),0()), y = +(0(),y), s(+(+(x,y),x313)) = +(x,+(y,s(x313))), 
+  +(s(+(x,x315)),z) = +(x,+(s(x315),z)), s(+(x,x317)) = +(s(x317),x), 
+  +(x,s(+(y,x319))) = +(+(x,y),s(x319)), s(+(y,x321)) = +(s(x321),y), 
+  +(y,z) = +(0(),+(y,z)), y = +(y,0()), +(y,z) = +(+(0(),y),z), +(x,z) = 
+  +(+(x,0()),z), x = +(x,0()), +(s(+(x327,y)),z) = +(s(x327),+(y,z)), 
+  s(+(x329,y)) = +(y,s(x329)), s(+(x331,+(y,z))) = +(+(s(x331),y),z), 
+  +(x,s(+(x333,z))) = +(+(x,s(x333)),z), s(+(x335,x)) = +(x,s(x335))
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 4x0 + x1 + 1,
+    
+    [dbl](x0) = 5x0 + 1,
+    
+    [0] = 2,
+    
+    [s](x0) = x0
+   orientation:
+    +(x,0()) = 4x + 3 >= x = x
+    
+    +(x,s(y)) = 4x + y + 1 >= 4x + y + 1 = s(+(x,y))
+    
+    +(0(),y) = y + 9 >= y = y
+    
+    +(s(x),y) = 4x + y + 1 >= 4x + y + 1 = s(+(x,y))
+    
+    dbl(x) = 5x + 1 >= 5x + 1 = +(x,x)
+   problem:
+    +(x,s(y)) -> s(+(x,y))
+    +(s(x),y) -> s(+(x,y))
+    dbl(x) -> +(x,x)
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [+](x0, x1) = x0 + x1,
+     
+     [dbl](x0) = 2x0 + 1,
+     
+     [s](x0) = x0
+    orientation:
+     +(x,s(y)) = x + y >= x + y = s(+(x,y))
+     
+     +(s(x),y) = x + y >= x + y = s(+(x,y))
+     
+     dbl(x) = 2x + 1 >= 2x = +(x,x)
+    problem:
+     +(x,s(y)) -> s(+(x,y))
+     +(s(x),y) -> s(+(x,y))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [+](x0, x1) = 2x0 + x1 + 1,
+      
+      [s](x0) = x0 + 1
+     orientation:
+      +(x,s(y)) = 2x + y + 2 >= 2x + y + 2 = s(+(x,y))
+      
+      +(s(x),y) = 2x + y + 3 >= 2x + y + 2 = s(+(x,y))
+     problem:
+      +(x,s(y)) -> s(+(x,y))
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [+](x0, x1) = x0 + 4x1,
+       
+       [s](x0) = x0 + 5
+      orientation:
+       +(x,s(y)) = x + 4y + 20 >= x + 4y + 5 = s(+(x,y))
+      problem:
+       
+      Qed
+

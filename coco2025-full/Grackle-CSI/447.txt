@@ -1,0 +1,27 @@
+YES
+
+Problem:
+ +(a(),x) -> a()
+ +(b(),g(a())) -> a()
+ +(0(),x) -> x
+ +(x,+(y,z)) -> +(+(x,y),z)
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f5_AC(a(),x) -> a()
+  f5_AC(b(),g(a())) -> a()
+  f5_AC(0(),x) -> x
+  AC critical peaks: joinable
+  AC-KBO Processor:
+   precedence:
+    g > f5_AC ~ 0 ~ b ~ a
+    weight function:
+     w0 = 2
+     w(0) = w(b) = w(a) = 2
+     w(f5_AC) = w(g) = 0
+    problem:
+     
+    Qed
+

@@ -1,0 +1,11 @@
+NO
+
+Problem:
+ f(g(x)) -> g(f(f(x)))
+ g(x) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(x) *<- f(g(x)) ->* f(f(x))
+  Qed
+

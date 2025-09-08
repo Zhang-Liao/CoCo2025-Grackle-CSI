@@ -1,0 +1,150 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ +(x,p(y)) -> p(+(x,y))
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ +(p(x),y) -> p(+(x,y))
+ s(p(x)) -> x
+ p(s(x)) -> x
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,+(y,z)) -> +(+(x,y),z)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  +(x,p(y)) -> p(+(x,y))
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(x,y))
+  +(p(x),y) -> p(+(x,y))
+  s(p(x)) -> x
+  p(s(x)) -> x
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,+(y,z)) -> +(+(x,y),z)
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,+(y,z)) -> +(+(x,y),z)
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         +(x,p(y)) -> p(+(x,y))
+         +(0(),y) -> y
+         +(s(x),y) -> s(+(x,y))
+         +(p(x),y) -> p(+(x,y))
+         s(p(x)) -> x
+         p(s(x)) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x) = s(+(x,0())), p(x) = p(+(x,0())), s(+(0(),x679)) = 
+  s(x679), s(+(s(x),x681)) = s(+(x,s(x681))), s(+(p(x),x683)) = p(+(x,s(x683))), 
+  p(+(0(),x685)) = p(x685), p(+(s(x),x687)) = s(+(x,p(x687))), p(+(p(x),x689)) = 
+  p(+(x,p(x689))), s(y) = s(+(0(),y)), p(y) = p(+(0(),y)), s(+(x693,0())) = 
+  s(x693), s(+(x695,s(y))) = s(+(s(x695),y)), s(+(x697,p(y))) = p(+(s(x697),y)), 
+  p(+(x699,0())) = p(x699), p(+(x701,s(y))) = s(+(p(x701),y)), p(+(x703,p(y))) = 
+  p(+(p(x703),y)), +(x,x705) = s(+(x,p(x705))), +(x706,y) = s(+(p(x706),y)), 
+  p(x707) = p(x707), +(x,x708) = p(+(x,s(x708))), +(x709,y) = p(+(s(x709),y)), 
+  s(x710) = s(x710)
+  
+   CP(S,P union P^-1) = 
+  +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), +(x,y) = +(+(x,y),0()), 
+  s(+(+(x,y),x763)) = +(x,+(y,s(x763))), +(s(+(x,x765)),z) = +(x,+(s(x765),z)), 
+  +(x,s(+(y,x767))) = +(+(x,y),s(x767)), p(+(+(x,y),x769)) = +(x,+(y,p(x769))), 
+  +(p(+(x,x771)),z) = +(x,+(p(x771),z)), +(x,p(+(y,x773))) = +(+(x,y),p(x773)), 
+  +(y,z) = +(0(),+(y,z)), +(y,z) = +(+(0(),y),z), +(x,z) = +(+(x,0()),z), 
+  +(s(+(x777,y)),z) = +(s(x777),+(y,z)), s(+(x779,+(y,z))) = +(+(s(x779),y),z), 
+  +(x,s(+(x781,z))) = +(+(x,s(x781)),z), +(p(+(x783,y)),z) = +(p(x783),+(y,z)), 
+  p(+(x785,+(y,z))) = +(+(p(x785),y),z), +(x,p(+(x787,z))) = +(+(x,p(x787)),z)
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = x0 + x1,
+    
+    [p](x0) = x0 + 6,
+    
+    [0] = 3,
+    
+    [s](x0) = x0 + 1
+   orientation:
+    +(x,0()) = x + 3 >= x = x
+    
+    +(x,s(y)) = x + y + 1 >= x + y + 1 = s(+(x,y))
+    
+    +(x,p(y)) = x + y + 6 >= x + y + 6 = p(+(x,y))
+    
+    +(0(),y) = y + 3 >= y = y
+    
+    +(s(x),y) = x + y + 1 >= x + y + 1 = s(+(x,y))
+    
+    +(p(x),y) = x + y + 6 >= x + y + 6 = p(+(x,y))
+    
+    s(p(x)) = x + 7 >= x = x
+    
+    p(s(x)) = x + 7 >= x = x
+   problem:
+    +(x,s(y)) -> s(+(x,y))
+    +(x,p(y)) -> p(+(x,y))
+    +(s(x),y) -> s(+(x,y))
+    +(p(x),y) -> p(+(x,y))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [+](x0, x1) = 4x0 + x1 + 7,
+     
+     [p](x0) = x0 + 1,
+     
+     [s](x0) = x0
+    orientation:
+     +(x,s(y)) = 4x + y + 7 >= 4x + y + 7 = s(+(x,y))
+     
+     +(x,p(y)) = 4x + y + 8 >= 4x + y + 8 = p(+(x,y))
+     
+     +(s(x),y) = 4x + y + 7 >= 4x + y + 7 = s(+(x,y))
+     
+     +(p(x),y) = 4x + y + 11 >= 4x + y + 8 = p(+(x,y))
+    problem:
+     +(x,s(y)) -> s(+(x,y))
+     +(x,p(y)) -> p(+(x,y))
+     +(s(x),y) -> s(+(x,y))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [+](x0, x1) = 2x0 + 6x1,
+      
+      [p](x0) = x0,
+      
+      [s](x0) = x0 + 2
+     orientation:
+      +(x,s(y)) = 2x + 6y + 12 >= 2x + 6y + 2 = s(+(x,y))
+      
+      +(x,p(y)) = 2x + 6y >= 2x + 6y = p(+(x,y))
+      
+      +(s(x),y) = 2x + 6y + 4 >= 2x + 6y + 2 = s(+(x,y))
+     problem:
+      +(x,p(y)) -> p(+(x,y))
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [+](x0, x1) = x0 + 4x1,
+       
+       [p](x0) = x0 + 5
+      orientation:
+       +(x,p(y)) = x + 4y + 20 >= x + 4y + 5 = p(+(x,y))
+      problem:
+       
+      Qed
+

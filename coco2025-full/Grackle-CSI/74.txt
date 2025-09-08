@@ -1,0 +1,30 @@
+YES
+
+Problem:
+ f(x) -> x
+ f(x) -> f(f(x))
+
+Proof:
+ Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+  strict:
+   
+  weak:
+   f(x) -> x
+   f(x) -> f(f(x))
+  original problem:
+   f(x8) -> x8
+  critical peaks: 
+   Shift Processor (no label):
+    f(x8) -> x8
+    Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+     strict:
+      
+     weak:
+      f(x8) -> x8
+     original problem:
+      
+     critical peaks: 
+      Shift Processor (no label):
+       
+       Qed
+

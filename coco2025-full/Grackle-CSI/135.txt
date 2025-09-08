@@ -1,0 +1,66 @@
+YES
+
+Problem:
+ max(x,0()) -> x
+ max(s(x),s(y)) -> s(max(y,x))
+ max(x,y) -> max(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  max(x,0()) -> x
+  max(s(x),s(y)) -> s(max(y,x))
+  max(0(),y) -> y
+  max(x,y) -> max(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:max(x,y) -> max(y,x)
+  
+   TRS S:max(x,0()) -> x
+         max(s(x),s(y)) -> s(max(y,x))
+         max(0(),y) -> y
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0()
+  
+   CP(S,P union P^-1) = 
+  x = max(0(),x), y = max(0(),y), s(max(x129,x128)) = max(s(x129),s(x128)), 
+  s(max(x131,x130)) = max(s(x131),s(x130)), y = max(y,0()), x = max(x,0())
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [max](x0, x1) = x0 + x1 + 4,
+    
+    [0] = 3,
+    
+    [s](x0) = x0
+   orientation:
+    max(x,0()) = x + 7 >= x = x
+    
+    max(s(x),s(y)) = x + y + 4 >= x + y + 4 = s(max(y,x))
+    
+    max(0(),y) = y + 7 >= y = y
+   problem:
+    max(s(x),s(y)) -> s(max(y,x))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [max](x0, x1) = x0 + x1 + 3,
+     
+     [s](x0) = 2x0 + 4
+    orientation:
+     max(s(x),s(y)) = 2x + 2y + 11 >= 2x + 2y + 10 = s(max(y,x))
+    problem:
+     
+    Qed
+

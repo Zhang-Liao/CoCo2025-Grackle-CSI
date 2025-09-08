@@ -1,0 +1,63 @@
+YES
+
+Problem:
+ -(0(),x) -> 0()
+ -(x,0()) -> x
+ -(s(x),s(y)) -> -(x,y)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  -(0(),x) -> 0()
+  -(x,0()) -> x
+  -(s(x),s(y)) -> -(x,y)
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:-(0(),x) -> 0()
+         -(x,0()) -> x
+         -(s(x),s(y)) -> -(x,y)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0()
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [-](x0, x1) = 2x0 + 2x1 + 2,
+    
+    [0] = 0,
+    
+    [s](x0) = 6x0
+   orientation:
+    -(0(),x) = 2x + 2 >= 0 = 0()
+    
+    -(x,0()) = 2x + 2 >= x = x
+    
+    -(s(x),s(y)) = 12x + 12y + 2 >= 2x + 2y + 2 = -(x,y)
+   problem:
+    -(s(x),s(y)) -> -(x,y)
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [-](x0, x1) = 3x0 + 6x1,
+     
+     [s](x0) = x0 + 3
+    orientation:
+     -(s(x),s(y)) = 3x + 6y + 27 >= 3x + 6y = -(x,y)
+    problem:
+     
+    Qed
+

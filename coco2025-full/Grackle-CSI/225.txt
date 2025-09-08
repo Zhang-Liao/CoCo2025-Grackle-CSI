@@ -1,0 +1,26 @@
+NO
+
+Problem:
+ a(x) -> b(b(b(x)))
+ a(x) -> c(x)
+ b(x) -> b(x)
+
+Proof:
+ Nonconfluence Processor:
+  terms: c(f3()) *<- a(f3()) ->* b(b(b(f3())))
+  Qed
+  
+  first automaton:
+   final states: {1}
+   transitions:
+    f3() -> 2*
+    c(2) -> 1*
+  
+  second automaton:
+   final states: {3}
+   transitions:
+    f3() -> 4*
+    b(4) -> 5*
+    b(5) -> 6*
+    b(6) -> 3*
+

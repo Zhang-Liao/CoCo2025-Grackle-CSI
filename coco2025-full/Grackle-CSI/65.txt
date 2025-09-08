@@ -1,0 +1,107 @@
+YES
+
+Problem:
+ f(g(x,a(),b())) -> x
+ g(f(h(c(),d())),x,y) -> h(k1(x),k2(y))
+ k1(a()) -> c()
+ k2(b()) -> d()
+ f(h(k1(a()),k2(b()))) -> f(h(c(),d()))
+ f(h(c(),k2(b()))) -> f(h(c(),d()))
+ f(h(k1(a()),d())) -> f(h(c(),d()))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(g(x,a(),b())) -> x
+  g(f(h(c(),d())),x,y) -> h(k1(x),k2(y))
+  k1(a()) -> c()
+  k2(b()) -> d()
+  f(h(k1(a()),k2(b()))) -> f(h(c(),d()))
+  f(h(c(),k2(b()))) -> f(h(c(),d()))
+  f(h(k1(a()),d())) -> f(h(c(),d()))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:f(g(x,a(),b())) -> x
+         g(f(h(c(),d())),x,y) -> h(k1(x),k2(y))
+         k1(a()) -> c()
+         k2(b()) -> d()
+         f(h(k1(a()),k2(b()))) -> f(h(c(),d()))
+         f(h(c(),k2(b()))) -> f(h(c(),d()))
+         f(h(k1(a()),d())) -> f(h(c(),d()))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(h(k1(a()),k2(b()))) = f(h(c(),d())), f(h(c(),k2(b()))) = f(h(c(),d())), 
+  f(h(c(),d())) = f(h(c(),d())), f(h(k1(a()),d())) = f(h(c(),d()))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [c] = 0,
+    
+    [k2](x0) = x0 + 4,
+    
+    [b] = 1,
+    
+    [f](x0) = 2x0 + 3,
+    
+    [d] = 1,
+    
+    [a] = 0,
+    
+    [k1](x0) = x0,
+    
+    [h](x0, x1) = x0 + 2x1 + 4,
+    
+    [g](x0, x1, x2) = 2x0 + x1 + 5x2
+   orientation:
+    f(g(x,a(),b())) = 4x + 13 >= x = x
+    
+    g(f(h(c(),d())),x,y) = x + 5y + 30 >= x + 2y + 12 = h(k1(x),k2(y))
+    
+    k1(a()) = 0 >= 0 = c()
+    
+    k2(b()) = 5 >= 1 = d()
+    
+    f(h(k1(a()),k2(b()))) = 31 >= 15 = f(h(c(),d()))
+    
+    f(h(c(),k2(b()))) = 31 >= 15 = f(h(c(),d()))
+    
+    f(h(k1(a()),d())) = 15 >= 15 = f(h(c(),d()))
+   problem:
+    k1(a()) -> c()
+    f(h(k1(a()),d())) -> f(h(c(),d()))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [c] = 0,
+     
+     [f](x0) = 2x0,
+     
+     [d] = 0,
+     
+     [a] = 0,
+     
+     [k1](x0) = 2x0 + 6,
+     
+     [h](x0, x1) = 2x0 + x1 + 3
+    orientation:
+     k1(a()) = 6 >= 0 = c()
+     
+     f(h(k1(a()),d())) = 30 >= 6 = f(h(c(),d()))
+    problem:
+     
+    Qed
+

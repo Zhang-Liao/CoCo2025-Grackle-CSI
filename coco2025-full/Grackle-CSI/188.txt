@@ -1,0 +1,56 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ *(x,0()) -> 0()
+ *(x,s(y)) -> +(*(x,y),x)
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  *(x,0()) -> 0()
+  *(x,s(y)) -> +(*(x,y),x)
+  +(0(),y) -> y
+  +(s(x35),y) -> s(+(x35,y))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,y) -> +(y,x)
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         *(x,0()) -> 0()
+         *(x,s(y)) -> +(*(x,y),x)
+         +(0(),y) -> y
+         +(s(x35),y) -> s(+(x35,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x35) = s(+(x35,0())), s(+(0(),x321)) = s(x321), s(+(s(x35),x323)) = 
+  s(+(x35,s(x323))), s(y) = s(+(0(),y)), s(+(x326,0())) = s(x326), s(+(x328,s(y))) = 
+  s(+(s(x328),y))
+  
+   CP(S,P union P^-1) = 
+  x = +(0(),x), y = +(0(),y), s(+(x,x351)) = +(s(x351),x), s(+(y,x353)) = 
+  +(s(x353),y), y = +(y,0()), x = +(x,0()), s(+(x356,y)) = +(y,s(x356)), 
+  s(+(x358,x)) = +(x,s(x358))
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  LPO Processor:
+   precedence:
+    * > + > s ~ 0
+   problem:
+    
+   Qed
+

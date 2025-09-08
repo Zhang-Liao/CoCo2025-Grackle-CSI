@@ -1,0 +1,44 @@
+YES
+
+Problem:
+ a() -> f(c())
+ c() -> c()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  a() -> f(c())
+  c() -> c()
+  
+   T' = (P union S) with
+  
+   TRS P:c() -> c()
+  
+   TRS S:a() -> f(c())
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [c] = 0,
+    
+    [a] = 1,
+    
+    [f](x0) = x0
+   orientation:
+    a() = 1 >= 0 = f(c())
+   problem:
+    
+   Qed
+

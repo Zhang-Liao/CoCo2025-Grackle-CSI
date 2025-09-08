@@ -1,0 +1,64 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ *(x,0()) -> 0()
+ *(x,s(y)) -> +(*(x,y),x)
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  *(x,0()) -> 0()
+  *(x,s(y)) -> +(*(x,y),x)
+  +(0(),y) -> y
+  +(s(x93),y) -> s(+(x93,y))
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,y) -> +(y,x)
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         *(x,0()) -> 0()
+         *(x,s(y)) -> +(*(x,y),x)
+         +(0(),y) -> y
+         +(s(x93),y) -> s(+(x93,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x93) = s(+(x93,0())), s(+(0(),x469)) = s(x469), s(+(s(x93),x471)) = 
+  s(+(x93,s(x471))), s(y) = s(+(0(),y)), s(+(x474,0())) = s(x474), s(+(x476,s(y))) = 
+  s(+(s(x476),y))
+  
+   CP(S,P union P^-1) = 
+  +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), x = +(0(),x), +(x,y) = 
+  +(+(x,y),0()), y = +(0(),y), s(+(+(x,y),x538)) = +(x,+(y,s(x538))), 
+  +(s(+(x,x540)),z) = +(x,+(s(x540),z)), s(+(x,x542)) = +(s(x542),x), 
+  +(x,s(+(y,x544))) = +(+(x,y),s(x544)), s(+(y,x546)) = +(s(x546),y), 
+  +(y,z) = +(0(),+(y,z)), y = +(y,0()), +(y,z) = +(+(0(),y),z), +(x,z) = 
+  +(+(x,0()),z), x = +(x,0()), +(s(+(x552,y)),z) = +(s(x552),+(y,z)), 
+  s(+(x554,y)) = +(y,s(x554)), s(+(x556,+(y,z))) = +(+(s(x556),y),z), 
+  +(x,s(+(x558,z))) = +(+(x,s(x558)),z), s(+(x560,x)) = +(x,s(x560))
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  LPO Processor:
+   precedence:
+    * > + > s ~ 0
+   problem:
+    
+   Qed
+

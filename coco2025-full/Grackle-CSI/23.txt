@@ -1,0 +1,13 @@
+YES
+
+Problem:
+ from(x) -> cons(x,from(s(x)))
+ sel(0(),cons(y,z)) -> y
+ sel(s(x),cons(y,z)) -> sel(x,z)
+
+Proof:
+ Church Rosser Transformation Processor:
+  
+  critical peaks: joinable
+  Qed
+

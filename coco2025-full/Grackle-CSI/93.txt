@@ -1,0 +1,89 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ F(D(x),y) -> F(D(x),G(G(y)))
+ F(x,E(y)) -> F(G(x),E(y))
+ G(x) -> x
+ H(I(x)) -> K(J(x))
+ J(x) -> K(J(x))
+ I(x) -> I(J(x))
+ J(x) -> J(K(J(x)))
+ S(x,T(x)) -> T(x)
+
+Proof:
+ sorted: (order-sorted)(many-sorted)
+ 0:F(D(x),y) -> F(D(x),G(G(y)))
+   F(x,E(y)) -> F(G(x),E(y))
+   G(x) -> x
+ 1:S(x,T(x)) -> T(x)
+ 2:H(I(x)) -> K(J(x))
+   J(x) -> K(J(x))
+   I(x) -> I(J(x))
+   J(x) -> J(K(J(x)))
+ -----
+ sorts
+   [0>4, 1>2, 4>5, 4>6]
+ sort attachment (non-strict)
+   F : 4 x 4 -> 0
+   D : 6 -> 4
+   G : 4 -> 4
+   E : 5 -> 4
+   H : 3 -> 3
+   I : 3 -> 3
+   K : 3 -> 3
+   J : 3 -> 3
+   S : 2 x 1 -> 1
+   T : 2 -> 1
+ -----
+ 0:F(D(x),y) -> F(D(x),G(G(y)))
+   F(x,E(y)) -> F(G(x),E(y))
+   G(x) -> x
+   Church Rosser Transformation Processor (no redundant rules):
+    strict:
+     G(x) -> x
+     F(x,E(y)) -> F(G(x),E(y))
+     F(D(x),y) -> F(D(x),G(G(y)))
+    weak:
+     
+    critical peaks: 2
+     F(G(D(x)),E(x28)) <-1|[]- F(D(x),E(x28)) -2|[]-> F(D(x),G(G(E(x28))))
+     F(D(x29),G(G(E(y)))) <-2|[]- F(D(x29),E(y)) -1|[]-> F(G(D(x29)),E(y))
+    Closedness Processor (*strongly -- <=5 steps*):
+     
+     Qed
+ 
+ 
+ 1:S(x,T(x)) -> T(x)
+   Qed (SakaiOyamaguchiOgawa14)
+ 
+ 
+ 2:H(I(x)) -> K(J(x))
+   J(x) -> K(J(x))
+   I(x) -> I(J(x))
+   J(x) -> J(K(J(x)))
+   Church Rosser Transformation Processor (okui):
+    
+    simultaneous critical peaks: 
+     H(I(J(x)))
+      <-[0]- H(I(x)) -[]->
+     K(J(x))
+     
+     J(K(J(x)))
+      <-[]- J(x) -[]->
+     K(J(x))
+     
+     K(J(x))
+      <-[]- H(I(x)) -[0]->
+     H(I(J(x)))
+     
+     K(J(x))
+      <-[]- J(x) -[]->
+     J(K(J(x)))
+     joinable
+    Qed
+ 
+

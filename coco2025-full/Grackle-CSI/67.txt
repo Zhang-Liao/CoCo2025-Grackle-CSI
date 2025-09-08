@@ -1,0 +1,75 @@
+YES
+
+Problem:
+ b(w(x)) -> w(w(w(b(x))))
+ w(b(x)) -> b(x)
+ b(b(x)) -> w(w(w(w(x))))
+ w(w(x)) -> w(x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  b(w(x)) -> w(w(w(b(x))))
+  w(b(x)) -> b(x)
+  b(b(x)) -> w(w(w(w(x))))
+  w(w(x)) -> w(x)
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:b(w(x)) -> w(w(w(b(x))))
+         w(b(x)) -> b(x)
+         b(b(x)) -> w(w(w(w(x))))
+         w(w(x)) -> w(x)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  w(w(w(w(b(x73))))) = b(w(x73)), b(w(w(w(b(x74))))) = w(w(w(w(w(x74))))), 
+  b(b(x75)) = w(w(w(b(b(x75))))), w(b(x76)) = w(b(x76)), w(w(w(w(w(x77))))) = 
+  b(b(x77)), b(w(w(w(w(x78))))) = w(w(w(w(b(x78))))), b(w(x79)) = w(w(w(b(w(x79))))), 
+  w(w(x80)) = w(w(x80))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [b](x0) = x0 + 1,
+    
+    [w](x0) = x0
+   orientation:
+    b(w(x)) = x + 1 >= x + 1 = w(w(w(b(x))))
+    
+    w(b(x)) = x + 1 >= x + 1 = b(x)
+    
+    b(b(x)) = x + 2 >= x = w(w(w(w(x))))
+    
+    w(w(x)) = x >= x = w(x)
+   problem:
+    b(w(x)) -> w(w(w(b(x))))
+    w(b(x)) -> b(x)
+    w(w(x)) -> w(x)
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b](x0) = 4x0 + 6,
+     
+     [w](x0) = x0 + 4
+    orientation:
+     b(w(x)) = 4x + 22 >= 4x + 18 = w(w(w(b(x))))
+     
+     w(b(x)) = 4x + 10 >= 4x + 6 = b(x)
+     
+     w(w(x)) = x + 8 >= x + 4 = w(x)
+    problem:
+     
+    Qed
+

@@ -1,0 +1,68 @@
+YES
+
+Problem:
+ or(T(),x) -> T()
+ or(x,F()) -> x
+ or(or(x,y),z) -> or(x,or(y,z))
+ or(x,y) -> or(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  or(T(),x) -> T()
+  or(x,F()) -> x
+  or(x,T()) -> T()
+  or(F(),y) -> y
+  or(or(x,y),z) -> or(x,or(y,z))
+  or(x,y) -> or(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:or(or(x,y),z) -> or(x,or(y,z))
+         or(x,y) -> or(y,x)
+  
+   TRS S:or(T(),x) -> T()
+         or(x,F()) -> x
+         or(x,T()) -> T()
+         or(F(),y) -> y
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  T() = T(), F() = F()
+  
+   CP(S,P union P^-1) = 
+  or(T(),z) = or(T(),or(y,z)), T() = or(y,T()), T() = or(or(T(),y),z), 
+  or(x,T()) = or(or(x,T()),z), T() = or(x,T()), or(x,y) = or(x,or(y,F())), 
+  or(x,z) = or(x,or(F(),z)), x = or(F(),x), or(x,y) = or(or(x,y),F()), 
+  y = or(F(),y), T() = or(x,or(y,T())), or(T(),z) = or(x,or(T(),z)), 
+  T() = or(T(),x), or(x,T()) = or(or(x,y),T()), T() = or(T(),y), or(y,z) = 
+  or(F(),or(y,z)), y = or(y,F()), or(y,z) = or(or(F(),y),z), or(x,z) = 
+  or(or(x,F()),z), x = or(x,F())
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [or](x0, x1) = x0 + 4x1 + 3,
+    
+    [T] = 2,
+    
+    [F] = 0
+   orientation:
+    or(T(),x) = 4x + 5 >= 2 = T()
+    
+    or(x,F()) = x + 3 >= x = x
+    
+    or(x,T()) = x + 11 >= 2 = T()
+    
+    or(F(),y) = 4y + 3 >= y = y
+   problem:
+    
+   Qed
+

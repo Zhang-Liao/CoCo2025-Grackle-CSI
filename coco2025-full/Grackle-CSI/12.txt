@@ -1,0 +1,20 @@
+YES
+
+Problem:
+ f(x,x) -> a()
+ f(x,g(x)) -> b()
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f(x,x) -> a()
+  f(x,g(x)) -> b()
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    f > b > g > a
+   status:
+    f:lex  
+   problem:
+    
+   Qed
+

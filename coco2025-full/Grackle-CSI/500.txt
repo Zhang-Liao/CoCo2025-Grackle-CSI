@@ -1,0 +1,14 @@
+NO
+
+Problem:
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ *(0(),y) -> 0()
+ *(s(x),y) -> +(*(x,y),y)
+ *(x,s(y)) -> +(x,*(x,y))
+
+Proof:
+ Nonconfluence Processor:
+  terms: +(+(x83,*(x83,y)),s(y)) *<- *(s(x83),s(y)) ->* s(+(x83,+(*(x83,y),y)))
+  Qed
+

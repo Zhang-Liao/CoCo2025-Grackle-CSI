@@ -1,0 +1,90 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ -(0(),x) -> 0()
+ -(x,0()) -> x
+ -(s(x),s(y)) -> -(x,y)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  -(0(),x) -> 0()
+  -(x,0()) -> x
+  -(s(x),s(y)) -> -(x,y)
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         -(0(),x) -> 0()
+         -(x,0()) -> x
+         -(s(x),s(y)) -> -(x,y)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0()
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = x0 + x1 + 5,
+    
+    [-](x0, x1) = x0 + 4x1 + 2,
+    
+    [0] = 2,
+    
+    [s](x0) = x0
+   orientation:
+    +(x,0()) = x + 7 >= x = x
+    
+    +(x,s(y)) = x + y + 5 >= x + y + 5 = s(+(x,y))
+    
+    -(0(),x) = 4x + 4 >= 2 = 0()
+    
+    -(x,0()) = x + 10 >= x = x
+    
+    -(s(x),s(y)) = x + 4y + 2 >= x + 4y + 2 = -(x,y)
+   problem:
+    +(x,s(y)) -> s(+(x,y))
+    -(s(x),s(y)) -> -(x,y)
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [+](x0, x1) = x0 + x1 + 3,
+     
+     [-](x0, x1) = x0 + 4x1 + 4,
+     
+     [s](x0) = x0 + 5
+    orientation:
+     +(x,s(y)) = x + y + 8 >= x + y + 8 = s(+(x,y))
+     
+     -(s(x),s(y)) = x + 4y + 29 >= x + 4y + 4 = -(x,y)
+    problem:
+     +(x,s(y)) -> s(+(x,y))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [+](x0, x1) = x0 + 4x1,
+      
+      [s](x0) = x0 + 5
+     orientation:
+      +(x,s(y)) = x + 4y + 20 >= x + 4y + 5 = s(+(x,y))
+     problem:
+      
+     Qed
+

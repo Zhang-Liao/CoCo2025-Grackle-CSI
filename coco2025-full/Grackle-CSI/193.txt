@@ -1,0 +1,53 @@
+YES
+
+Problem:
+ +(0(),x) -> x
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(0(),x) -> x
+  +(x,0()) -> x
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,y) -> +(y,x)
+  
+   TRS S:+(0(),x) -> x
+         +(x,0()) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0()
+  
+   CP(S,P union P^-1) = 
+  +(y,z) = +(0(),+(y,z)), y = +(y,0()), +(y,z) = +(+(0(),y),z), +(x,z) = 
+  +(+(x,0()),z), x = +(x,0()), +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), 
+  x = +(0(),x), +(x,y) = +(+(x,y),0()), y = +(0(),y)
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = x0 + x1 + 3,
+    
+    [0] = 4
+   orientation:
+    +(0(),x) = x + 7 >= x = x
+    
+    +(x,0()) = x + 7 >= x = x
+   problem:
+    
+   Qed
+

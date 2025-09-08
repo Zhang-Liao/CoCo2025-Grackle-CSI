@@ -1,0 +1,42 @@
+YES
+
+Problem:
+ +(x,y) -> +(y,x)
+ *(+(x,y),z) -> +(*(x,z),*(y,z))
+ *(+(y,x),z) -> +(*(x,z),*(y,z))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  *(+(x,y),z) -> +(*(x,z),*(y,z))
+  *(+(y,x),z) -> +(*(x,z),*(y,z))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,y) -> +(y,x)
+  
+   TRS S:*(+(x,y),z) -> +(*(x,z),*(y,z))
+         *(+(y,x),z) -> +(*(x,z),*(y,z))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  +(*(y,z),*(x,z)) = +(*(x,z),*(y,z))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  *(+(y,x),z) = +(*(x,z),*(y,z)), *(+(x,y),z) = +(*(x,z),*(y,z))
+  
+  
+  We have to check termination of S:
+  
+  LPO Processor:
+   precedence:
+    * > +
+   problem:
+    
+   Qed
+

@@ -1,0 +1,108 @@
+YES
+
+Problem:
+ a(f(x),y) -> f(a(f(y),x))
+ a(b(x),y) -> a(x,b(x))
+ a(g(x),x) -> g(b(g(x)))
+
+Proof:
+ Church Rosser Transformation Processor (to relative problem):
+  strict:
+   a(f(x),y) -> f(a(f(y),x))
+   a(b(x),y) -> a(x,b(x))
+   a(g(x),x) -> g(b(g(x)))
+  weak:
+   
+  original problem:
+   a(f(x),y) -> f(a(f(y),x))
+   a(b(x),y) -> a(x,b(x))
+   a(g(x),x) -> g(b(g(x)))
+  critical peaks: 
+   Matrix Interpretation Processor: dim=2
+    
+    interpretation:
+                   [1 1]     [2 0]     [2]
+     [a](x0, x1) = [1 1]x0 + [2 0]x1 + [2],
+     
+               [1 0]  
+     [g](x0) = [0 0]x0,
+     
+               [1 0]  
+     [f](x0) = [1 0]x0,
+     
+               [1 0]  
+     [b](x0) = [2 1]x0
+    orientation:
+                 [2 0]    [2 0]    [2]    [2 0]    [2 0]    [2]               
+     a(f(x),y) = [2 0]x + [2 0]y + [2] >= [2 0]x + [2 0]y + [2] = f(a(f(y),x))
+     
+                 [3 1]    [2 0]    [2]    [3 1]    [2]            
+     a(b(x),y) = [3 1]x + [2 0]y + [2] >= [3 1]x + [2] = a(x,b(x))
+     
+                 [3 0]    [2]    [1 0]              
+     a(g(x),x) = [3 0]x + [2] >= [0 0]x = g(b(g(x)))
+    problem:
+     strict:
+      a(f(x),y) -> f(a(f(y),x))
+      a(b(x),y) -> a(x,b(x))
+     weak:
+      
+     original problem:
+      a(f(x),y) -> f(a(f(y),x))
+      a(b(x),y) -> a(x,b(x))
+      a(g(x),x) -> g(b(g(x)))
+    Matrix Interpretation Processor: dim=2
+     
+     interpretation:
+                    [1 1]     [2 0]  
+      [a](x0, x1) = [1 1]x0 + [2 0]x1,
+      
+                [1 0]  
+      [f](x0) = [1 0]x0,
+      
+                [1 0]     [1]
+      [b](x0) = [2 1]x0 + [2]
+     orientation:
+                  [2 0]    [2 0]     [2 0]    [2 0]                
+      a(f(x),y) = [2 0]x + [2 0]y >= [2 0]x + [2 0]y = f(a(f(y),x))
+      
+                  [3 1]    [2 0]    [3]    [3 1]    [2]            
+      a(b(x),y) = [3 1]x + [2 0]y + [3] >= [3 1]x + [2] = a(x,b(x))
+     problem:
+      strict:
+       a(f(x),y) -> f(a(f(y),x))
+      weak:
+       
+      original problem:
+       a(f(x),y) -> f(a(f(y),x))
+       a(b(x),y) -> a(x,b(x))
+       a(g(x),x) -> g(b(g(x)))
+     KH confluence processor
+      Split input TRS into two TRSs S and T:
+      
+      TRS S:
+       a(f(x),y) -> f(a(f(y),x))
+      
+      TRS T:
+       a(b(x),y) -> a(x,b(x))
+       a(g(x),x) -> g(b(g(x)))
+      
+      As established above, T/S is terminating.
+      T is strongly non-overlapping on S and S is strongly non-overlapping on T
+      
+      Please install theorem prover 'Prover9' and 'Mace4' for handling more TRSs.
+      
+       All S-critical pairs are joinable.
+      
+      We have to check confluence of S.
+      
+      Church Rosser Transformation Processor (no redundant rules):
+       strict:
+        a(f(x),y) -> f(a(f(y),x))
+       weak:
+        
+       critical peaks: 0
+       Closedness Processor (*feeble*):
+        
+        Qed
+

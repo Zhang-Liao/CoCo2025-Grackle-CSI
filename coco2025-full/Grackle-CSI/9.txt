@@ -1,0 +1,10 @@
+NO
+
+Problem:
+ f(g(f(x))) -> g(x)
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(g(g(x4))) *<- f(g(f(g(f(x4))))) ->* g(g(f(x4)))
+  Qed
+

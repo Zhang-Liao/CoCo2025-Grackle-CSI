@@ -1,0 +1,105 @@
+YES
+
+Problem:
+ g(a(),y) -> y
+ f(x,a()) -> f(x,g(x,b()))
+ g(h(x),y) -> g(x,h(y))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  g(a(),y) -> y
+  f(x,a()) -> f(x,g(x,b()))
+  g(h(x),y) -> g(x,h(y))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:g(a(),y) -> y
+         f(x,a()) -> f(x,g(x,b()))
+         g(h(x),y) -> g(x,h(y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  DP Processor:
+   DPs:
+    f#(x,a()) -> g#(x,b())
+    f#(x,a()) -> f#(x,g(x,b()))
+    g#(h(x),y) -> g#(x,h(y))
+   TRS:
+    g(a(),y) -> y
+    f(x,a()) -> f(x,g(x,b()))
+    g(h(x),y) -> g(x,h(y))
+   SCC Processor:
+    #sccs: 2
+    #rules: 2
+    #arcs: 9/9
+    DPs:
+     f#(x,a()) -> f#(x,g(x,b()))
+    TRS:
+     g(a(),y) -> y
+     f(x,a()) -> f(x,g(x,b()))
+     g(h(x),y) -> g(x,h(y))
+    Usable Rule Processor:
+     DPs:
+      f#(x,a()) -> f#(x,g(x,b()))
+     TRS:
+      g(a(),y) -> y
+      g(h(x),y) -> g(x,h(y))
+     Matrix Interpretation Processor: dim=1
+      
+      usable rules:
+       g(a(),y) -> y
+       g(h(x),y) -> g(x,h(y))
+      interpretation:
+       [h](x0) = x0,
+       
+       [g](x0, x1) = x1,
+       
+       [b] = 6,
+       
+       [a] = 7,
+       
+       [f#](x0, x1) = 3x1 + 6
+      orientation:
+       f#(x,a()) = 27 >= 24 = f#(x,g(x,b()))
+       
+       g(a(),y) = y >= y = y
+       
+       g(h(x),y) = y >= y = g(x,h(y))
+      problem:
+       DPs:
+        
+       TRS:
+        g(a(),y) -> y
+        g(h(x),y) -> g(x,h(y))
+      Qed
+    
+    DPs:
+     g#(h(x),y) -> g#(x,h(y))
+    TRS:
+     g(a(),y) -> y
+     f(x,a()) -> f(x,g(x,b()))
+     g(h(x),y) -> g(x,h(y))
+    Size-Change Termination Processor:
+     DPs:
+      
+     TRS:
+      g(a(),y) -> y
+      f(x,a()) -> f(x,g(x,b()))
+      g(h(x),y) -> g(x,h(y))
+     The DP: g#(h(x),y) -> g#(x,h(y)) has the edges:
+       0 >   0
+     Qed
+

@@ -1,0 +1,1 @@
+/export/starexec/sandbox2/solver/bin/starexec_run_default: line 11: 26889 Alarm clock             python comb_strategy/run_conf_comb.py --strategy 2 --trs "$cops_file" 2> /dev/null

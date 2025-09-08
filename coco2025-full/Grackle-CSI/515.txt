@@ -1,0 +1,17 @@
+NO
+
+Problem:
+ not(true()) -> false()
+ not(false()) -> true()
+ or(true(),y) -> true()
+ or(x,true()) -> true()
+ or(false(),false()) -> false()
+ implies(true(),y) -> y
+ implies(false(),y) -> true()
+ implies(x,y) -> or(not(x),y)
+
+Proof:
+ Nonconfluence Processor:
+  terms: y *<- implies(true(),y) ->* or(false(),y)
+  Qed
+

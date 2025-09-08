@@ -1,0 +1,31 @@
+NO
+
+Problem:
+ a(a(b(b(x)))) -> b(b(b(a(a(a(x))))))
+ c(x) -> c(a(x))
+ c(x) -> c(b(x))
+
+Proof:
+ Nonconfluence Processor:
+  terms: c(a(b(f3()))) *<- c(f3()) ->* c(a(f3()))
+  Qed
+  
+  first automaton:
+   final states: {15}
+   transitions:
+    f3() -> 16*
+    b(16) -> 17*
+    b(18) -> 18*
+    a(18) -> 18*
+    a(17) -> 18*
+    c(18) -> 15*
+  
+  second automaton:
+   final states: {4}
+   transitions:
+    f3() -> 5*
+    b(6) -> 6*
+    a(5) -> 6*
+    a(6) -> 6*
+    c(6) -> 4*
+

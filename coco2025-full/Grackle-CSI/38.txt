@@ -1,0 +1,13 @@
+NO
+
+Problem:
+ b() -> a()
+ b() -> c()
+ c() -> b()
+ c() -> d()
+
+Proof:
+ Nonconfluence Processor:
+  terms: a() *<- b() ->* d()
+  Qed
+

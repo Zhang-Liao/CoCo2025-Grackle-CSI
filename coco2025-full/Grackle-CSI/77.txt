@@ -1,0 +1,61 @@
+NO
+
+Problem:
+ join(x,meet(x,y)) -> x
+ meet(x,joint(y,z)) -> join(meet(x,y),meet(x,z))
+ meet(x,x) -> x
+ join(x,x) -> x
+ meet(meet(x,y),z) -> meet(x,meet(y,z))
+ meet(x,y) -> meet(y,x)
+ join(join(x,y),z) -> join(x,join(y,z))
+ join(x,y) -> join(y,x)
+
+Proof:
+ Nonconfluence Processor:
+  terms: meet(join(meet(f3(),f15()),meet(f3(),f16())),f6()) *<- meet(
+                                                                    meet(f3(),joint(f15(),f16())),
+                                                                    f6
+                                                                    ()) ->* 
+  meet(f3(),join(meet(f6(),f15()),meet(f6(),f16())))
+  Qed
+  
+  first automaton:
+   final states: {1282}
+   transitions:
+    f6() -> 1283*
+    f3() -> 25161*
+    meet(1284,1285) -> 1286*
+    meet(1283,1290) -> 1282*
+    meet(1285,1284) -> 1286*
+    meet(1290,1283) -> 1282*
+    meet(1287,1288) -> 1289*
+    meet(1284,25161) -> 1286*
+    meet(1287,25161) -> 1289*
+    meet(25161,1284) -> 1286*
+    meet(25161,1287) -> 1289*
+    meet(1288,1287) -> 1289*
+    join(1289,1286) -> 1290*
+    join(1286,1289) -> 1290*
+    f16() -> 1284*
+    f15() -> 1287*
+  
+  second automaton:
+   final states: {1312}
+   transitions:
+    f6() -> 25188*
+    f3() -> 1320*
+    meet(1316,1317) -> 1318*
+    meet(1320,1319) -> 1312*
+    meet(1314,1313) -> 1315*
+    meet(25188,1313) -> 1315*
+    meet(1313,25188) -> 1315*
+    meet(1319,1320) -> 1312*
+    meet(25188,1316) -> 1318*
+    meet(1313,1314) -> 1315*
+    meet(1316,25188) -> 1318*
+    meet(1317,1316) -> 1318*
+    join(1315,1318) -> 1319*
+    join(1318,1315) -> 1319*
+    f16() -> 1313*
+    f15() -> 1316*
+

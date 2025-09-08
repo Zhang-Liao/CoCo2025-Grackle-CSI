@@ -1,0 +1,54 @@
+NO
+
+Problem:
+ +(a(),b()) -> b()
+ +(c(),a()) -> a()
+ +(x,y) -> +(y,x)
+ +(+(x,y),z) -> +(x,+(y,z))
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 10
+   b() <-0|[]- +(a(),b()) -2|[]-> +(b(),a())
+   +(b(),z) <-0|0[]- +(+(a(),b()),z) -3|[]-> +(a(),+(b(),z))
+   a() <-1|[]- +(c(),a()) -2|[]-> +(a(),c())
+   +(a(),z) <-1|0[]- +(+(c(),a()),z) -3|[]-> +(c(),+(a(),z))
+   +(b(),a()) <-2|[]- +(a(),b()) -0|[]-> b()
+   +(a(),c()) <-2|[]- +(c(),a()) -1|[]-> a()
+   +(z,+(x,y)) <-2|[]- +(+(x,y),z) -3|[]-> +(x,+(y,z))
+   +(+(y,x),z) <-2|0[]- +(+(x,y),z) -3|[]-> +(x,+(y,z))
+   +(x56,+(x57,y)) <-3|[]- +(+(x56,x57),y) -2|[]-> +(y,+(x56,x57))
+   +(+(x59,+(x60,y)),z) <-3|0[]- +(+(+(x59,x60),y),z) -3|[]-> +(+(x59,x60),+(y,z))
+  Redundant Rules Transformation:
+   +(a(),b()) -> b()
+   +(c(),a()) -> a()
+   +(x,y) -> +(y,x)
+   +(+(x,y),z) -> +(x,+(y,z))
+   +(b(),a()) -> b()
+   +(a(),c()) -> a()
+   +(y,x) -> +(y,x)
+   +(a(),+(a(),b())) -> b()
+   +(+(c(),a()),b()) -> b()
+   +(c(),+(c(),a())) -> a()
+   +(x,y) -> +(x,y)
+   Nonconfluence Processor:
+    terms: +(c(),b()) *<- +(+(c(),a()),b()) ->* b()
+    Qed
+    
+    first automaton:
+     final states: {198}
+     transitions:
+      c() -> 200*
+      b() -> 199*
+      +(199,200) -> 198*
+      +(200,199) -> 198*
+    
+    second automaton:
+     final states: {25}
+     transitions:
+      b() -> 25*
+

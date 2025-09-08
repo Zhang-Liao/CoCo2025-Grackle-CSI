@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ W(B(x)) -> I(x)
+ B(S(x)) -> S(x)
+ W(x) -> I(x)
+
+Proof:
+ Nonconfluence Processor:
+  terms: I(x16) *<- W(B(x16)) ->* I(B(x16))
+  Qed
+

@@ -1,0 +1,115 @@
+YES
+
+Problem:
+ F(G(x,A(),B())) -> x
+ G(F(H(C(),D())),x,y) -> H(K1(x),K2(y))
+ K1(A()) -> C()
+ K2(B()) -> D()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  F(G(x,A(),B())) -> x
+  G(F(H(C(),D())),x,y) -> H(K1(x),K2(y))
+  K1(A()) -> C()
+  K2(B()) -> D()
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:F(G(x,A(),B())) -> x
+         G(F(H(C(),D())),x,y) -> H(K1(x),K2(y))
+         K1(A()) -> C()
+         K2(B()) -> D()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  F(H(K1(A()),K2(B()))) = F(H(C(),D()))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [C] = 4,
+    
+    [K2](x0) = 4x0 + 7,
+    
+    [B] = 0,
+    
+    [F](x0) = x0 + 4,
+    
+    [D] = 3,
+    
+    [A] = 0,
+    
+    [K1](x0) = 2x0 + 4,
+    
+    [H](x0, x1) = 2x0 + x1 + 5,
+    
+    [G](x0, x1, x2) = x0 + 4x1 + 4x2
+   orientation:
+    F(G(x,A(),B())) = x + 4 >= x = x
+    
+    G(F(H(C(),D())),x,y) = 4x + 4y + 20 >= 4x + 4y + 20 = H(K1(x),K2(y))
+    
+    K1(A()) = 4 >= 4 = C()
+    
+    K2(B()) = 7 >= 3 = D()
+   problem:
+    G(F(H(C(),D())),x,y) -> H(K1(x),K2(y))
+    K1(A()) -> C()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [C] = 6,
+     
+     [K2](x0) = x0 + 6,
+     
+     [F](x0) = x0 + 2,
+     
+     [D] = 5,
+     
+     [A] = 0,
+     
+     [K1](x0) = x0 + 7,
+     
+     [H](x0, x1) = x0 + x1 + 3,
+     
+     [G](x0, x1, x2) = x0 + x1 + x2
+    orientation:
+     G(F(H(C(),D())),x,y) = x + y + 16 >= x + y + 16 = H(K1(x),K2(y))
+     
+     K1(A()) = 7 >= 6 = C()
+    problem:
+     G(F(H(C(),D())),x,y) -> H(K1(x),K2(y))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [C] = 0,
+      
+      [K2](x0) = x0 + 3,
+      
+      [F](x0) = x0 + 7,
+      
+      [D] = 0,
+      
+      [K1](x0) = x0 + 4,
+      
+      [H](x0, x1) = x0 + x1 + 1,
+      
+      [G](x0, x1, x2) = x0 + x1 + x2 + 1
+     orientation:
+      G(F(H(C(),D())),x,y) = x + y + 9 >= x + y + 8 = H(K1(x),K2(y))
+     problem:
+      
+     Qed
+

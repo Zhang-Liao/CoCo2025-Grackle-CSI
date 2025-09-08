@@ -1,0 +1,102 @@
+YES
+
+Problem:
+ f(a()) -> b()
+ f(a()) -> f(c())
+ a() -> d()
+ f(d()) -> b()
+ f(c()) -> b()
+ d() -> c()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(a()) -> b()
+  f(a()) -> f(c())
+  a() -> d()
+  f(d()) -> b()
+  f(c()) -> b()
+  d() -> c()
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:f(a()) -> b()
+         f(a()) -> f(c())
+         a() -> d()
+         f(d()) -> b()
+         f(c()) -> b()
+         d() -> c()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  b() = f(c()), f(c()) = b(), f(d()) = b(), f(d()) = f(c())
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [d] = 0,
+    
+    [f](x0) = 4x0 + 1,
+    
+    [c] = 0,
+    
+    [a] = 0,
+    
+    [b] = 0
+   orientation:
+    f(a()) = 1 >= 0 = b()
+    
+    f(a()) = 1 >= 1 = f(c())
+    
+    a() = 0 >= 0 = d()
+    
+    f(d()) = 1 >= 0 = b()
+    
+    f(c()) = 1 >= 0 = b()
+    
+    d() = 0 >= 0 = c()
+   problem:
+    f(a()) -> f(c())
+    a() -> d()
+    d() -> c()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [d] = 2,
+     
+     [f](x0) = x0,
+     
+     [c] = 2,
+     
+     [a] = 4
+    orientation:
+     f(a()) = 4 >= 2 = f(c())
+     
+     a() = 4 >= 2 = d()
+     
+     d() = 2 >= 2 = c()
+    problem:
+     d() -> c()
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [d] = 1,
+      
+      [c] = 0
+     orientation:
+      d() = 1 >= 0 = c()
+     problem:
+      
+     Qed
+

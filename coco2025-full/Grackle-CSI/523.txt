@@ -1,0 +1,35 @@
+NO
+
+Problem:
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ +(p(x),y) -> +(x,p(y))
+ p(s(x)) -> s(p(x))
+ s(p(x)) -> p(s(x))
+ p(s(0())) -> 0()
+
+Proof:
+ Nonconfluence Processor:
+  terms: +(0(),f5()) *<- +(p(s(0())),f5()) ->* s(+(0(),p(f5())))
+  Qed
+  
+  first automaton:
+   final states: {18}
+   transitions:
+    0() -> 20*
+    +(20,19) -> 18*
+    f5() -> 19*
+    19 -> 18*
+  
+  second automaton:
+   final states: {26}
+   transitions:
+    p(653) -> 26*
+    p(27) -> 28*
+    0() -> 29*
+    +(29,28) -> 30*
+    s(30) -> 26*
+    s(27) -> 653*
+    f5() -> 27*
+    28 -> 30*
+

@@ -1,0 +1,46 @@
+YES
+
+Problem:
+ F(x,A(G(x))) -> G(F(x,x))
+ F(x,G(x)) -> G(F(x,x))
+ A(x) -> x
+ H(x) -> H(B(H(x)))
+
+Proof:
+ sorted: (order-sorted)
+ 0:H(x) -> H(B(H(x)))
+ 1:F(x,A(G(x))) -> G(F(x,x))
+   F(x,G(x)) -> G(F(x,x))
+   A(x) -> x
+ -----
+ sorts
+   []
+ sort attachment (non-strict)
+   F : 1 x 1 -> 1
+   A : 1 -> 1
+   G : 1 -> 1
+   H : 0 -> 0
+   B : 0 -> 0
+ -----
+ 0:H(x) -> H(B(H(x)))
+   Qed (ToyamaOyamaguchi95Cor22)
+ 
+ 
+ 1:F(x,A(G(x))) -> G(F(x,x))
+   F(x,G(x)) -> G(F(x,x))
+   A(x) -> x
+   Church Rosser Transformation Processor (ac):
+    F(x,A(G(x))) -> G(F(x,x))
+    F(x,G(x)) -> G(F(x,x))
+    A(x) -> x
+    AC critical peaks: joinable
+    AC-RPO Processor:
+     precedence:
+      F > G > A
+     status:
+      F:lex  
+     problem:
+      
+     Qed
+ 
+

@@ -1,0 +1,60 @@
+YES
+
+Problem:
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(x,y))
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:+(0(),y) -> y
+         +(s(x),y) -> s(+(x,y))
+         +(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(y) = s(+(0(),y)), s(+(x112,0())) = s(x112), s(+(x114,s(y))) = 
+  s(+(s(x114),y)), s(x) = s(+(x,0())), s(+(0(),x119)) = s(x119), s(+(s(x),x121)) = 
+  s(+(x,s(x121)))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 2x0 + 5x1,
+    
+    [0] = 5,
+    
+    [s](x0) = x0 + 6
+   orientation:
+    +(0(),y) = 5y + 10 >= y = y
+    
+    +(s(x),y) = 2x + 5y + 12 >= 2x + 5y + 6 = s(+(x,y))
+    
+    +(x,0()) = 2x + 25 >= x = x
+    
+    +(x,s(y)) = 2x + 5y + 30 >= 2x + 5y + 6 = s(+(x,y))
+   problem:
+    
+   Qed
+

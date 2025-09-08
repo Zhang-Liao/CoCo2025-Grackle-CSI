@@ -1,0 +1,28 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ f(a(),a()) -> g(f(a(),a()))
+ a() -> b()
+ f(b(),x) -> g(f(x,x))
+ f(x,b()) -> g(f(x,x))
+
+Proof:
+ Church Rosser Transformation Processor (no redundant rules):
+  strict:
+   f(x,b()) -> g(f(x,x))
+   f(b(),x) -> g(f(x,x))
+   a() -> b()
+   f(a(),a()) -> g(f(a(),a()))
+  weak:
+   
+  critical peaks: 4
+   g(f(b(),b())) <-0|[]- f(b(),b()) -1|[]-> g(f(b(),b()))
+   g(f(b(),b())) <-1|[]- f(b(),b()) -0|[]-> g(f(b(),b()))
+   f(b(),a()) <-2|0[]- f(a(),a()) -3|[]-> g(f(a(),a()))
+   f(a(),b()) <-2|1[]- f(a(),a()) -3|[]-> g(f(a(),a()))
+  Closedness Processor (*development*):
+   
+   Qed
+

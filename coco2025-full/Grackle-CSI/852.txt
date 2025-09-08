@@ -1,0 +1,70 @@
+NO
+
+Problem:
+ b(b(x)) -> c(a(x))
+ c(a(x)) -> b(b(x))
+ c(a(x)) -> a(b(x))
+ a(b(x)) -> b(b(x))
+ c(b(x)) -> a(b(x))
+ a(c(x)) -> c(c(x))
+ c(b(x)) -> b(b(x))
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 16
+   b(c(a(x99))) <-0|0[]- b(b(b(x99))) -0|[]-> c(a(b(x99)))
+   a(c(a(x100))) <-0|0[]- a(b(b(x100))) -3|[]-> b(b(b(x100)))
+   c(c(a(x101))) <-0|0[]- c(b(b(x101))) -4|[]-> a(b(b(x101)))
+   c(c(a(x102))) <-0|0[]- c(b(b(x102))) -6|[]-> b(b(b(x102)))
+   b(b(x)) <-1|[]- c(a(x)) -2|[]-> a(b(x))
+   a(b(b(x104))) <-1|0[]- a(c(a(x104))) -5|[]-> c(c(a(x104)))
+   a(b(x)) <-2|[]- c(a(x)) -1|[]-> b(b(x))
+   a(a(b(x106))) <-2|0[]- a(c(a(x106))) -5|[]-> c(c(a(x106)))
+   c(b(b(x107))) <-3|0[]- c(a(b(x107))) -1|[]-> b(b(b(x107)))
+   c(b(b(x108))) <-3|0[]- c(a(b(x108))) -2|[]-> a(b(b(x108)))
+   a(a(b(x109))) <-4|0[]- a(c(b(x109))) -5|[]-> c(c(b(x109)))
+   a(b(x)) <-4|[]- c(b(x)) -6|[]-> b(b(x))
+   c(c(c(x111))) <-5|0[]- c(a(c(x111))) -1|[]-> b(b(c(x111)))
+   c(c(c(x112))) <-5|0[]- c(a(c(x112))) -2|[]-> a(b(c(x112)))
+   b(b(x)) <-6|[]- c(b(x)) -4|[]-> a(b(x))
+   a(b(b(x114))) <-6|0[]- a(c(b(x114))) -5|[]-> c(c(b(x114)))
+  Redundant Rules Transformation:
+   b(b(x)) -> c(a(x))
+   c(a(x)) -> b(b(x))
+   c(a(x)) -> a(b(x))
+   a(b(x)) -> b(b(x))
+   c(b(x)) -> a(b(x))
+   a(c(x)) -> c(c(x))
+   c(b(x)) -> b(b(x))
+   b(c(a(x99))) -> c(a(b(x99)))
+   a(c(a(x100))) -> b(b(b(x100)))
+   c(c(a(x101))) -> a(b(b(x101)))
+   c(c(a(x102))) -> b(b(b(x102)))
+   a(b(b(x104))) -> c(c(a(x104)))
+   a(a(b(x106))) -> c(c(a(x106)))
+   Nonconfluence Processor:
+    terms: c(c(c(c(f30())))) *<- c(c(a(c(f30())))) ->* b(c(c(c(f30()))))
+    Qed
+    
+    first automaton:
+     final states: {2218}
+     transitions:
+      c(2219) -> 2220*
+      c(2220) -> 2221*
+      c(2221) -> 2222*
+      c(2222) -> 2218*
+      f30() -> 2219*
+    
+    second automaton:
+     final states: {2243}
+     transitions:
+      b(2247) -> 2243*
+      c(2246) -> 2247*
+      c(2245) -> 2246*
+      c(2244) -> 2245*
+      f30() -> 2244*
+

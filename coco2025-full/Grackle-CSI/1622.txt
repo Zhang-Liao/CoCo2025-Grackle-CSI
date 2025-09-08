@@ -1,0 +1,82 @@
+YES
+
+Problem:
+ minus(x,x) -> num(nullnil())
+ minus(num(succ(x)),num(succ(y))) -> minus(x,y)
+ plus(nullnil(),num(x)) -> num(x)
+ plus(num(succ(x)),num(y)) -> inc(plus(num(x),num(y)))
+ inc(x) -> num(succ(x))
+ inflist(x) -> build(x,inflist(x))
+ build(x,y) -> list(cons(x,y))
+ app(nullnil(),list(x)) -> list(x)
+ app(list(cons(x,y)),list(w)) -> app(y,build(x,list(w)))
+
+Proof:
+ sorted: (order-sorted)
+ 0:minus(x,x) -> num(nullnil())
+   minus(num(succ(x)),num(succ(y))) -> minus(x,y)
+   plus(nullnil(),num(x)) -> num(x)
+   plus(num(succ(x)),num(y)) -> inc(plus(num(x),num(y)))
+   inc(x) -> num(succ(x))
+ 1:inflist(x) -> build(x,inflist(x))
+   build(x,y) -> list(cons(x,y))
+   app(nullnil(),list(x)) -> list(x)
+   app(list(cons(x,y)),list(w)) -> app(y,build(x,list(w)))
+ -----
+ sorts
+   [0>3, 1>2, 2>4, 3>5, 4>5, 4>6]
+ sort attachment (strict)
+   minus : 3 x 3 -> 0
+   num : 3 -> 3
+   nullnil : 5
+   succ : 3 -> 3
+   plus : 3 x 3 -> 3
+   inc : 3 -> 3
+   inflist : 6 -> 4
+   build : 6 x 4 -> 4
+   list : 4 -> 4
+   cons : 6 x 4 -> 4
+   app : 4 x 2 -> 1
+ -----
+ 0:minus(x,x) -> num(nullnil())
+   minus(num(succ(x)),num(succ(y))) -> minus(x,y)
+   plus(nullnil(),num(x)) -> num(x)
+   plus(num(succ(x)),num(y)) -> inc(plus(num(x),num(y)))
+   inc(x) -> num(succ(x))
+   Church Rosser Transformation Processor (ac):
+    minus(x,x) -> num(nullnil())
+    minus(num(succ(x)),num(succ(y))) -> minus(x,y)
+    plus(nullnil(),num(x)) -> num(x)
+    plus(num(succ(x)),num(y)) -> inc(plus(num(x),num(y)))
+    inc(x) -> num(succ(x))
+    AC critical peaks: joinable
+    AC-RPO Processor:
+     precedence:
+      plus > inc > succ > minus > nullnil > num
+     status:
+      plus:lex  minus:lex  
+     problem:
+      
+     Qed
+ 
+ 
+ 1:inflist(x) -> build(x,inflist(x))
+   build(x,y) -> list(cons(x,y))
+   app(nullnil(),list(x)) -> list(x)
+   app(list(cons(x,y)),list(w)) -> app(y,build(x,list(w)))
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     inflist(x) -> build(x,inflist(x))
+     build(x,y) -> list(cons(x,y))
+     app(nullnil(),list(x)) -> list(x)
+     app(list(cons(x,y)),list(w)) -> app(y,build(x,list(w)))
+    original problem:
+     
+    critical peaks: 
+     Shift Processor (no label):
+      
+      Qed
+ 
+

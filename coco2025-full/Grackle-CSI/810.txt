@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ a(b(a(x))) -> b(b(b(a(x))))
+ b(b(b(a(x)))) -> a(a(a(b(x))))
+
+Proof:
+ Nonconfluence Processor:
+  terms: a(a(a(a(a(a(a(b(b(x16))))))))) *<- b(b(b(a(b(a(x16)))))) ->* 
+  a(a(a(b(b(a(x16))))))
+  Qed
+

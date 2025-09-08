@@ -1,0 +1,133 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ d(0()) -> 0()
+ d(s(x)) -> s(s(d(x)))
+ f(0()) -> 0()
+ f(s(x)) -> +(+(s(x),s(x)),s(x))
+ f(g(0())) -> +(+(g(0()),g(0())),g(0()))
+ g(x) -> s(d(x))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  d(0()) -> 0()
+  d(s(x)) -> s(s(d(x)))
+  f(0()) -> 0()
+  f(s(x)) -> +(+(s(x),s(x)),s(x))
+  f(g(0())) -> +(+(g(0()),g(0())),g(0()))
+  g(x) -> s(d(x))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         d(0()) -> 0()
+         d(s(x)) -> s(s(d(x)))
+         f(0()) -> 0()
+         f(s(x)) -> +(+(s(x),s(x)),s(x))
+         f(g(0())) -> +(+(g(0()),g(0())),g(0()))
+         g(x) -> s(d(x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(s(d(0()))) = +(+(g(0()),g(0())),g(0()))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [f](x0) = 7x0 + 1,
+    
+    [+](x0, x1) = x0 + 3x1,
+    
+    [d](x0) = 4x0,
+    
+    [g](x0) = 4x0 + 2,
+    
+    [0] = 0,
+    
+    [s](x0) = x0 + 2
+   orientation:
+    +(x,0()) = x >= x = x
+    
+    +(x,s(y)) = x + 3y + 6 >= x + 3y + 2 = s(+(x,y))
+    
+    d(0()) = 0 >= 0 = 0()
+    
+    d(s(x)) = 4x + 8 >= 4x + 4 = s(s(d(x)))
+    
+    f(0()) = 1 >= 0 = 0()
+    
+    f(s(x)) = 7x + 15 >= 7x + 14 = +(+(s(x),s(x)),s(x))
+    
+    f(g(0())) = 15 >= 14 = +(+(g(0()),g(0())),g(0()))
+    
+    g(x) = 4x + 2 >= 4x + 2 = s(d(x))
+   problem:
+    +(x,0()) -> x
+    d(0()) -> 0()
+    g(x) -> s(d(x))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [+](x0, x1) = x0 + x1 + 1,
+     
+     [d](x0) = x0,
+     
+     [g](x0) = x0,
+     
+     [0] = 4,
+     
+     [s](x0) = x0
+    orientation:
+     +(x,0()) = x + 5 >= x = x
+     
+     d(0()) = 4 >= 4 = 0()
+     
+     g(x) = x >= x = s(d(x))
+    problem:
+     d(0()) -> 0()
+     g(x) -> s(d(x))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [d](x0) = x0,
+      
+      [g](x0) = x0 + 1,
+      
+      [0] = 0,
+      
+      [s](x0) = x0
+     orientation:
+      d(0()) = 0 >= 0 = 0()
+      
+      g(x) = x + 1 >= x = s(d(x))
+     problem:
+      d(0()) -> 0()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [d](x0) = x0 + 1,
+       
+       [0] = 2
+      orientation:
+       d(0()) = 3 >= 2 = 0()
+      problem:
+       
+      Qed
+

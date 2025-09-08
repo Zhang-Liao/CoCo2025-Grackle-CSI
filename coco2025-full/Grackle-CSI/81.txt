@@ -1,0 +1,22 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ f(a()) -> f(f(a()))
+ f(x) -> f(a())
+
+Proof:
+ Church Rosser Transformation Processor (no redundant rules):
+  strict:
+   f(x) -> f(a())
+   f(a()) -> f(f(a()))
+  weak:
+   
+  critical peaks: 2
+   f(a()) <-0|[]- f(a()) -1|[]-> f(f(a()))
+   f(f(a())) <-1|[]- f(a()) -0|[]-> f(a())
+  Closedness Processor (*feeble*):
+   
+   Qed
+

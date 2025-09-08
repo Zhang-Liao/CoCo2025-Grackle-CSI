@@ -1,0 +1,117 @@
+YES
+
+Problem:
+ h(f(f(c())),b()) -> f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c()))
+ c() -> c()
+ f(f(h(h(f(a()),a()),c()))) -> f(h(f(c()),b()))
+ h(f(h(f(b()),h(h(f(h(c(),f(c()))),b()),a()))),h(a(),c())) -> c()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  h(f(f(c())),b()) -> f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c()))
+  f(f(h(h(f(a()),a()),c()))) -> f(h(f(c()),b()))
+  h(f(h(f(b()),h(h(f(h(c(),f(c()))),b()),a()))),h(a(),c())) -> c()
+  c() -> c()
+  
+   T' = (P union S) with
+  
+   TRS P:c() -> c()
+  
+   TRS S:h(f(f(c())),b()) -> f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c()))
+         f(f(h(h(f(a()),a()),c()))) -> f(h(f(c()),b()))
+         h(f(h(f(b()),h(h(f(h(c(),f(c()))),b()),a()))),h(a(),c())) -> c()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  h(f(f(c())),b()) = f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c())), 
+  f(f(h(h(f(a()),a()),c()))) = f(h(f(c()),b())), h(f(h(f(b()),h(h(f(h(c(),f(c()))),b()),a()))),
+                                                   h(a(),c())) = c()
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=2
+   
+   interpretation:
+          [0]
+    [a] = [1],
+    
+              [1 1]  
+    [f](x0) = [0 0]x0,
+    
+                  [2 0]     [2 0]  
+    [h](x0, x1) = [0 0]x0 + [0 0]x1,
+    
+          [0]
+    [c] = [0],
+    
+          [0]
+    [b] = [0]
+   orientation:
+                       [0]    [0]                                                  
+    h(f(f(c())),b()) = [0] >= [0] = f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c()))
+    
+                                 [4]    [0]                   
+    f(f(h(h(f(a()),a()),c()))) = [0] >= [0] = f(h(f(c()),b()))
+    
+                                                                [0]    [0]      
+    h(f(h(f(b()),h(h(f(h(c(),f(c()))),b()),a()))),h(a(),c())) = [0] >= [0] = c()
+   problem:
+    h(f(f(c())),b()) -> f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c()))
+    h(f(h(f(b()),h(h(f(h(c(),f(c()))),b()),a()))),h(a(),c())) -> c()
+   Matrix Interpretation Processor: dim=2
+    
+    interpretation:
+           [0]
+     [a] = [1],
+     
+               [2 1]  
+     [f](x0) = [0 0]x0,
+     
+                   [2 0]     [2 0]  
+     [h](x0, x1) = [1 0]x0 + [0 1]x1,
+     
+           [0]
+     [c] = [0],
+     
+           [0]
+     [b] = [0]
+    orientation:
+                        [0]    [0]                                                  
+     h(f(f(c())),b()) = [0] >= [0] = f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c()))
+     
+                                                                 [2]    [0]      
+     h(f(h(f(b()),h(h(f(h(c(),f(c()))),b()),a()))),h(a(),c())) = [1] >= [0] = c()
+    problem:
+     h(f(f(c())),b()) -> f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c()))
+    Matrix Interpretation Processor: dim=2
+     
+     interpretation:
+            [0]
+      [a] = [0],
+      
+                [1 2]  
+      [f](x0) = [0 1]x0,
+      
+                    [1 0]     [2 3]  
+      [h](x0, x1) = [0 0]x0 + [0 0]x1,
+      
+            [0]
+      [c] = [1],
+      
+            [0]
+      [b] = [0]
+     orientation:
+                         [4]    [3]                                                  
+      h(f(f(c())),b()) = [0] >= [0] = f(h(h(h(c(),h(f(h(c(),f(b()))),a())),b()),c()))
+     problem:
+      
+     Qed
+

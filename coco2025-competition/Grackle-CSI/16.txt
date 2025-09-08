@@ -1,0 +1,24 @@
+NO
+
+Problem:
+ f(x,x) -> g(x)
+ f(x,g(x)) -> b()
+ h(c(),y) -> f(h(y,c()),h(y,y))
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 0
+  Redundant Rules Transformation:
+   f(x,x) -> g(x)
+   f(x,g(x)) -> b()
+   h(c(),y) -> f(h(y,c()),h(y,y))
+   h(c(),c()) -> g(h(c(),c()))
+   f(x,f(x,x)) -> b()
+   Nonconfluence Processor:
+    terms: b() *<- h(c(),c()) ->* g(g(g(h(c(),c()))))
+    Qed
+

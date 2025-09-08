@@ -1,0 +1,1215 @@
+YES
+
+Problem:
+ a1() -> b1()
+ a1() -> c1()
+ b1() -> b2()
+ c1() -> c2()
+ a2() -> b2()
+ a2() -> c2()
+ b2() -> b3()
+ c2() -> c3()
+ a3() -> b3()
+ a3() -> c3()
+ b3() -> b4()
+ c3() -> c4()
+ a4() -> b4()
+ a4() -> c4()
+ b4() -> b5()
+ c4() -> c5()
+ a5() -> b6()
+ b5() -> b6()
+ c5() -> b6()
+
+Proof:
+ sorted: (order-sorted)
+ 0:a1() -> b1()
+   a1() -> c1()
+   b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> b6()
+ 1:a2() -> b2()
+   a2() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> b6()
+ 2:a3() -> b3()
+   a3() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> b6()
+ 3:a4() -> b4()
+   a4() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> b6()
+ 4:a5() -> b6()
+ -----
+ sorts
+   [0>1, 0>2, 1>5, 2>4, 3>4, 3>5, 4>7, 5>8, 6>7, 6>8, 7>10, 8>11, 9>10, 9>11, 10>13, 11>12, 12>15,
+    13>15, 14>15]
+ sort attachment (non-strict)
+   a1 : 0
+   b1 : 1
+   c1 : 2
+   b2 : 5
+   c2 : 4
+   a2 : 3
+   b3 : 8
+   c3 : 7
+   a3 : 6
+   b4 : 11
+   c4 : 10
+   a4 : 9
+   b5 : 12
+   c5 : 13
+   a5 : 14
+   b6 : 15
+ -----
+ 0:a1() -> b1()
+   a1() -> c1()
+   b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> b6()
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    a1() -> b1()
+    a1() -> c1()
+    b1() -> b2()
+    c1() -> c2()
+    b2() -> b3()
+    c2() -> c3()
+    b3() -> b4()
+    c3() -> c4()
+    b4() -> b5()
+    c4() -> c5()
+    b5() -> b6()
+    c5() -> b6()
+    
+     T' = (P union S) with
+    
+     TRS P:
+    
+     TRS S:a1() -> b1()
+           a1() -> c1()
+           b1() -> b2()
+           c1() -> c2()
+           b2() -> b3()
+           c2() -> c3()
+           b3() -> b4()
+           c3() -> c4()
+           b4() -> b5()
+           c4() -> c5()
+           b5() -> b6()
+           c5() -> b6()
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    b1() = c1(), c1() = b1()
+    
+     CP(S,P union P^-1) = 
+    
+    
+     CP_in(P union P^-1,S) = 
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [c2] = 4,
+      
+      [b6] = 0,
+      
+      [b1] = 4,
+      
+      [b2] = 4,
+      
+      [c4] = 1,
+      
+      [a1] = 4,
+      
+      [c3] = 1,
+      
+      [b5] = 0,
+      
+      [b4] = 0,
+      
+      [c5] = 0,
+      
+      [b3] = 4,
+      
+      [c1] = 4
+     orientation:
+      a1() = 4 >= 4 = b1()
+      
+      a1() = 4 >= 4 = c1()
+      
+      b1() = 4 >= 4 = b2()
+      
+      c1() = 4 >= 4 = c2()
+      
+      b2() = 4 >= 4 = b3()
+      
+      c2() = 4 >= 1 = c3()
+      
+      b3() = 4 >= 0 = b4()
+      
+      c3() = 1 >= 1 = c4()
+      
+      b4() = 0 >= 0 = b5()
+      
+      c4() = 1 >= 0 = c5()
+      
+      b5() = 0 >= 0 = b6()
+      
+      c5() = 0 >= 0 = b6()
+     problem:
+      a1() -> b1()
+      a1() -> c1()
+      b1() -> b2()
+      c1() -> c2()
+      b2() -> b3()
+      c3() -> c4()
+      b4() -> b5()
+      b5() -> b6()
+      c5() -> b6()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [c2] = 0,
+       
+       [b6] = 0,
+       
+       [b1] = 0,
+       
+       [b2] = 0,
+       
+       [c4] = 0,
+       
+       [a1] = 0,
+       
+       [c3] = 0,
+       
+       [b5] = 0,
+       
+       [b4] = 0,
+       
+       [c5] = 1,
+       
+       [b3] = 0,
+       
+       [c1] = 0
+      orientation:
+       a1() = 0 >= 0 = b1()
+       
+       a1() = 0 >= 0 = c1()
+       
+       b1() = 0 >= 0 = b2()
+       
+       c1() = 0 >= 0 = c2()
+       
+       b2() = 0 >= 0 = b3()
+       
+       c3() = 0 >= 0 = c4()
+       
+       b4() = 0 >= 0 = b5()
+       
+       b5() = 0 >= 0 = b6()
+       
+       c5() = 1 >= 0 = b6()
+      problem:
+       a1() -> b1()
+       a1() -> c1()
+       b1() -> b2()
+       c1() -> c2()
+       b2() -> b3()
+       c3() -> c4()
+       b4() -> b5()
+       b5() -> b6()
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [c2] = 0,
+        
+        [b6] = 0,
+        
+        [b1] = 0,
+        
+        [b2] = 0,
+        
+        [c4] = 0,
+        
+        [a1] = 0,
+        
+        [c3] = 0,
+        
+        [b5] = 4,
+        
+        [b4] = 4,
+        
+        [b3] = 0,
+        
+        [c1] = 0
+       orientation:
+        a1() = 0 >= 0 = b1()
+        
+        a1() = 0 >= 0 = c1()
+        
+        b1() = 0 >= 0 = b2()
+        
+        c1() = 0 >= 0 = c2()
+        
+        b2() = 0 >= 0 = b3()
+        
+        c3() = 0 >= 0 = c4()
+        
+        b4() = 4 >= 4 = b5()
+        
+        b5() = 4 >= 0 = b6()
+       problem:
+        a1() -> b1()
+        a1() -> c1()
+        b1() -> b2()
+        c1() -> c2()
+        b2() -> b3()
+        c3() -> c4()
+        b4() -> b5()
+       Matrix Interpretation Processor: dim=1
+        
+        interpretation:
+         [c2] = 0,
+         
+         [b1] = 0,
+         
+         [b2] = 0,
+         
+         [c4] = 0,
+         
+         [a1] = 0,
+         
+         [c3] = 0,
+         
+         [b5] = 0,
+         
+         [b4] = 1,
+         
+         [b3] = 0,
+         
+         [c1] = 0
+        orientation:
+         a1() = 0 >= 0 = b1()
+         
+         a1() = 0 >= 0 = c1()
+         
+         b1() = 0 >= 0 = b2()
+         
+         c1() = 0 >= 0 = c2()
+         
+         b2() = 0 >= 0 = b3()
+         
+         c3() = 0 >= 0 = c4()
+         
+         b4() = 1 >= 0 = b5()
+        problem:
+         a1() -> b1()
+         a1() -> c1()
+         b1() -> b2()
+         c1() -> c2()
+         b2() -> b3()
+         c3() -> c4()
+        Matrix Interpretation Processor: dim=1
+         
+         interpretation:
+          [c2] = 0,
+          
+          [b1] = 0,
+          
+          [b2] = 0,
+          
+          [c4] = 0,
+          
+          [a1] = 0,
+          
+          [c3] = 1,
+          
+          [b3] = 0,
+          
+          [c1] = 0
+         orientation:
+          a1() = 0 >= 0 = b1()
+          
+          a1() = 0 >= 0 = c1()
+          
+          b1() = 0 >= 0 = b2()
+          
+          c1() = 0 >= 0 = c2()
+          
+          b2() = 0 >= 0 = b3()
+          
+          c3() = 1 >= 0 = c4()
+         problem:
+          a1() -> b1()
+          a1() -> c1()
+          b1() -> b2()
+          c1() -> c2()
+          b2() -> b3()
+         Matrix Interpretation Processor: dim=1
+          
+          interpretation:
+           [c2] = 4,
+           
+           [b1] = 4,
+           
+           [b2] = 0,
+           
+           [a1] = 4,
+           
+           [b3] = 0,
+           
+           [c1] = 4
+          orientation:
+           a1() = 4 >= 4 = b1()
+           
+           a1() = 4 >= 4 = c1()
+           
+           b1() = 4 >= 0 = b2()
+           
+           c1() = 4 >= 4 = c2()
+           
+           b2() = 0 >= 0 = b3()
+          problem:
+           a1() -> b1()
+           a1() -> c1()
+           c1() -> c2()
+           b2() -> b3()
+          Matrix Interpretation Processor: dim=1
+           
+           interpretation:
+            [c2] = 0,
+            
+            [b1] = 0,
+            
+            [b2] = 1,
+            
+            [a1] = 0,
+            
+            [b3] = 0,
+            
+            [c1] = 0
+           orientation:
+            a1() = 0 >= 0 = b1()
+            
+            a1() = 0 >= 0 = c1()
+            
+            c1() = 0 >= 0 = c2()
+            
+            b2() = 1 >= 0 = b3()
+           problem:
+            a1() -> b1()
+            a1() -> c1()
+            c1() -> c2()
+           Matrix Interpretation Processor: dim=1
+            
+            interpretation:
+             [c2] = 0,
+             
+             [b1] = 4,
+             
+             [a1] = 4,
+             
+             [c1] = 0
+            orientation:
+             a1() = 4 >= 4 = b1()
+             
+             a1() = 4 >= 0 = c1()
+             
+             c1() = 0 >= 0 = c2()
+            problem:
+             a1() -> b1()
+             c1() -> c2()
+            Matrix Interpretation Processor: dim=1
+             
+             interpretation:
+              [c2] = 0,
+              
+              [b1] = 0,
+              
+              [a1] = 0,
+              
+              [c1] = 1
+             orientation:
+              a1() = 0 >= 0 = b1()
+              
+              c1() = 1 >= 0 = c2()
+             problem:
+              a1() -> b1()
+             Matrix Interpretation Processor: dim=1
+              
+              interpretation:
+               [b1] = 0,
+               
+               [a1] = 1
+              orientation:
+               a1() = 1 >= 0 = b1()
+              problem:
+               
+              Qed
+
+
+1:a2() -> b2()
+  a2() -> c2()
+  b2() -> b3()
+  c2() -> c3()
+  b3() -> b4()
+  c3() -> c4()
+  b4() -> b5()
+  c4() -> c5()
+  b5() -> b6()
+  c5() -> b6()
+  AT confluence processor
+   Complete TRS T' of input TRS:
+   a2() -> b2()
+   a2() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> b6()
+   
+    T' = (P union S) with
+   
+    TRS P:
+   
+    TRS S:a2() -> b2()
+          a2() -> c2()
+          b2() -> b3()
+          c2() -> c3()
+          b3() -> b4()
+          c3() -> c4()
+          b4() -> b5()
+          c4() -> c5()
+          b5() -> b6()
+          c5() -> b6()
+   
+   S is left-linear and P is reversible.
+   
+    CP(S,S) = 
+   b2() = c2(), c2() = b2()
+   
+    CP(S,P union P^-1) = 
+   
+   
+    CP_in(P union P^-1,S) = 
+   
+   
+   We have to check termination of S:
+   
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [c2] = 4,
+     
+     [b6] = 0,
+     
+     [b2] = 4,
+     
+     [a2] = 4,
+     
+     [c4] = 0,
+     
+     [c3] = 4,
+     
+     [b5] = 0,
+     
+     [b4] = 4,
+     
+     [c5] = 0,
+     
+     [b3] = 4
+    orientation:
+     a2() = 4 >= 4 = b2()
+     
+     a2() = 4 >= 4 = c2()
+     
+     b2() = 4 >= 4 = b3()
+     
+     c2() = 4 >= 4 = c3()
+     
+     b3() = 4 >= 4 = b4()
+     
+     c3() = 4 >= 0 = c4()
+     
+     b4() = 4 >= 0 = b5()
+     
+     c4() = 0 >= 0 = c5()
+     
+     b5() = 0 >= 0 = b6()
+     
+     c5() = 0 >= 0 = b6()
+    problem:
+     a2() -> b2()
+     a2() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     b3() -> b4()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> b6()
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [c2] = 0,
+      
+      [b6] = 0,
+      
+      [b2] = 0,
+      
+      [a2] = 0,
+      
+      [c4] = 0,
+      
+      [c3] = 0,
+      
+      [b5] = 1,
+      
+      [b4] = 0,
+      
+      [c5] = 0,
+      
+      [b3] = 0
+     orientation:
+      a2() = 0 >= 0 = b2()
+      
+      a2() = 0 >= 0 = c2()
+      
+      b2() = 0 >= 0 = b3()
+      
+      c2() = 0 >= 0 = c3()
+      
+      b3() = 0 >= 0 = b4()
+      
+      c4() = 0 >= 0 = c5()
+      
+      b5() = 1 >= 0 = b6()
+      
+      c5() = 0 >= 0 = b6()
+     problem:
+      a2() -> b2()
+      a2() -> c2()
+      b2() -> b3()
+      c2() -> c3()
+      b3() -> b4()
+      c4() -> c5()
+      c5() -> b6()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [c2] = 0,
+       
+       [b6] = 0,
+       
+       [b2] = 0,
+       
+       [a2] = 0,
+       
+       [c4] = 4,
+       
+       [c3] = 0,
+       
+       [b4] = 0,
+       
+       [c5] = 4,
+       
+       [b3] = 0
+      orientation:
+       a2() = 0 >= 0 = b2()
+       
+       a2() = 0 >= 0 = c2()
+       
+       b2() = 0 >= 0 = b3()
+       
+       c2() = 0 >= 0 = c3()
+       
+       b3() = 0 >= 0 = b4()
+       
+       c4() = 4 >= 4 = c5()
+       
+       c5() = 4 >= 0 = b6()
+      problem:
+       a2() -> b2()
+       a2() -> c2()
+       b2() -> b3()
+       c2() -> c3()
+       b3() -> b4()
+       c4() -> c5()
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [c2] = 0,
+        
+        [b2] = 0,
+        
+        [a2] = 0,
+        
+        [c4] = 1,
+        
+        [c3] = 0,
+        
+        [b4] = 0,
+        
+        [c5] = 0,
+        
+        [b3] = 0
+       orientation:
+        a2() = 0 >= 0 = b2()
+        
+        a2() = 0 >= 0 = c2()
+        
+        b2() = 0 >= 0 = b3()
+        
+        c2() = 0 >= 0 = c3()
+        
+        b3() = 0 >= 0 = b4()
+        
+        c4() = 1 >= 0 = c5()
+       problem:
+        a2() -> b2()
+        a2() -> c2()
+        b2() -> b3()
+        c2() -> c3()
+        b3() -> b4()
+       Matrix Interpretation Processor: dim=1
+        
+        interpretation:
+         [c2] = 4,
+         
+         [b2] = 4,
+         
+         [a2] = 4,
+         
+         [c3] = 4,
+         
+         [b4] = 0,
+         
+         [b3] = 0
+        orientation:
+         a2() = 4 >= 4 = b2()
+         
+         a2() = 4 >= 4 = c2()
+         
+         b2() = 4 >= 0 = b3()
+         
+         c2() = 4 >= 4 = c3()
+         
+         b3() = 0 >= 0 = b4()
+        problem:
+         a2() -> b2()
+         a2() -> c2()
+         c2() -> c3()
+         b3() -> b4()
+        Matrix Interpretation Processor: dim=1
+         
+         interpretation:
+          [c2] = 0,
+          
+          [b2] = 0,
+          
+          [a2] = 0,
+          
+          [c3] = 0,
+          
+          [b4] = 0,
+          
+          [b3] = 1
+         orientation:
+          a2() = 0 >= 0 = b2()
+          
+          a2() = 0 >= 0 = c2()
+          
+          c2() = 0 >= 0 = c3()
+          
+          b3() = 1 >= 0 = b4()
+         problem:
+          a2() -> b2()
+          a2() -> c2()
+          c2() -> c3()
+         Matrix Interpretation Processor: dim=1
+          
+          interpretation:
+           [c2] = 0,
+           
+           [b2] = 4,
+           
+           [a2] = 4,
+           
+           [c3] = 0
+          orientation:
+           a2() = 4 >= 4 = b2()
+           
+           a2() = 4 >= 0 = c2()
+           
+           c2() = 0 >= 0 = c3()
+          problem:
+           a2() -> b2()
+           c2() -> c3()
+          Matrix Interpretation Processor: dim=1
+           
+           interpretation:
+            [c2] = 1,
+            
+            [b2] = 0,
+            
+            [a2] = 0,
+            
+            [c3] = 0
+           orientation:
+            a2() = 0 >= 0 = b2()
+            
+            c2() = 1 >= 0 = c3()
+           problem:
+            a2() -> b2()
+           Matrix Interpretation Processor: dim=1
+            
+            interpretation:
+             [b2] = 0,
+             
+             [a2] = 1
+            orientation:
+             a2() = 1 >= 0 = b2()
+            problem:
+             
+            Qed
+
+
+2:a3() -> b3()
+  a3() -> c3()
+  b3() -> b4()
+  c3() -> c4()
+  b4() -> b5()
+  c4() -> c5()
+  b5() -> b6()
+  c5() -> b6()
+  AT confluence processor
+   Complete TRS T' of input TRS:
+   a3() -> b3()
+   a3() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> b6()
+   
+    T' = (P union S) with
+   
+    TRS P:
+   
+    TRS S:a3() -> b3()
+          a3() -> c3()
+          b3() -> b4()
+          c3() -> c4()
+          b4() -> b5()
+          c4() -> c5()
+          b5() -> b6()
+          c5() -> b6()
+   
+   S is left-linear and P is reversible.
+   
+    CP(S,S) = 
+   b3() = c3(), c3() = b3()
+   
+    CP(S,P union P^-1) = 
+   
+   
+    CP_in(P union P^-1,S) = 
+   
+   
+   We have to check termination of S:
+   
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b6] = 0,
+     
+     [a3] = 4,
+     
+     [c4] = 4,
+     
+     [c3] = 4,
+     
+     [b5] = 0,
+     
+     [b4] = 4,
+     
+     [c5] = 0,
+     
+     [b3] = 4
+    orientation:
+     a3() = 4 >= 4 = b3()
+     
+     a3() = 4 >= 4 = c3()
+     
+     b3() = 4 >= 4 = b4()
+     
+     c3() = 4 >= 4 = c4()
+     
+     b4() = 4 >= 0 = b5()
+     
+     c4() = 4 >= 0 = c5()
+     
+     b5() = 0 >= 0 = b6()
+     
+     c5() = 0 >= 0 = b6()
+    problem:
+     a3() -> b3()
+     a3() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b5() -> b6()
+     c5() -> b6()
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [b6] = 0,
+      
+      [a3] = 0,
+      
+      [c4] = 0,
+      
+      [c3] = 0,
+      
+      [b5] = 0,
+      
+      [b4] = 0,
+      
+      [c5] = 1,
+      
+      [b3] = 0
+     orientation:
+      a3() = 0 >= 0 = b3()
+      
+      a3() = 0 >= 0 = c3()
+      
+      b3() = 0 >= 0 = b4()
+      
+      c3() = 0 >= 0 = c4()
+      
+      b5() = 0 >= 0 = b6()
+      
+      c5() = 1 >= 0 = b6()
+     problem:
+      a3() -> b3()
+      a3() -> c3()
+      b3() -> b4()
+      c3() -> c4()
+      b5() -> b6()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [b6] = 0,
+       
+       [a3] = 0,
+       
+       [c4] = 0,
+       
+       [c3] = 0,
+       
+       [b5] = 1,
+       
+       [b4] = 0,
+       
+       [b3] = 0
+      orientation:
+       a3() = 0 >= 0 = b3()
+       
+       a3() = 0 >= 0 = c3()
+       
+       b3() = 0 >= 0 = b4()
+       
+       c3() = 0 >= 0 = c4()
+       
+       b5() = 1 >= 0 = b6()
+      problem:
+       a3() -> b3()
+       a3() -> c3()
+       b3() -> b4()
+       c3() -> c4()
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [a3] = 4,
+        
+        [c4] = 4,
+        
+        [c3] = 4,
+        
+        [b4] = 0,
+        
+        [b3] = 4
+       orientation:
+        a3() = 4 >= 4 = b3()
+        
+        a3() = 4 >= 4 = c3()
+        
+        b3() = 4 >= 0 = b4()
+        
+        c3() = 4 >= 4 = c4()
+       problem:
+        a3() -> b3()
+        a3() -> c3()
+        c3() -> c4()
+       Matrix Interpretation Processor: dim=1
+        
+        interpretation:
+         [a3] = 4,
+         
+         [c4] = 0,
+         
+         [c3] = 0,
+         
+         [b3] = 4
+        orientation:
+         a3() = 4 >= 4 = b3()
+         
+         a3() = 4 >= 0 = c3()
+         
+         c3() = 0 >= 0 = c4()
+        problem:
+         a3() -> b3()
+         c3() -> c4()
+        Matrix Interpretation Processor: dim=1
+         
+         interpretation:
+          [a3] = 0,
+          
+          [c4] = 0,
+          
+          [c3] = 1,
+          
+          [b3] = 0
+         orientation:
+          a3() = 0 >= 0 = b3()
+          
+          c3() = 1 >= 0 = c4()
+         problem:
+          a3() -> b3()
+         Matrix Interpretation Processor: dim=1
+          
+          interpretation:
+           [a3] = 1,
+           
+           [b3] = 0
+          orientation:
+           a3() = 1 >= 0 = b3()
+          problem:
+           
+          Qed
+
+
+3:a4() -> b4()
+  a4() -> c4()
+  b4() -> b5()
+  c4() -> c5()
+  b5() -> b6()
+  c5() -> b6()
+  AT confluence processor
+   Complete TRS T' of input TRS:
+   a4() -> b4()
+   a4() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> b6()
+   
+    T' = (P union S) with
+   
+    TRS P:
+   
+    TRS S:a4() -> b4()
+          a4() -> c4()
+          b4() -> b5()
+          c4() -> c5()
+          b5() -> b6()
+          c5() -> b6()
+   
+   S is left-linear and P is reversible.
+   
+    CP(S,S) = 
+   b4() = c4(), c4() = b4()
+   
+    CP(S,P union P^-1) = 
+   
+   
+    CP_in(P union P^-1,S) = 
+   
+   
+   We have to check termination of S:
+   
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b6] = 0,
+     
+     [c4] = 4,
+     
+     [b5] = 4,
+     
+     [a4] = 4,
+     
+     [b4] = 4,
+     
+     [c5] = 0
+    orientation:
+     a4() = 4 >= 4 = b4()
+     
+     a4() = 4 >= 4 = c4()
+     
+     b4() = 4 >= 4 = b5()
+     
+     c4() = 4 >= 0 = c5()
+     
+     b5() = 4 >= 0 = b6()
+     
+     c5() = 0 >= 0 = b6()
+    problem:
+     a4() -> b4()
+     a4() -> c4()
+     b4() -> b5()
+     c5() -> b6()
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [b6] = 0,
+      
+      [c4] = 0,
+      
+      [b5] = 0,
+      
+      [a4] = 0,
+      
+      [b4] = 0,
+      
+      [c5] = 1
+     orientation:
+      a4() = 0 >= 0 = b4()
+      
+      a4() = 0 >= 0 = c4()
+      
+      b4() = 0 >= 0 = b5()
+      
+      c5() = 1 >= 0 = b6()
+     problem:
+      a4() -> b4()
+      a4() -> c4()
+      b4() -> b5()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [c4] = 4,
+       
+       [b5] = 0,
+       
+       [a4] = 4,
+       
+       [b4] = 4
+      orientation:
+       a4() = 4 >= 4 = b4()
+       
+       a4() = 4 >= 4 = c4()
+       
+       b4() = 4 >= 0 = b5()
+      problem:
+       a4() -> b4()
+       a4() -> c4()
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [c4] = 0,
+        
+        [a4] = 4,
+        
+        [b4] = 4
+       orientation:
+        a4() = 4 >= 4 = b4()
+        
+        a4() = 4 >= 0 = c4()
+       problem:
+        a4() -> b4()
+       Matrix Interpretation Processor: dim=1
+        
+        interpretation:
+         [a4] = 1,
+         
+         [b4] = 0
+        orientation:
+         a4() = 1 >= 0 = b4()
+        problem:
+         
+        Qed
+
+
+4:a5() -> b6()
+  AT confluence processor
+   Complete TRS T' of input TRS:
+   a5() -> b6()
+   
+    T' = (P union S) with
+   
+    TRS P:
+   
+    TRS S:a5() -> b6()
+   
+   S is left-linear and P is reversible.
+   
+    CP(S,S) = 
+   
+    CP(S,P union P^-1) = 
+   
+   
+    PCP_in(P union P^-1,S) = 
+   
+   
+   We have to check termination of S:
+   
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b6] = 0,
+     
+     [a5] = 1
+    orientation:
+     a5() = 1 >= 0 = b6()
+    problem:
+     
+    Qed
+
+

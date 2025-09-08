@@ -1,0 +1,36 @@
+YES
+
+Problem:
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,+(y,z)) -> +(+(x,y),z)
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,+(y,z)) -> +(+(x,y),z)
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,+(y,z)) -> +(+(x,y),z)
+         +(x,y) -> +(y,x)
+  
+   TRS S:
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Qed
+

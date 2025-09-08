@@ -1,0 +1,142 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ inc(x) -> s(x)
+ +(x,y) -> +(y,x)
+ inc(+(x,y)) -> +(inc(x),y)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(x,y))
+  inc(x) -> s(x)
+  inc(+(x,y)) -> +(inc(x),y)
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,y) -> +(y,x)
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         +(0(),y) -> y
+         +(s(x),y) -> s(+(x,y))
+         inc(x) -> s(x)
+         inc(+(x,y)) -> +(inc(x),y)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x) = s(+(x,0())), inc(x) = +(inc(x),0()), s(+(0(),x279)) = 
+  s(x279), s(+(s(x),x281)) = s(+(x,s(x281))), inc(s(+(x,x283))) = +(inc(x),s(x283)), 
+  s(y) = s(+(0(),y)), inc(y) = +(inc(0()),y), s(+(x287,0())) = s(x287), 
+  s(+(x289,s(y))) = s(+(s(x289),y)), inc(s(+(x291,y))) = +(inc(s(x291)),y), 
+  s(+(x,y)) = +(inc(x),y), +(inc(x294),x295) = s(+(x294,x295))
+  
+   CP(S,P union P^-1) = 
+  x = +(0(),x), y = +(0(),y), s(+(x,x317)) = +(s(x317),x), s(+(y,x319)) = 
+  +(s(x319),y), y = +(y,0()), x = +(x,0()), s(+(x322,y)) = +(y,s(x322)), 
+  s(+(x324,x)) = +(x,s(x324))
+  
+  
+   PCP_in(P union P^-1,S) = 
+  inc(+(y,x)) = +(inc(x),y)
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = x0 + x1 + 2,
+    
+    [inc](x0) = x0,
+    
+    [0] = 1,
+    
+    [s](x0) = x0
+   orientation:
+    +(x,0()) = x + 3 >= x = x
+    
+    +(x,s(y)) = x + y + 2 >= x + y + 2 = s(+(x,y))
+    
+    +(0(),y) = y + 3 >= y = y
+    
+    +(s(x),y) = x + y + 2 >= x + y + 2 = s(+(x,y))
+    
+    inc(x) = x >= x = s(x)
+    
+    inc(+(x,y)) = x + y + 2 >= x + y + 2 = +(inc(x),y)
+   problem:
+    +(x,s(y)) -> s(+(x,y))
+    +(s(x),y) -> s(+(x,y))
+    inc(x) -> s(x)
+    inc(+(x,y)) -> +(inc(x),y)
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [+](x0, x1) = 4x0 + 4x1 + 4,
+     
+     [inc](x0) = 4x0 + 4,
+     
+     [s](x0) = x0
+    orientation:
+     +(x,s(y)) = 4x + 4y + 4 >= 4x + 4y + 4 = s(+(x,y))
+     
+     +(s(x),y) = 4x + 4y + 4 >= 4x + 4y + 4 = s(+(x,y))
+     
+     inc(x) = 4x + 4 >= x = s(x)
+     
+     inc(+(x,y)) = 16x + 16y + 20 >= 16x + 4y + 20 = +(inc(x),y)
+    problem:
+     +(x,s(y)) -> s(+(x,y))
+     +(s(x),y) -> s(+(x,y))
+     inc(+(x,y)) -> +(inc(x),y)
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [+](x0, x1) = 2x0 + 7x1 + 2,
+      
+      [inc](x0) = 3x0 + 1,
+      
+      [s](x0) = x0
+     orientation:
+      +(x,s(y)) = 2x + 7y + 2 >= 2x + 7y + 2 = s(+(x,y))
+      
+      +(s(x),y) = 2x + 7y + 2 >= 2x + 7y + 2 = s(+(x,y))
+      
+      inc(+(x,y)) = 6x + 21y + 7 >= 6x + 7y + 4 = +(inc(x),y)
+     problem:
+      +(x,s(y)) -> s(+(x,y))
+      +(s(x),y) -> s(+(x,y))
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [+](x0, x1) = 2x0 + x1 + 1,
+       
+       [s](x0) = x0 + 1
+      orientation:
+       +(x,s(y)) = 2x + y + 2 >= 2x + y + 2 = s(+(x,y))
+       
+       +(s(x),y) = 2x + y + 3 >= 2x + y + 2 = s(+(x,y))
+      problem:
+       +(x,s(y)) -> s(+(x,y))
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [+](x0, x1) = x0 + 4x1,
+        
+        [s](x0) = x0 + 5
+       orientation:
+        +(x,s(y)) = x + 4y + 20 >= x + 4y + 5 = s(+(x,y))
+       problem:
+        
+       Qed
+

@@ -1,0 +1,50 @@
+NO
+
+Problem:
+ f(x,f(y,z)) -> f(f(x,y),f(x,z))
+ f(f(x,y),z) -> f(f(x,z),f(y,z))
+ f(f(x,y),f(y,z)) -> y
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 18
+   f(x,f(f(y,x67),f(y,x68))) <-0|1[]- f(x,f(y,f(x67,x68))) -0|[]-> f(f(x,y),f(x,f(x67,x68)))
+   f(f(f(x,y),x70),f(f(x,y),x71)) <-0|[]- f(f(x,y),f(x70,x71)) -1|[]-> 
+                                          f(f(x,f(x70,x71)),f(y,f(x70,x71)))
+   f(f(f(x,x73),f(x,x74)),z) <-0|0[]- f(f(x,f(x73,x74)),z) -1|[]-> f(f(x,z),f(f(x73,x74),z))
+   f(f(f(x,y),y),f(f(x,y),z)) <-0|[]- f(f(x,y),f(y,z)) -2|[]-> y
+   f(f(f(x,x79),f(x,x80)),f(f(x79,x80),z)) <-0|0[]- f(f(x,f(x79,x80)),f(f(x79,x80),z)) -2|
+                                                    []-> f(x79,x80)
+   f(f(x,y),f(f(y,x82),f(y,x83))) <-0|1[]- f(f(x,y),f(y,f(x82,x83))) -2|[]-> y
+   f(f(x84,f(y,z)),f(x85,f(y,z))) <-1|[]- f(f(x84,x85),f(y,z)) -0|[]-> 
+                                          f(f(f(x84,x85),y),f(f(x84,x85),z))
+   f(x,f(f(x87,z),f(x88,z))) <-1|1[]- f(x,f(f(x87,x88),z)) -0|[]-> f(f(x,f(x87,x88)),f(x,z))
+   f(f(f(x90,y),f(x91,y)),z) <-1|0[]- f(f(f(x90,x91),y),z) -1|[]-> f(f(f(x90,x91),z),f(y,z))
+   f(f(x,f(y,z)),f(y,f(y,z))) <-1|[]- f(f(x,y),f(y,z)) -2|[]-> y
+   f(f(f(x96,y),f(x97,y)),f(y,z)) <-1|0[]- f(f(f(x96,x97),y),f(y,z)) -2|[]-> y
+   f(f(x,f(x99,x100)),f(f(x99,z),f(x100,z))) <-1|1[]- f(f(x,f(x99,x100)),f(f(x99,x100),z)) -2|
+                                                      []-> f(x99,x100)
+   y <-2|[]- f(f(x102,y),f(y,z)) -0|[]-> f(f(f(x102,y),y),f(f(x102,y),z))
+   f(x,x106) <-2|1[]- f(x,f(f(x105,x106),f(x106,x107))) -0|[]-> f(f(x,f(x105,x106)),
+                                                                  f(x,f(x106,x107)))
+   y <-2|[]- f(f(x,y),f(y,x110)) -1|[]-> f(f(x,f(y,x110)),f(y,f(y,x110)))
+   f(x112,z) <-2|0[]- f(f(f(x111,x112),f(x112,x113)),z) -1|[]-> f(f(f(x111,x112),z),
+                                                                  f(f(x112,x113),z))
+   f(x115,f(f(x115,x116),z)) <-2|0[]- f(f(f(x114,x115),f(x115,x116)),f(f(x115,x116),z)) -2|
+                                      []-> f(x115,x116)
+   f(f(x,f(x117,x118)),x118) <-2|1[]- f(f(x,f(x117,x118)),f(f(x117,x118),f(x118,x119))) -2|
+                                      []-> f(x117,x118)
+  Redundant Rules Transformation:
+   f(x,f(y,z)) -> f(f(x,y),f(x,z))
+   f(f(x,y),z) -> f(f(x,z),f(y,z))
+   f(f(x,y),f(y,z)) -> y
+   f(y,f(y,z)) -> y
+   f(f(x,z),z) -> z
+   Nonconfluence Processor:
+    terms: f(y,y) *<- f(y,f(y,f(y,x378))) ->* y
+    Qed
+

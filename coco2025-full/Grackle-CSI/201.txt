@@ -1,0 +1,71 @@
+YES
+
+Problem:
+ +(0(),y) -> y
+ +(x,s(y)) -> s(+(x,y))
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(0(),y) -> y
+  +(x,s(y)) -> s(+(x,y))
+  +(y,0()) -> y
+  +(s(y),x) -> s(+(y,x))
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,y) -> +(y,x)
+  
+   TRS S:+(0(),y) -> y
+         +(x,s(y)) -> s(+(x,y))
+         +(y,0()) -> y
+         +(s(y),x) -> s(+(y,x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  s(y) = s(+(0(),y)), 0() = 0(), s(+(0(),x342)) = s(x342), s(+(s(y),x344)) = 
+  s(+(y,s(x344))), s(y) = s(+(y,0())), s(+(x347,s(y))) = s(+(s(x347),y)), 
+  s(+(x349,0())) = s(x349)
+  
+   CP(S,P union P^-1) = 
+  +(y,z) = +(0(),+(y,z)), y = +(y,0()), +(y,z) = +(+(0(),y),z), +(x,z) = 
+  +(+(x,0()),z), x = +(x,0()), s(+(+(x,y),x393)) = +(x,+(y,s(x393))), 
+  +(s(+(x,x395)),z) = +(x,+(s(x395),z)), s(+(x,x397)) = +(s(x397),x), 
+  +(x,s(+(y,x399))) = +(+(x,y),s(x399)), s(+(y,x401)) = +(s(x401),y), 
+  +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), x = +(0(),x), +(x,y) = 
+  +(+(x,y),0()), y = +(0(),y), +(s(+(x407,y)),z) = +(s(x407),+(y,z)), 
+  s(+(x409,y)) = +(y,s(x409)), s(+(x411,+(y,z))) = +(+(s(x411),y),z), 
+  +(x,s(+(x413,z))) = +(+(x,s(x413)),z), s(+(x415,x)) = +(x,s(x415))
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 3x0 + 6x1,
+    
+    [0] = 4,
+    
+    [s](x0) = x0 + 3
+   orientation:
+    +(0(),y) = 6y + 12 >= y = y
+    
+    +(x,s(y)) = 3x + 6y + 18 >= 3x + 6y + 3 = s(+(x,y))
+    
+    +(y,0()) = 3y + 24 >= y = y
+    
+    +(s(y),x) = 6x + 3y + 9 >= 6x + 3y + 3 = s(+(y,x))
+   problem:
+    
+   Qed
+

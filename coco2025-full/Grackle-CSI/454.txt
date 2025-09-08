@@ -1,0 +1,46 @@
+YES
+
+Problem:
+ g(x) -> h(k(x),x)
+ g(x) -> x
+ h(k(x),x) -> x
+ k(c()) -> c()
+ h(k(c()),c()) -> g(c())
+ h(c(),c()) -> c()
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 6
+   h(k(x),x) <-0|[]- g(x) -1|[]-> x
+   x <-1|[]- g(x) -0|[]-> h(k(x),x)
+   c() <-2|[]- h(k(c()),c()) -4|[]-> g(c())
+   h(c(),c()) <-3|0[]- h(k(c()),c()) -2|[]-> c()
+   h(c(),c()) <-3|0[]- h(k(c()),c()) -4|[]-> g(c())
+   g(c()) <-4|[]- h(k(c()),c()) -2|[]-> c()
+  Redundant Rules Transformation:
+   g(x) -> x
+   h(k(x),x) -> x
+   k(c()) -> c()
+   h(c(),c()) -> c()
+   Church Rosser Transformation Processor (ac):
+    g(x) -> x
+    h(k(x),x) -> x
+    k(c()) -> c()
+    h(c(),c()) -> c()
+    AC critical peaks: joinable
+    AC-KBO Processor:
+     precedence:
+      g > c ~ h ~ k
+      weight function:
+       w0 = 4
+       w(c) = 4
+       w(k) = w(g) = 2
+       w(h) = 0
+      problem:
+       
+      Qed
+

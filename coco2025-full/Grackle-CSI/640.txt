@@ -1,0 +1,11 @@
+YES
+
+Problem:
+ f(a(),f(x,a())) -> f(a(),f(f(a(),a()),a()))
+
+Proof:
+ Church Rosser Transformation Processor:
+  
+  critical peaks: joinable
+  Qed
+

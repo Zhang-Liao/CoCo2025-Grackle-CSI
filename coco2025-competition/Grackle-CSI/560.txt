@@ -1,0 +1,19 @@
+NO
+
+Problem:
+ b() -> f(b())
+ h(h(h(h(h(h(h(a(),h(c(),h(f(c()),b()))),h(b(),h(b(),h(f(f(h(c(),b()))),a())))),h(a(),a())),b()),
+       f(h(h(f(a()),a()),c()))),a()),h(c(),a()))
+ -> f(a())
+ c() -> h(b(),b())
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(h(h(h(h(h(h(a(),h(h(b(),b()),h(f(h(b(),b())),f(b())))),h(b(),
+                                                                    h
+                                                                    (b(),h(f(f(h(c(),b()))),a())))),
+                   h(a(),a())),b()),f(h(h(f(a()),a()),c()))),a()),h(c(),a())) *<- 
+  h(h(h(h(h(h(h(a(),h(c(),h(f(c()),b()))),h(b(),h(b(),h(f(f(h(c(),b()))),a())))),h(a(),a())),b()),
+        f(h(h(f(a()),a()),c()))),a()),h(c(),a())) ->* f(a())
+  Qed
+

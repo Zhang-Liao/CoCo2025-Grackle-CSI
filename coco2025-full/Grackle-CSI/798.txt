@@ -1,0 +1,13 @@
+NO
+
+Problem:
+ a(a(x)) -> b(c(x))
+ b(b(x)) -> c(d(x))
+ c(c(x)) -> d(d(d(x)))
+ d(d(d(x))) -> a(c(x))
+
+Proof:
+ Nonconfluence Processor:
+  terms: a(b(c(x37))) *<- a(a(a(x37))) ->* b(c(a(x37)))
+  Qed
+

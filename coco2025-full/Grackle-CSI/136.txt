@@ -1,0 +1,70 @@
+YES
+
+Problem:
+ +(0(),y) -> y
+ +(x,0()) -> x
+ +(s(x),y) -> s(+(x,y))
+ +(x,s(y)) -> s(+(x,y))
+ +(x,+(y,z)) -> +(+(x,y),z)
+ +(+(x,y),z) -> +(x,+(y,z))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(0(),y) -> y
+  +(x,0()) -> x
+  +(s(x),y) -> s(+(x,y))
+  +(x,s(y)) -> s(+(x,y))
+  +(x,+(y,z)) -> +(+(x,y),z)
+  +(+(x,y),z) -> +(x,+(y,z))
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,+(y,z)) -> +(+(x,y),z)
+         +(+(x,y),z) -> +(x,+(y,z))
+  
+   TRS S:+(0(),y) -> y
+         +(x,0()) -> x
+         +(s(x),y) -> s(+(x,y))
+         +(x,s(y)) -> s(+(x,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(y) = s(+(0(),y)), s(x) = s(+(x,0())), s(+(x247,0())) = 
+  s(x247), s(+(x249,s(y))) = s(+(s(x249),y)), s(+(0(),x252)) = s(x252), 
+  s(+(s(x),x254)) = s(+(x,s(x254)))
+  
+   CP(S,P union P^-1) = 
+  +(y,z) = +(+(0(),y),z), +(x,z) = +(+(x,0()),z), +(y,z) = +(0(),+(y,z)), 
+  +(x,y) = +(+(x,y),0()), +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), 
+  s(+(x285,+(y,z))) = +(+(s(x285),y),z), +(x,s(+(x287,z))) = +(+(x,s(x287)),z), 
+  +(s(+(x289,y)),z) = +(s(x289),+(y,z)), +(x,s(+(y,x292))) = +(+(x,y),s(x292)), 
+  s(+(+(x,y),x294)) = +(x,+(y,s(x294))), +(s(+(x,x296)),z) = +(x,+(s(x296),z))
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 4x0 + 6x1 + 2,
+    
+    [0] = 0,
+    
+    [s](x0) = x0 + 3
+   orientation:
+    +(0(),y) = 6y + 2 >= y = y
+    
+    +(x,0()) = 4x + 2 >= x = x
+    
+    +(s(x),y) = 4x + 6y + 14 >= 4x + 6y + 5 = s(+(x,y))
+    
+    +(x,s(y)) = 4x + 6y + 20 >= 4x + 6y + 5 = s(+(x,y))
+   problem:
+    
+   Qed
+

@@ -1,0 +1,28 @@
+YES
+
+Problem:
+ join(x,meet(x,y)) -> x
+ meet(x,join(y,z)) -> join(meet(x,y),meet(x,z))
+ meet(x,x) -> x
+ join(x,x) -> x
+ meet(meet(x,y),z) -> meet(x,meet(y,z))
+ meet(x,y) -> meet(y,x)
+ join(join(x,y),z) -> join(x,join(y,z))
+ join(x,y) -> join(y,x)
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f2_AC(x,f3_AC(x,y)) -> x
+  f3_AC(x,f2_AC(y,z)) -> f2_AC(f3_AC(x,y),f3_AC(x,z))
+  f3_AC(x,x) -> x
+  f2_AC(x,x) -> x
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    f3_AC > f2_AC
+   status:
+    
+   problem:
+    
+   Qed
+

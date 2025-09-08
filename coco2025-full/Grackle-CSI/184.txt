@@ -1,0 +1,60 @@
+YES
+
+Problem:
+ or(x,T()) -> T()
+ or(x,F()) -> x
+ or(x,y) -> or(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  or(x,T()) -> T()
+  or(x,F()) -> x
+  or(T(),y) -> T()
+  or(F(),y) -> y
+  or(x,y) -> or(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:or(x,y) -> or(y,x)
+  
+   TRS S:or(x,T()) -> T()
+         or(x,F()) -> x
+         or(T(),y) -> T()
+         or(F(),y) -> y
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  T() = T(), F() = F()
+  
+   CP(S,P union P^-1) = 
+  T() = or(T(),x), T() = or(T(),y), x = or(F(),x), y = or(F(),y), T() = 
+  or(y,T()), T() = or(x,T()), y = or(y,F()), x = or(x,F())
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [or](x0, x1) = 2x0 + 4x1 + 5,
+    
+    [T] = 0,
+    
+    [F] = 0
+   orientation:
+    or(x,T()) = 2x + 5 >= 0 = T()
+    
+    or(x,F()) = 2x + 5 >= x = x
+    
+    or(T(),y) = 4y + 5 >= 0 = T()
+    
+    or(F(),y) = 4y + 5 >= y = y
+   problem:
+    
+   Qed
+

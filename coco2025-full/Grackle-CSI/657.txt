@@ -1,0 +1,8 @@
+YES
+
+Problem:
+ f(x,x) -> f(a(),b())
+
+Proof:
+ Qed (ToyamaOyamaguchi95Cor22)
+

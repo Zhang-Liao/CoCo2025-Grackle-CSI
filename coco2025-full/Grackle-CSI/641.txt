@@ -1,0 +1,40 @@
+NO
+
+Problem:
+ if(true(),a(),x) -> a()
+ if(true(),b(),x) -> b()
+ if(true(),g(a()),x) -> g(a())
+ if(true(),g(b()),x) -> g(b())
+ if(false(),x,a()) -> a()
+ if(false(),x,b()) -> b()
+ if(false(),x,g(a())) -> g(a())
+ if(false(),x,g(b())) -> g(b())
+ g(a()) -> g(g(a()))
+ g(b()) -> a()
+ f(a(),b()) -> b()
+ f(g(g(a())),x) -> b()
+
+Proof:
+ Nonconfluence Processor:
+  terms: if(true(),g(g(g(a()))),f7()) *<- if(true(),g(a()),f7()) ->* 
+  g(g(a()))
+  Qed
+  
+  first automaton:
+   final states: {50}
+   transitions:
+    true() -> 56*
+    a() -> 52*
+    g(52) -> 53*
+    g(53) -> 53,54
+    g(54) -> 55*
+    if(56,55,51) -> 50*
+    f7() -> 51*
+  
+  second automaton:
+   final states: {34}
+   transitions:
+    a() -> 35*
+    g(35) -> 36*
+    g(36) -> 36,34
+

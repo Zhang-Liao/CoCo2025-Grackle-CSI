@@ -1,0 +1,17 @@
+NO
+
+Problem:
+ f(b()) -> a()
+ f(b()) -> f(c())
+ f(c()) -> f(b())
+ f(c()) -> d()
+ b() -> e()
+ c() -> e'()
+ f(e()) -> a()
+ f(e'()) -> d()
+
+Proof:
+ Nonconfluence Processor:
+  terms: a() *<- f(b()) ->* d()
+  Qed
+

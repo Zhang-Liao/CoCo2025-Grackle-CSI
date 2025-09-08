@@ -1,0 +1,109 @@
+YES
+
+Problem:
+ E(+(x,y)) -> *(E(x),E(y))
+ E(0()) -> 1()
+ +(x,0()) -> x
+ +(0(),x) -> x
+ *(x,1()) -> x
+ *(1(),x) -> x
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,+(y,z)) -> +(+(x,y),z)
+ +(x,y) -> +(y,x)
+ *(*(x,y),z) -> *(x,*(y,z))
+ *(x,*(y,z)) -> *(*(x,y),z)
+ *(x,y) -> *(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  E(+(x,y)) -> *(E(x),E(y))
+  E(0()) -> 1()
+  +(x,0()) -> x
+  +(0(),x) -> x
+  *(x,1()) -> x
+  *(1(),x) -> x
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,+(y,z)) -> +(+(x,y),z)
+  +(x,y) -> +(y,x)
+  *(*(x,y),z) -> *(x,*(y,z))
+  *(x,*(y,z)) -> *(*(x,y),z)
+  *(x,y) -> *(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,+(y,z)) -> +(+(x,y),z)
+         +(x,y) -> +(y,x)
+         *(*(x,y),z) -> *(x,*(y,z))
+         *(x,*(y,z)) -> *(*(x,y),z)
+         *(x,y) -> *(y,x)
+  
+   TRS S:E(+(x,y)) -> *(E(x),E(y))
+         E(0()) -> 1()
+         +(x,0()) -> x
+         +(0(),x) -> x
+         *(x,1()) -> x
+         *(1(),x) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  E(x) = *(E(x),E(0())), 0() = 0(), E(y) = *(E(0()),E(y)), 1() = 1()
+  
+   CP(S,P union P^-1) = 
+  +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), +(x,y) = +(+(x,y),0()), 
+  x = +(0(),x), y = +(0(),y), +(y,z) = +(0(),+(y,z)), +(y,z) = +(+(0(),y),z), 
+  +(x,z) = +(+(x,0()),z), y = +(y,0()), x = +(x,0()), *(x,y) = *(x,*(y,1())), 
+  *(x,z) = *(x,*(1(),z)), *(x,y) = *(*(x,y),1()), x = *(1(),x), y = *(1(),y), 
+  *(y,z) = *(1(),*(y,z)), *(y,z) = *(*(1(),y),z), *(x,z) = *(*(x,1()),z), 
+  y = *(y,1()), x = *(x,1())
+  
+  
+   CP_in(P union P^-1,S) = 
+  E(+(x963,+(x964,y))) = *(E(+(x963,x964)),E(y)), E(+(+(x,x967),x968)) = 
+  *(E(x),E(+(x967,x968))), E(+(y,x)) = *(E(x),E(y))
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [1] = 6,
+    
+    [E](x0) = 2x0,
+    
+    [0] = 3,
+    
+    [+](x0, x1) = x0 + 3x1 + 3,
+    
+    [*](x0, x1) = x0 + 3x1 + 2
+   orientation:
+    E(+(x,y)) = 2x + 6y + 6 >= 2x + 6y + 2 = *(E(x),E(y))
+    
+    E(0()) = 6 >= 6 = 1()
+    
+    +(x,0()) = x + 12 >= x = x
+    
+    +(0(),x) = 3x + 6 >= x = x
+    
+    *(x,1()) = x + 20 >= x = x
+    
+    *(1(),x) = 3x + 8 >= x = x
+   problem:
+    E(0()) -> 1()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [1] = 0,
+     
+     [E](x0) = x0 + 1,
+     
+     [0] = 4
+    orientation:
+     E(0()) = 5 >= 0 = 1()
+    problem:
+     
+    Qed
+

@@ -1,0 +1,39 @@
+YES
+
+Problem:
+ *(e(),x) -> x
+ *(-(x),x) -> e()
+ *(*(x,y),z) -> *(x,*(y,z))
+ *(-(x),*(x,y)) -> y
+ *(x,e()) -> x
+ -(e()) -> e()
+ -(-(x)) -> x
+ *(x,-(x)) -> e()
+ *(x,*(-(x),y)) -> y
+ -(*(x,y)) -> *(-(y),-(x))
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  *(e(),x) -> x
+  *(-(x),x) -> e()
+  *(*(x,y),z) -> *(x,*(y,z))
+  *(-(x),*(x,y)) -> y
+  *(x,e()) -> x
+  -(e()) -> e()
+  -(-(x)) -> x
+  *(x,-(x)) -> e()
+  *(x,*(-(x),y)) -> y
+  -(*(x,y)) -> *(-(y),-(x))
+  AC critical peaks: joinable
+  AC-KBO Processor:
+   precedence:
+    - > * ~ e
+    weight function:
+     w0 = 2
+     w(*) = 3
+     w(e) = 2
+     w(-) = 0
+    problem:
+     
+    Qed
+

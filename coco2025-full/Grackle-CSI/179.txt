@@ -1,0 +1,20 @@
+YES
+
+Problem:
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+ *(+(x,y),z) -> +(*(x,z),*(y,z))
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  *(f2_AC(x,y),z) -> f2_AC(*(x,z),*(y,z))
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    * > f2_AC
+   status:
+    *:lex  
+   problem:
+    
+   Qed
+

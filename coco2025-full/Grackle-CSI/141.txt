@@ -1,0 +1,20 @@
+YES
+
+Problem:
+ join(x,x) -> x
+ join(x,y) -> join(y,x)
+ join(join(x,y),z) -> join(x,join(y,z))
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f1_AC(x,x) -> x
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    f1_AC
+   status:
+    
+   problem:
+    
+   Qed
+

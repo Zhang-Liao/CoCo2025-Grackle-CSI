@@ -1,0 +1,79 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ *(x,0()) -> 0()
+ *(x,1()) -> x
+ *(x,x) -> x
+ *(+(x,y),z) -> +(*(x,z),*(y,z))
+ +(x,x) -> 0()
+ -(x) -> x
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,+(y,z)) -> +(+(x,y),z)
+ +(x,y) -> +(y,x)
+ *(*(x,y),z) -> *(x,*(y,z))
+ *(x,*(y,z)) -> *(*(x,y),z)
+ *(x,y) -> *(y,x)
+
+Proof:
+ sorted: (order-sorted)
+ 0:-(x) -> x
+ 1:+(x,0()) -> x
+   *(x,0()) -> 0()
+   *(x,1()) -> x
+   *(x,x) -> x
+   *(+(x,y),z) -> +(*(x,z),*(y,z))
+   +(x,x) -> 0()
+   +(+(x,y),z) -> +(x,+(y,z))
+   +(x,+(y,z)) -> +(+(x,y),z)
+   +(x,y) -> +(y,x)
+   *(*(x,y),z) -> *(x,*(y,z))
+   *(x,*(y,z)) -> *(*(x,y),z)
+   *(x,y) -> *(y,x)
+ -----
+ sorts
+   [1>2, 1>3]
+ sort attachment (strict)
+   + : 1 x 1 -> 1
+   0 : 3
+   * : 1 x 1 -> 1
+   1 : 2
+   - : 0 -> 0
+ -----
+ 0:-(x) -> x
+   Church Rosser Transformation Processor:
+    
+    critical peaks: joinable
+    Qed
+ 
+ 
+ 1:+(x,0()) -> x
+   *(x,0()) -> 0()
+   *(x,1()) -> x
+   *(x,x) -> x
+   *(+(x,y),z) -> +(*(x,z),*(y,z))
+   +(x,x) -> 0()
+   +(+(x,y),z) -> +(x,+(y,z))
+   +(x,+(y,z)) -> +(+(x,y),z)
+   +(x,y) -> +(y,x)
+   *(*(x,y),z) -> *(x,*(y,z))
+   *(x,*(y,z)) -> *(*(x,y),z)
+   *(x,y) -> *(y,x)
+   Church Rosser Transformation Processor (ac):
+    f5_AC(x,0()) -> x
+    f6_AC(x,0()) -> 0()
+    f6_AC(x,1()) -> x
+    f6_AC(x,x) -> x
+    f6_AC(f5_AC(x,y),z) -> f5_AC(f6_AC(x,z),f6_AC(y,z))
+    f5_AC(x,x) -> 0()
+    AC critical peaks: joinable
+    AC-RPO Processor:
+     precedence:
+      f6_AC > f5_AC > 1 > 0
+     status:
+      
+     problem:
+      
+     Qed
+ 
+

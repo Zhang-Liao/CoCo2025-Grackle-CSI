@@ -1,0 +1,11 @@
+NO
+
+Problem:
+ f(f(x,y),z) -> f(x,f(y,z))
+ f(i(x1),x1) -> e()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(e(),z) *<- f(f(i(y),y),z) ->* f(i(y),f(y,z))
+  Qed
+

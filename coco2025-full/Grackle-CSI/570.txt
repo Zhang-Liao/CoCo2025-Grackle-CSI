@@ -1,0 +1,13 @@
+NO
+
+Problem:
+ b() -> f(h(f(f(b())),c()))
+ h(h(c(),c()),b()) -> c()
+ h(f(a()),b()) -> b()
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(h(c(),c()),f(h(f(f(f(h(f(f(f(h(f(f(b())),c())))),c())))),c()))) *<- 
+  h(h(c(),c()),b()) ->* c()
+  Qed
+

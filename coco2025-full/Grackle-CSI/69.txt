@@ -1,0 +1,48 @@
+NO
+
+Problem:
+ F(x,C(x)) -> A()
+ F(x,x) -> B()
+ a() -> g(C(a()))
+ g(x) -> x
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 0
+  Redundant Rules Transformation:
+   F(x,C(x)) -> A()
+   F(x,x) -> B()
+   a() -> g(C(a()))
+   g(x) -> x
+   a() -> g(C(g(C(a()))))
+   a() -> C(a())
+   g(F(x,C(x))) -> A()
+   g(F(x,x)) -> B()
+   g(a()) -> g(C(a()))
+   g(g(x)) -> x
+   F(F(x,x),C(B())) -> A()
+   F(B(),C(F(x,x))) -> A()
+   F(a(),C(g(C(a())))) -> A()
+   F(g(C(a())),C(a())) -> A()
+   g(F(x16,C(x16))) -> A()
+   F(g(x),C(x)) -> A()
+   F(x16,g(C(x16))) -> A()
+   F(x,C(g(x))) -> A()
+   F(F(x,C(x)),A()) -> B()
+   F(A(),F(x,C(x))) -> B()
+   F(F(x,x),B()) -> B()
+   F(B(),F(x,x)) -> B()
+   F(a(),g(C(a()))) -> B()
+   F(g(C(a())),a()) -> B()
+   g(F(x17,x17)) -> B()
+   F(g(x),x) -> B()
+   F(x,g(x)) -> B()
+   g(g(x18)) -> x18
+   Nonconfluence Processor:
+    terms: B() *<- F(a(),C(g(C(a())))) ->* A()
+    Qed
+

@@ -1,0 +1,28 @@
+NO
+
+Problem:
+ b() -> a()
+ b() -> c()
+ c() -> c()
+ d() -> c()
+ d() -> e()
+ f(x,a()) -> A()
+ f(x,e()) -> A()
+ f(x,A()) -> A()
+ f(c(),x) -> A()
+
+Proof:
+ Nonconfluence Processor:
+  terms: e() *<- d() ->* c()
+  Qed
+  
+  first automaton:
+   final states: {2}
+   transitions:
+    e() -> 2*
+  
+  second automaton:
+   final states: {3}
+   transitions:
+    c() -> 3*
+

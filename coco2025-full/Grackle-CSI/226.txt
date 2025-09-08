@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ a(x) -> g(b(x))
+ a(x) -> c(x)
+ b(x) -> g(b(x))
+
+Proof:
+ Nonconfluence Processor:
+  terms: g(g(g(b(x)))) *<- a(x) ->* c(x)
+  Qed
+

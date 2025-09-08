@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ c() -> f(c(),c())
+ c() -> g(c(),c())
+ f(x,f(x,x)) -> c()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(g(c(),c()),g(c(),c())) *<- c() ->* g(g(g(c(),c()),c()),c())
+  Qed
+

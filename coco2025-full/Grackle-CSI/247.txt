@@ -1,0 +1,27 @@
+NO
+
+Problem:
+ c() -> f(c())
+ c() -> h(c())
+ f(x) -> f(f(x))
+ h(x) -> h(h(x))
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(c()) *<- c() ->* f(c())
+  Qed
+  
+  first automaton:
+   final states: {1}
+   transitions:
+    c() -> 2*
+    f(2) -> 2*
+    h(2) -> 2,1
+  
+  second automaton:
+   final states: {3}
+   transitions:
+    c() -> 4*
+    f(4) -> 4,3
+    h(4) -> 4*
+

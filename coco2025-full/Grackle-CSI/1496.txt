@@ -1,0 +1,13 @@
+NO
+
+Problem:
+ f(g(x)) -> g(f(f(x)))
+ f(h(x)) -> h(h(f(x)))
+ f(x) -> x
+ g(x) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(h(x26)) *<- f(h(x26)) ->* h(x26)
+  Qed
+

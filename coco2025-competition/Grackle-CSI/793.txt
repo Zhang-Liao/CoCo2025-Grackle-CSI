@@ -1,0 +1,135 @@
+YES
+
+Problem:
+ a(b(c(x))) -> c(c(c(b(b(b(a(a(a(x)))))))))
+ c(b(x)) -> a(a(a(x)))
+ a(x) -> x
+ b(x) -> x
+ c(x) -> x
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  a(b(c(x))) -> c(c(c(b(b(b(a(a(a(x)))))))))
+  c(b(x)) -> a(a(a(x)))
+  a(x) -> x
+  b(x) -> x
+  c(x) -> x
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:a(b(c(x))) -> c(c(c(b(b(b(a(a(a(x)))))))))
+         c(b(x)) -> a(a(a(x)))
+         a(x) -> x
+         b(x) -> x
+         c(x) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  c(c(c(b(b(b(a(a(a(x200))))))))) = b(c(x200)), a(b(a(a(a(x201))))) = 
+  c(c(c(b(b(b(a(a(a(b(x201)))))))))), a(a(a(x202))) = b(x202), b(c(x)) = 
+  c(c(c(b(b(b(a(a(a(x))))))))), a(c(x)) = c(c(c(b(b(b(a(a(a(x))))))))), 
+  c(x) = a(a(a(x))), a(b(x)) = c(c(c(b(b(b(a(a(a(x))))))))), b(x) = a(a(a(x)))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  String Reversal Processor:
+   c(b(a(x))) -> a(a(a(b(b(b(c(c(c(x)))))))))
+   b(c(x)) -> a(a(a(x)))
+   a(x) -> x
+   b(x) -> x
+   c(x) -> x
+   DP Processor:
+    DPs:
+     c#(b(a(x))) -> c#(x)
+     c#(b(a(x))) -> c#(c(x))
+     c#(b(a(x))) -> c#(c(c(x)))
+     c#(b(a(x))) -> b#(c(c(c(x))))
+     c#(b(a(x))) -> b#(b(c(c(c(x)))))
+     c#(b(a(x))) -> b#(b(b(c(c(c(x))))))
+     c#(b(a(x))) -> a#(b(b(b(c(c(c(x)))))))
+     c#(b(a(x))) -> a#(a(b(b(b(c(c(c(x))))))))
+     c#(b(a(x))) -> a#(a(a(b(b(b(c(c(c(x)))))))))
+     b#(c(x)) -> a#(x)
+     b#(c(x)) -> a#(a(x))
+     b#(c(x)) -> a#(a(a(x)))
+    TRS:
+     c(b(a(x))) -> a(a(a(b(b(b(c(c(c(x)))))))))
+     b(c(x)) -> a(a(a(x)))
+     a(x) -> x
+     b(x) -> x
+     c(x) -> x
+    SCC Processor:
+     #sccs: 1
+     #rules: 3
+     #arcs: 144/144
+     DPs:
+      c#(b(a(x))) -> c#(c(c(x)))
+      c#(b(a(x))) -> c#(x)
+      c#(b(a(x))) -> c#(c(x))
+     TRS:
+      c(b(a(x))) -> a(a(a(b(b(b(c(c(c(x)))))))))
+      b(c(x)) -> a(a(a(x)))
+      a(x) -> x
+      b(x) -> x
+      c(x) -> x
+     Arctic Interpretation Processor:
+      dimension: 2
+      usable rules:
+       c(b(a(x))) -> a(a(a(b(b(b(c(c(c(x)))))))))
+       b(c(x)) -> a(a(a(x)))
+       a(x) -> x
+       b(x) -> x
+       c(x) -> x
+      interpretation:
+                 [0  2 ]     [0]
+       [b](x0) = [-& 0 ]x0 + [0],
+       
+       [c#](x0) = [0 0]x0 + [0],
+       
+                 [0  -&]     [0]
+       [c](x0) = [0  0 ]x0 + [0],
+       
+                 [0 0]     [0]
+       [a](x0) = [0 0]x0 + [0]
+      orientation:
+       c#(b(a(x))) = [2 2]x + [2] >= [0 0]x + [0] = c#(c(c(x)))
+       
+       c#(b(a(x))) = [2 2]x + [2] >= [0 0]x + [0] = c#(x)
+       
+       c#(b(a(x))) = [2 2]x + [2] >= [0 0]x + [0] = c#(c(x))
+       
+                    [2 2]    [2]    [2 2]    [2]                               
+       c(b(a(x))) = [2 2]x + [2] >= [2 2]x + [2] = a(a(a(b(b(b(c(c(c(x)))))))))
+       
+                 [2 2]    [2]    [0 0]    [0]             
+       b(c(x)) = [0 0]x + [0] >= [0 0]x + [0] = a(a(a(x)))
+       
+              [0 0]    [0]         
+       a(x) = [0 0]x + [0] >= x = x
+       
+              [0  2 ]    [0]         
+       b(x) = [-& 0 ]x + [0] >= x = x
+       
+              [0  -&]    [0]         
+       c(x) = [0  0 ]x + [0] >= x = x
+      problem:
+       DPs:
+        
+       TRS:
+        c(b(a(x))) -> a(a(a(b(b(b(c(c(c(x)))))))))
+        b(c(x)) -> a(a(a(x)))
+        a(x) -> x
+        b(x) -> x
+        c(x) -> x
+      Qed
+

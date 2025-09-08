@@ -1,0 +1,66 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ sum(0()) -> 0()
+ sum(s(x)) -> +(s(x),sum(x))
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(x,y))
+  sum(0()) -> 0()
+  sum(s(x)) -> +(s(x),sum(x))
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,y) -> +(y,x)
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         +(0(),y) -> y
+         +(s(x),y) -> s(+(x,y))
+         sum(0()) -> 0()
+         sum(s(x)) -> +(s(x),sum(x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x) = s(+(x,0())), s(+(0(),x318)) = s(x318), s(+(s(x),x320)) = 
+  s(+(x,s(x320))), s(y) = s(+(0(),y)), s(+(x323,0())) = s(x323), s(+(x325,s(y))) = 
+  s(+(s(x325),y))
+  
+   CP(S,P union P^-1) = 
+  +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), x = +(0(),x), +(x,y) = 
+  +(+(x,y),0()), y = +(0(),y), s(+(+(x,y),x375)) = +(x,+(y,s(x375))), 
+  +(s(+(x,x377)),z) = +(x,+(s(x377),z)), s(+(x,x379)) = +(s(x379),x), 
+  +(x,s(+(y,x381))) = +(+(x,y),s(x381)), s(+(y,x383)) = +(s(x383),y), 
+  +(y,z) = +(0(),+(y,z)), y = +(y,0()), +(y,z) = +(+(0(),y),z), +(x,z) = 
+  +(+(x,0()),z), x = +(x,0()), +(s(+(x389,y)),z) = +(s(x389),+(y,z)), 
+  s(+(x391,y)) = +(y,s(x391)), s(+(x393,+(y,z))) = +(+(s(x393),y),z), 
+  +(x,s(+(x395,z))) = +(+(x,s(x395)),z), s(+(x397,x)) = +(x,s(x397))
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  LPO Processor:
+   precedence:
+    sum > + > s ~ 0
+   problem:
+    
+   Qed
+

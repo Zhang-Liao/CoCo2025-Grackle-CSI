@@ -1,0 +1,110 @@
+YES
+
+Problem:
+ f(x,x) -> a()
+ c() -> h(c(),g(c()))
+ h(g(x),g(x)) -> f(x,h(x,g(c())))
+
+Proof:
+ Church Rosser Transformation Processor (to relative problem):
+  strict:
+   f(x,x) -> a()
+   c() -> h(c(),g(c()))
+   h(g(x),g(x)) -> f(x,h(x,g(c())))
+  weak:
+   
+  original problem:
+   f(x,x) -> a()
+   c() -> h(c(),g(c()))
+   h(g(x),g(x)) -> f(x,h(x,g(c())))
+  critical peaks: 
+   Matrix Interpretation Processor: dim=2
+    
+    interpretation:
+                   [1 1]     [1 0]  
+     [h](x0, x1) = [0 0]x0 + [2 0]x1,
+     
+           [0]
+     [a] = [0],
+     
+               [1 1]     [0]
+     [g](x0) = [0 0]x0 + [2],
+     
+                          
+     [f](x0, x1) = x0 + x1,
+     
+           [0]
+     [c] = [0]
+    orientation:
+              [2 0]     [0]      
+     f(x,x) = [0 2]x >= [0] = a()
+     
+           [0]    [0]                
+     c() = [0] >= [0] = h(c(),g(c()))
+     
+                    [2 2]    [2]    [2 1]                    
+     h(g(x),g(x)) = [2 2]x + [0] >= [0 1]x = f(x,h(x,g(c())))
+    problem:
+     strict:
+      f(x,x) -> a()
+      c() -> h(c(),g(c()))
+     weak:
+      
+     original problem:
+      f(x,x) -> a()
+      c() -> h(c(),g(c()))
+      h(g(x),g(x)) -> f(x,h(x,g(c())))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [h](x0, x1) = 2x0 + x1,
+      
+      [a] = 0,
+      
+      [g](x0) = 4x0,
+      
+      [f](x0, x1) = 4x0 + x1 + 1,
+      
+      [c] = 0
+     orientation:
+      f(x,x) = 5x + 1 >= 0 = a()
+      
+      c() = 0 >= 0 = h(c(),g(c()))
+     problem:
+      strict:
+       c() -> h(c(),g(c()))
+      weak:
+       
+      original problem:
+       f(x,x) -> a()
+       c() -> h(c(),g(c()))
+       h(g(x),g(x)) -> f(x,h(x,g(c())))
+     KH confluence processor
+      Split input TRS into two TRSs S and T:
+      
+      TRS S:
+       c() -> h(c(),g(c()))
+      
+      TRS T:
+       f(x,x) -> a()
+       h(g(x),g(x)) -> f(x,h(x,g(c())))
+      
+      As established above, T/S is terminating.
+      T is strongly non-overlapping on S and S is strongly non-overlapping on T
+      
+      Please install theorem prover 'Prover9' and 'Mace4' for handling more TRSs.
+      
+       All S-critical pairs are joinable.
+      
+      We have to check confluence of S.
+      
+      Church Rosser Transformation Processor (no redundant rules):
+       strict:
+        c() -> h(c(),g(c()))
+       weak:
+        
+       critical peaks: 0
+       Closedness Processor (*feeble*):
+        
+        Qed
+

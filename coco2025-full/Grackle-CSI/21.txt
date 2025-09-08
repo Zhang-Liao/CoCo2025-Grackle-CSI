@@ -1,0 +1,27 @@
+NO
+
+Problem:
+ b() -> a()
+ b() -> c()
+ c() -> h(b())
+ c() -> d()
+ a() -> h(a())
+ d() -> h(d())
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(a()) *<- b() ->* d()
+  Qed
+  
+  first automaton:
+   final states: {4}
+   transitions:
+    h(5) -> 5,4
+    a() -> 5*
+  
+  second automaton:
+   final states: {1}
+   transitions:
+    h(1) -> 1*
+    d() -> 1*
+

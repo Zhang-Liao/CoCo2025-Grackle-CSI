@@ -1,0 +1,66 @@
+YES
+
+Problem:
+ Ap(Ap(Ap(S(),x),y),z) -> Ap(Ap(x,z),Ap(y,z))
+ Ap(Ap(K(),x),y) -> x
+ Ap(I(),x) -> x
+ B(true(),x,y) -> x
+ B(false(),x,y) -> y
+ B(z,x,x) -> x
+
+Proof:
+ sorted: (order-sorted)
+ 0:B(true(),x,y) -> x
+   B(false(),x,y) -> y
+   B(z,x,x) -> x
+ 1:Ap(Ap(Ap(S(),x),y),z) -> Ap(Ap(x,z),Ap(y,z))
+   Ap(Ap(K(),x),y) -> x
+   Ap(I(),x) -> x
+ -----
+ sorts
+   [0>1, 1>2, 1>3, 4>5, 4>6, 4>7]
+ sort attachment (strict)
+   Ap : 4 x 4 -> 4
+   S : 7
+   K : 6
+   I : 5
+   B : 1 x 0 x 0 -> 0
+   true : 3
+   false : 2
+ -----
+ 0:B(true(),x,y) -> x
+   B(false(),x,y) -> y
+   B(z,x,x) -> x
+   Church Rosser Transformation Processor (ac):
+    B(true(),x,y) -> x
+    B(false(),x,y) -> y
+    B(z,x,x) -> x
+    AC critical peaks: joinable
+    AC-RPO Processor:
+     precedence:
+      false > B > true
+     status:
+      B:lex  
+     problem:
+      
+     Qed
+ 
+ 
+ 1:Ap(Ap(Ap(S(),x),y),z) -> Ap(Ap(x,z),Ap(y,z))
+   Ap(Ap(K(),x),y) -> x
+   Ap(I(),x) -> x
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     Ap(Ap(Ap(S(),x),y),z) -> Ap(Ap(x,z),Ap(y,z))
+     Ap(Ap(K(),x),y) -> x
+     Ap(I(),x) -> x
+    original problem:
+     
+    critical peaks: 
+     Shift Processor (no label):
+      
+      Qed
+ 
+

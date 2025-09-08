@@ -1,0 +1,105 @@
+YES
+
+Problem:
+ f(g(h(x))) -> g(f(h(g(x))))
+ f(x) -> x
+ g(x) -> x
+ h(x) -> x
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(g(h(x))) -> g(f(h(g(x))))
+  f(x) -> x
+  g(x) -> x
+  h(x) -> x
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:f(g(h(x))) -> g(f(h(g(x))))
+         f(x) -> x
+         g(x) -> x
+         h(x) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  g(f(h(g(x53)))) = g(h(x53)), g(h(x)) = g(f(h(g(x)))), f(h(x)) = g(f(h(g(x)))), 
+  f(g(x)) = g(f(h(g(x))))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [g](x0) = x0,
+    
+    [h](x0) = x0,
+    
+    [f](x0) = 4x0 + 1
+   orientation:
+    f(g(h(x))) = 4x + 1 >= 4x + 1 = g(f(h(g(x))))
+    
+    f(x) = 4x + 1 >= x = x
+    
+    g(x) = x >= x = x
+    
+    h(x) = x >= x = x
+   problem:
+    f(g(h(x))) -> g(f(h(g(x))))
+    g(x) -> x
+    h(x) -> x
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [g](x0) = x0,
+     
+     [h](x0) = 2x0 + 4,
+     
+     [f](x0) = 4x0 + 1
+    orientation:
+     f(g(h(x))) = 8x + 17 >= 8x + 17 = g(f(h(g(x))))
+     
+     g(x) = x >= x = x
+     
+     h(x) = 2x + 4 >= x = x
+    problem:
+     f(g(h(x))) -> g(f(h(g(x))))
+     g(x) -> x
+    Matrix Interpretation Processor: dim=2
+     
+     interpretation:
+                [1 0]     [0]
+      [g](x0) = [0 2]x0 + [2],
+      
+                [2 0]  
+      [h](x0) = [0 0]x0,
+      
+                [2 2]     [1]
+      [f](x0) = [0 2]x0 + [2]
+     orientation:
+                   [4 0]    [5]    [4 0]    [1]                
+      f(g(h(x))) = [0 0]x + [6] >= [0 0]x + [6] = g(f(h(g(x))))
+      
+             [1 0]    [0]         
+      g(x) = [0 2]x + [2] >= x = x
+     problem:
+      g(x) -> x
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [g](x0) = x0 + 4
+      orientation:
+       g(x) = x + 4 >= x = x
+      problem:
+       
+      Qed
+

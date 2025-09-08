@@ -1,0 +1,20 @@
+NO
+
+Problem:
+ not(true()) -> false()
+ not(false()) -> true()
+ or(true(),y) -> true()
+ or(x,true()) -> true()
+ or(false(),false()) -> false()
+ and(true(),true()) -> true()
+ and(x,true()) -> x
+ and(true(),y) -> y
+ and(false(),false()) -> false()
+ not(and(x,y)) -> or(not(x),not(y))
+ not(or(x,y)) -> and(not(x),not(y))
+
+Proof:
+ Nonconfluence Processor:
+  terms: false() *<- not(or(true(),y)) ->* and(false(),not(y))
+  Qed
+

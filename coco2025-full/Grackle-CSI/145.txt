@@ -1,0 +1,47 @@
+YES
+
+Problem:
+ -(+(x,y)) -> +(-(x),-(y))
+ +(x,y) -> +(y,x)
+ +(+(x,y),z) -> +(x,+(y,z))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  -(+(x,y)) -> +(-(x),-(y))
+  +(x,y) -> +(y,x)
+  +(+(x,y),z) -> +(x,+(y,z))
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,y) -> +(y,x)
+         +(+(x,y),z) -> +(x,+(y,z))
+  
+   TRS S:-(+(x,y)) -> +(-(x),-(y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  -(+(y,x)) = +(-(x),-(y)), -(+(x77,+(x78,y))) = +(-(+(x77,x78)),-(y)), 
+  -(+(+(x,x83),x84)) = +(-(x),-(+(x83,x84)))
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [-](x0) = 6x0 + 1,
+    
+    [+](x0, x1) = 5x0 + 5x1 + 2
+   orientation:
+    -(+(x,y)) = 30x + 30y + 13 >= 30x + 30y + 12 = +(-(x),-(y))
+   problem:
+    
+   Qed
+

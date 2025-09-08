@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ f(c()) -> g(c())
+ g(c()) -> f(c())
+ c() -> d()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(d()) *<- f(c()) ->* g(d())
+  Qed
+

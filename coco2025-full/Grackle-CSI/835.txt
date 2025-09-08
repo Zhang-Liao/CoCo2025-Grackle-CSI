@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ a(x) -> b(x)
+ b(b(c(x))) -> c(a(c(a(a(x)))))
+ c(c(x)) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: b(b(x19)) *<- b(b(c(c(x19)))) ->* b(c(b(b(b(b(x19))))))
+  Qed
+

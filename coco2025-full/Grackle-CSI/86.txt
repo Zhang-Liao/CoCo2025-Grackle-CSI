@@ -1,0 +1,113 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ f(x) -> g(f(x))
+ h(x) -> p(h(x))
+ f(x) -> h(f(x))
+ g(x) -> p(p(h(x)))
+
+Proof:
+ Church Rosser Transformation Processor (no redundant rules):
+  strict:
+   
+  weak:
+   
+  critical peaks: 2
+   h(f(x)) <-1|[]- f(x) -3|[]-> g(f(x))
+   g(f(x)) <-3|[]- f(x) -1|[]-> h(f(x))
+  Redundant Rules Transformation:
+   g(x) -> p(p(h(x)))
+   f(x) -> h(f(x))
+   h(x) -> p(h(x))
+   f(x) -> g(f(x))
+   g(x) -> p(p(p(h(x))))
+   f(x) -> h(h(f(x)))
+   f(x) -> p(h(f(x)))
+   f(x) -> h(g(f(x)))
+   h(x) -> p(p(h(x)))
+   f(x) -> p(p(h(f(x))))
+   f(x) -> g(h(f(x)))
+   f(x) -> g(g(f(x)))
+   Church Rosser Transformation Processor (no redundant rules):
+    strict:
+     f(x) -> g(g(f(x)))
+     f(x) -> g(h(f(x)))
+     f(x) -> p(p(h(f(x))))
+     h(x) -> p(p(h(x)))
+     f(x) -> h(g(f(x)))
+     f(x) -> p(h(f(x)))
+     f(x) -> h(h(f(x)))
+     g(x) -> p(p(p(h(x))))
+     f(x) -> g(f(x))
+     h(x) -> p(h(x))
+     f(x) -> h(f(x))
+     g(x) -> p(p(h(x)))
+    weak:
+     
+    critical peaks: 60
+     g(g(f(x))) <-0|[]- f(x) -1|[]-> g(h(f(x)))
+     g(g(f(x))) <-0|[]- f(x) -2|[]-> p(p(h(f(x))))
+     g(g(f(x))) <-0|[]- f(x) -4|[]-> h(g(f(x)))
+     g(g(f(x))) <-0|[]- f(x) -5|[]-> p(h(f(x)))
+     g(g(f(x))) <-0|[]- f(x) -6|[]-> h(h(f(x)))
+     g(g(f(x))) <-0|[]- f(x) -8|[]-> g(f(x))
+     g(g(f(x))) <-0|[]- f(x) -10|[]-> h(f(x))
+     g(h(f(x))) <-1|[]- f(x) -0|[]-> g(g(f(x)))
+     g(h(f(x))) <-1|[]- f(x) -2|[]-> p(p(h(f(x))))
+     g(h(f(x))) <-1|[]- f(x) -4|[]-> h(g(f(x)))
+     g(h(f(x))) <-1|[]- f(x) -5|[]-> p(h(f(x)))
+     g(h(f(x))) <-1|[]- f(x) -6|[]-> h(h(f(x)))
+     g(h(f(x))) <-1|[]- f(x) -8|[]-> g(f(x))
+     g(h(f(x))) <-1|[]- f(x) -10|[]-> h(f(x))
+     p(p(h(f(x)))) <-2|[]- f(x) -0|[]-> g(g(f(x)))
+     p(p(h(f(x)))) <-2|[]- f(x) -1|[]-> g(h(f(x)))
+     p(p(h(f(x)))) <-2|[]- f(x) -4|[]-> h(g(f(x)))
+     p(p(h(f(x)))) <-2|[]- f(x) -5|[]-> p(h(f(x)))
+     p(p(h(f(x)))) <-2|[]- f(x) -6|[]-> h(h(f(x)))
+     p(p(h(f(x)))) <-2|[]- f(x) -8|[]-> g(f(x))
+     p(p(h(f(x)))) <-2|[]- f(x) -10|[]-> h(f(x))
+     p(p(h(x))) <-3|[]- h(x) -9|[]-> p(h(x))
+     h(g(f(x))) <-4|[]- f(x) -0|[]-> g(g(f(x)))
+     h(g(f(x))) <-4|[]- f(x) -1|[]-> g(h(f(x)))
+     h(g(f(x))) <-4|[]- f(x) -2|[]-> p(p(h(f(x))))
+     h(g(f(x))) <-4|[]- f(x) -5|[]-> p(h(f(x)))
+     h(g(f(x))) <-4|[]- f(x) -6|[]-> h(h(f(x)))
+     h(g(f(x))) <-4|[]- f(x) -8|[]-> g(f(x))
+     h(g(f(x))) <-4|[]- f(x) -10|[]-> h(f(x))
+     p(h(f(x))) <-5|[]- f(x) -0|[]-> g(g(f(x)))
+     p(h(f(x))) <-5|[]- f(x) -1|[]-> g(h(f(x)))
+     p(h(f(x))) <-5|[]- f(x) -2|[]-> p(p(h(f(x))))
+     p(h(f(x))) <-5|[]- f(x) -4|[]-> h(g(f(x)))
+     p(h(f(x))) <-5|[]- f(x) -6|[]-> h(h(f(x)))
+     p(h(f(x))) <-5|[]- f(x) -8|[]-> g(f(x))
+     p(h(f(x))) <-5|[]- f(x) -10|[]-> h(f(x))
+     h(h(f(x))) <-6|[]- f(x) -0|[]-> g(g(f(x)))
+     h(h(f(x))) <-6|[]- f(x) -1|[]-> g(h(f(x)))
+     h(h(f(x))) <-6|[]- f(x) -2|[]-> p(p(h(f(x))))
+     h(h(f(x))) <-6|[]- f(x) -4|[]-> h(g(f(x)))
+     h(h(f(x))) <-6|[]- f(x) -5|[]-> p(h(f(x)))
+     h(h(f(x))) <-6|[]- f(x) -8|[]-> g(f(x))
+     h(h(f(x))) <-6|[]- f(x) -10|[]-> h(f(x))
+     p(p(p(h(x)))) <-7|[]- g(x) -11|[]-> p(p(h(x)))
+     g(f(x)) <-8|[]- f(x) -0|[]-> g(g(f(x)))
+     g(f(x)) <-8|[]- f(x) -1|[]-> g(h(f(x)))
+     g(f(x)) <-8|[]- f(x) -2|[]-> p(p(h(f(x))))
+     g(f(x)) <-8|[]- f(x) -4|[]-> h(g(f(x)))
+     g(f(x)) <-8|[]- f(x) -5|[]-> p(h(f(x)))
+     g(f(x)) <-8|[]- f(x) -6|[]-> h(h(f(x)))
+     g(f(x)) <-8|[]- f(x) -10|[]-> h(f(x))
+     p(h(x)) <-9|[]- h(x) -3|[]-> p(p(h(x)))
+     h(f(x)) <-10|[]- f(x) -0|[]-> g(g(f(x)))
+     h(f(x)) <-10|[]- f(x) -1|[]-> g(h(f(x)))
+     h(f(x)) <-10|[]- f(x) -2|[]-> p(p(h(f(x))))
+     h(f(x)) <-10|[]- f(x) -4|[]-> h(g(f(x)))
+     h(f(x)) <-10|[]- f(x) -5|[]-> p(h(f(x)))
+     h(f(x)) <-10|[]- f(x) -6|[]-> h(h(f(x)))
+     h(f(x)) <-10|[]- f(x) -8|[]-> g(f(x))
+     p(p(h(x))) <-11|[]- g(x) -7|[]-> p(p(p(h(x))))
+    Closedness Processor (*development*):
+     
+     Qed
+

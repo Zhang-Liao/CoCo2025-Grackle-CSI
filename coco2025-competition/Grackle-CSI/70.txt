@@ -1,0 +1,147 @@
+YES
+
+Problem:
+ F(x,y) -> c(y)
+ G(x) -> x
+ f(x) -> g(x)
+ g(x) -> c(x)
+
+Proof:
+ sorted: (order-sorted)
+ 0:F(x,y) -> c(y)
+ 1:G(x) -> x
+ 2:f(x) -> g(x)
+   g(x) -> c(x)
+ -----
+ sorts
+   [0>4, 0>9, 1>8, 2>3, 3>4, 4>5, 5>6, 5>10, 6>7]
+ sort attachment (non-strict)
+   F : 9 x 10 -> 0
+   c : 5 -> 4
+   G : 8 -> 1
+   f : 7 -> 2
+   g : 6 -> 3
+ -----
+ 0:F(x,y) -> c(y)
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    F(x,y) -> c(y)
+    
+     T' = (P union S) with
+    
+     TRS P:
+    
+     TRS S:F(x,y) -> c(y)
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    
+     CP(S,P union P^-1) = 
+    
+    
+     PCP_in(P union P^-1,S) = 
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [c](x0) = 4x0,
+      
+      [F](x0, x1) = 2x0 + 4x1 + 2
+     orientation:
+      F(x,y) = 2x + 4y + 2 >= 4y = c(y)
+     problem:
+      
+     Qed
+ 
+ 
+ 1:G(x) -> x
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    G(x) -> x
+    
+     T' = (P union S) with
+    
+     TRS P:
+    
+     TRS S:G(x) -> x
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    
+     CP(S,P union P^-1) = 
+    
+    
+     PCP_in(P union P^-1,S) = 
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [G](x0) = x0 + 4
+     orientation:
+      G(x) = x + 4 >= x = x
+     problem:
+      
+     Qed
+ 
+ 
+ 2:f(x) -> g(x)
+   g(x) -> c(x)
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    f(x) -> g(x)
+    g(x) -> c(x)
+    
+     T' = (P union S) with
+    
+     TRS P:
+    
+     TRS S:f(x) -> g(x)
+           g(x) -> c(x)
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    
+     CP(S,P union P^-1) = 
+    
+    
+     PCP_in(P union P^-1,S) = 
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [g](x0) = 4x0 + 4,
+      
+      [c](x0) = 4x0,
+      
+      [f](x0) = 4x0 + 4
+     orientation:
+      f(x) = 4x + 4 >= 4x + 4 = g(x)
+      
+      g(x) = 4x + 4 >= 4x = c(x)
+     problem:
+      f(x) -> g(x)
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [g](x0) = 4x0,
+       
+       [f](x0) = 4x0 + 1
+      orientation:
+       f(x) = 4x + 1 >= 4x = g(x)
+      problem:
+       
+      Qed
+
+

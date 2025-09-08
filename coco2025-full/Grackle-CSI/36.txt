@@ -1,0 +1,32 @@
+YES
+
+Problem:
+ f(a()) -> f(f(a()))
+ a() -> b()
+ f(x) -> f(b())
+
+Proof:
+ Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+  strict:
+   
+  weak:
+   f(a()) -> f(f(a()))
+   a() -> b()
+   f(x) -> f(b())
+  original problem:
+   f(x7) -> f(b())
+  critical peaks: 
+   Shift Processor (no label):
+    f(x7) -> f(b())
+    Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+     strict:
+      
+     weak:
+      f(x7) -> f(b())
+     original problem:
+      
+     critical peaks: 
+      Shift Processor (no label):
+       
+       Qed
+

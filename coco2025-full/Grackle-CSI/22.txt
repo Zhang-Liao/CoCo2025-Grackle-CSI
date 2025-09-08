@@ -1,0 +1,45 @@
+YES
+
+Problem:
+ g(a()) -> f(g(a()))
+ g(b()) -> c(a())
+ a() -> b()
+ f(x) -> h(x)
+ h(x) -> c(b())
+
+Proof:
+ Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+  strict:
+   
+  weak:
+   g(a()) -> f(g(a()))
+   g(b()) -> c(a())
+   a() -> b()
+   f(x) -> h(x)
+   h(x) -> c(b())
+  original problem:
+   g(b()) -> c(a())
+   a() -> b()
+   f(x16) -> h(x16)
+   h(x18) -> c(b())
+  critical peaks: 
+   Shift Processor (no label):
+    g(b()) -> c(a())
+    a() -> b()
+    f(x16) -> h(x16)
+    h(x18) -> c(b())
+    Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+     strict:
+      
+     weak:
+      g(b()) -> c(a())
+      a() -> b()
+      f(x16) -> h(x16)
+      h(x18) -> c(b())
+     original problem:
+      
+     critical peaks: 
+      Shift Processor (no label):
+       
+       Qed
+

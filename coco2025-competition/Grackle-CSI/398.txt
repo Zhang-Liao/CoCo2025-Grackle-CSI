@@ -1,0 +1,26 @@
+YES
+
+Problem:
+ f(x,h(x)) -> f(h(x),x)
+ f(g(x),y()) -> f(g(y()),g(x))
+ f(x,y()) -> f(y(),x)
+ h(x) -> g(x)
+ g(x) -> x
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 4
+   f(g(y()),g(x46)) <-1|[]- f(g(x46),y()) -2|[]-> f(y(),g(x46))
+   f(y(),g(x)) <-2|[]- f(g(x),y()) -1|[]-> f(g(y()),g(x))
+   f(x,g(x)) <-3|1[]- f(x,h(x)) -0|[]-> f(h(x),x)
+   f(x,y()) <-4|0[]- f(g(x),y()) -1|[]-> f(g(y()),g(x))
+  Redundant Rules Transformation:
+   f(x,y()) -> f(y(),x)
+   h(x) -> g(x)
+   g(x) -> x
+   Qed (ToyamaOyamaguchi95Cor22)
+

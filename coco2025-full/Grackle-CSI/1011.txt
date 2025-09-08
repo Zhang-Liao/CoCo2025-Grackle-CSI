@@ -1,0 +1,24 @@
+NO
+
+Problem:
+ a(b(x)) -> b(c(x))
+ a(c(x)) -> c(a(x))
+ b(b(x)) -> a(c(x))
+ c(b(x)) -> b(c(x))
+ c(b(x)) -> c(c(x))
+ c(c(x)) -> c(b(x))
+ P(x) -> Q(Q(p(x)))
+ p(p(x)) -> q(q(x))
+ p(Q(Q(x))) -> Q(Q(p(x)))
+ Q(p(q(x))) -> q(p(Q(x)))
+ q(q(p(x))) -> p(q(q(x)))
+ q(Q(x)) -> x
+ Q(q(x)) -> x
+ p(P(x)) -> x
+ P(p(x)) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: c(a(a(x481))) *<- a(b(b(x481))) ->* b(c(a(x481)))
+  Qed
+

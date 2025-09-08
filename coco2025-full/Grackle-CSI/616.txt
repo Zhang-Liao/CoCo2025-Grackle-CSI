@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ c() -> a()
+ f(f(c())) -> c()
+ f(c()) -> a()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(f(a())) *<- f(f(c())) ->* a()
+  Qed
+

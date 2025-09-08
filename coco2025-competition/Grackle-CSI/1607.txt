@@ -1,0 +1,28 @@
+NO
+
+Problem:
+ a() -> b()
+ f(g(b()),b()) -> f(g(a()),a())
+ f(g(x),a()) -> f(g(a()),a())
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(g(f4()),b()) *<- f(g(f4()),a()) ->* f(g(a()),a())
+  Qed
+  
+  first automaton:
+   final states: {1}
+   transitions:
+    f(4,2) -> 1*
+    b() -> 2*
+    f4() -> 3*
+    g(3) -> 4*
+  
+  second automaton:
+   final states: {5}
+   transitions:
+    f(8,6) -> 5*
+    a() -> 7,6
+    b() -> 7,6
+    g(7) -> 8*
+

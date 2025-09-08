@@ -1,0 +1,11 @@
+NO
+
+Problem:
+ f(g(f(x))) -> x
+ f(g(x)) -> g(f(x))
+
+Proof:
+ Nonconfluence Processor:
+  terms: x12 *<- f(g(f(x12))) ->* g(f(f(x12)))
+  Qed
+

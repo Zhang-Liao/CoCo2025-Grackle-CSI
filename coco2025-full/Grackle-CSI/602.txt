@@ -1,0 +1,65 @@
+YES
+
+Problem:
+ c() -> b()
+ a() -> a()
+ b() -> b()
+ f(f(a())) -> c()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  c() -> b()
+  f(f(a())) -> c()
+  a() -> a()
+  b() -> b()
+  
+   T' = (P union S) with
+  
+   TRS P:a() -> a()
+         b() -> b()
+  
+   TRS S:c() -> b()
+         f(f(a())) -> c()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  f(f(a())) = c()
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [b] = 0,
+    
+    [f](x0) = x0,
+    
+    [c] = 0,
+    
+    [a] = 5
+   orientation:
+    c() = 0 >= 0 = b()
+    
+    f(f(a())) = 5 >= 0 = c()
+   problem:
+    c() -> b()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b] = 0,
+     
+     [c] = 1
+    orientation:
+     c() = 1 >= 0 = b()
+    problem:
+     
+    Qed
+

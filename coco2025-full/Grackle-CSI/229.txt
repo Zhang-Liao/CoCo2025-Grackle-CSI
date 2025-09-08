@@ -1,0 +1,27 @@
+NO
+
+Problem:
+ a(x) -> b(x)
+ a(x) -> c(c(x))
+ b(x) -> g(b(x))
+ c(x) -> c(x)
+
+Proof:
+ Nonconfluence Processor:
+  terms: g(b(f4())) *<- a(f4()) ->* c(c(f4()))
+  Qed
+  
+  first automaton:
+   final states: {6}
+   transitions:
+    g(8) -> 8,6
+    b(7) -> 8*
+    f4() -> 7*
+  
+  second automaton:
+   final states: {1}
+   transitions:
+    f4() -> 2*
+    c(2) -> 3*
+    c(3) -> 1*
+

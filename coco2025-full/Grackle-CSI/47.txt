@@ -1,0 +1,66 @@
+YES
+
+Problem:
+ H(F(x,y)) -> F(H(R(x)),y)
+ F(x,K(y,z)) -> G(P(y),Q(z,x))
+ H(Q(x,y)) -> Q(x,H(R(y)))
+ Q(x,H(R(y))) -> H(Q(x,y))
+ H(G(x,y)) -> G(x,H(y))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  H(F(x,y)) -> F(H(R(x)),y)
+  F(x,K(y,z)) -> G(P(y),Q(z,x))
+  H(G(x,y)) -> G(x,H(y))
+  H(Q(x,y)) -> Q(x,H(R(y)))
+  Q(x,H(R(y))) -> H(Q(x,y))
+  
+   T' = (P union S) with
+  
+   TRS P:H(Q(x,y)) -> Q(x,H(R(y)))
+         Q(x,H(R(y))) -> H(Q(x,y))
+  
+   TRS S:H(F(x,y)) -> F(H(R(x)),y)
+         F(x,K(y,z)) -> G(P(y),Q(z,x))
+         H(G(x,y)) -> G(x,H(y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  H(G(P(x209),Q(x210,x))) = F(H(R(x)),K(x209,x210))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [P](x0) = 4x0 + 1,
+    
+    [H](x0) = 4x0 + 1,
+    
+    [K](x0, x1) = 4x0 + 4x1 + 2,
+    
+    [Q](x0, x1) = x0 + x1,
+    
+    [F](x0, x1) = x0 + 4x1 + 7,
+    
+    [G](x0, x1) = 4x0 + x1 + 2,
+    
+    [R](x0) = x0 + 4
+   orientation:
+    H(F(x,y)) = 4x + 16y + 29 >= 4x + 4y + 24 = F(H(R(x)),y)
+    
+    F(x,K(y,z)) = x + 16y + 16z + 15 >= x + 16y + z + 6 = G(P(y),Q(z,x))
+    
+    H(G(x,y)) = 16x + 4y + 9 >= 4x + 4y + 3 = G(x,H(y))
+   problem:
+    
+   Qed
+

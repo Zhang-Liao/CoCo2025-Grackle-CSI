@@ -1,0 +1,73 @@
+YES
+
+Problem:
+ +(0(),y) -> y
+ +(x,0()) -> x
+ +(s(x),y) -> s(+(x,y))
+ +(x,s(y)) -> s(+(x,y))
+ +(x,+(y,z)) -> +(+(x,y),z)
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(0(),y) -> y
+  +(x,0()) -> x
+  +(s(x),y) -> s(+(x,y))
+  +(x,s(y)) -> s(+(x,y))
+  +(x,+(y,z)) -> +(+(x,y),z)
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,+(y,z)) -> +(+(x,y),z)
+         +(x,y) -> +(y,x)
+  
+   TRS S:+(0(),y) -> y
+         +(x,0()) -> x
+         +(s(x),y) -> s(+(x,y))
+         +(x,s(y)) -> s(+(x,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(y) = s(+(0(),y)), s(x) = s(+(x,0())), s(+(x221,0())) = 
+  s(x221), s(+(x223,s(y))) = s(+(s(x223),y)), s(+(0(),x226)) = s(x226), 
+  s(+(s(x),x228)) = s(+(x,s(x228)))
+  
+   CP(S,P union P^-1) = 
+  +(y,z) = +(+(0(),y),z), +(x,z) = +(+(x,0()),z), y = +(y,0()), +(y,z) = 
+  +(0(),+(y,z)), x = +(x,0()), +(x,y) = +(+(x,y),0()), x = +(0(),x), 
+  +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), y = +(0(),y), s(+(x275,+(y,z))) = 
+  +(+(s(x275),y),z), +(x,s(+(x277,z))) = +(+(x,s(x277)),z), s(+(x279,y)) = 
+  +(y,s(x279)), +(s(+(x281,y)),z) = +(s(x281),+(y,z)), s(+(x283,x)) = 
+  +(x,s(x283)), +(x,s(+(y,x286))) = +(+(x,y),s(x286)), s(+(x,x288)) = 
+  +(s(x288),x), s(+(+(x,y),x290)) = +(x,+(y,s(x290))), +(s(+(x,x292)),z) = 
+  +(x,+(s(x292),z)), s(+(y,x294)) = +(s(x294),y)
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 4x0 + 6x1 + 2,
+    
+    [0] = 0,
+    
+    [s](x0) = x0 + 3
+   orientation:
+    +(0(),y) = 6y + 2 >= y = y
+    
+    +(x,0()) = 4x + 2 >= x = x
+    
+    +(s(x),y) = 4x + 6y + 14 >= 4x + 6y + 5 = s(+(x,y))
+    
+    +(x,s(y)) = 4x + 6y + 20 >= 4x + 6y + 5 = s(+(x,y))
+   problem:
+    
+   Qed
+

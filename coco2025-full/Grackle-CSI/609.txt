@@ -1,0 +1,101 @@
+YES
+
+Problem:
+ a() -> a()
+ f(h(a(),a())) -> f(b())
+ c() -> b()
+
+Proof:
+ sorted: (order-sorted)
+ 0:a() -> a()
+   f(h(a(),a())) -> f(b())
+ 1:c() -> b()
+ -----
+ sorts
+   [0>2, 1>3, 2>3, 2>4, 4>5, 4>6, 5>7, 6>7]
+ sort attachment (non-strict)
+   a : 7
+   f : 2 -> 0
+   h : 6 x 5 -> 4
+   b : 3
+   c : 1
+ -----
+ 0:a() -> a()
+   f(h(a(),a())) -> f(b())
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    f(h(a(),a())) -> f(b())
+    a() -> a()
+    
+     T' = (P union S) with
+    
+     TRS P:a() -> a()
+    
+     TRS S:f(h(a(),a())) -> f(b())
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    
+     CP(S,P union P^-1) = 
+    
+    
+     CP_in(P union P^-1,S) = 
+    f(h(a(),a())) = f(b())
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [h](x0, x1) = x0 + x1 + 4,
+      
+      [b] = 1,
+      
+      [a] = 2,
+      
+      [f](x0) = x0 + 7
+     orientation:
+      f(h(a(),a())) = 15 >= 8 = f(b())
+     problem:
+      
+     Qed
+ 
+ 
+ 1:c() -> b()
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    c() -> b()
+    
+     T' = (P union S) with
+    
+     TRS P:
+    
+     TRS S:c() -> b()
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    
+     CP(S,P union P^-1) = 
+    
+    
+     PCP_in(P union P^-1,S) = 
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [c] = 1,
+      
+      [b] = 0
+     orientation:
+      c() = 1 >= 0 = b()
+     problem:
+      
+     Qed
+ 
+

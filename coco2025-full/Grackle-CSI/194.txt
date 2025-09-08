@@ -1,0 +1,63 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(y,x))
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(y,x))
+  +(0(),x) -> x
+  +(s(y),x) -> s(+(x,y))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,y) -> +(y,x)
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(y,x))
+         +(0(),x) -> x
+         +(s(y),x) -> s(+(x,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(y) = s(+(0(),y)), s(+(x209,0())) = s(x209), s(+(x211,s(y))) = 
+  s(+(s(x211),y)), s(y) = s(+(y,0())), s(+(0(),x214)) = s(x214), s(+(s(y),x216)) = 
+  s(+(y,s(x216)))
+  
+   CP(S,P union P^-1) = 
+  x = +(0(),x), y = +(0(),y), s(+(x233,x)) = +(s(x233),x), s(+(x235,y)) = 
+  +(s(x235),y), y = +(y,0()), x = +(x,0()), s(+(y,x238)) = +(y,s(x238)), 
+  s(+(x,x240)) = +(x,s(x240))
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 3x0 + 3x1 + 3,
+    
+    [0] = 4,
+    
+    [s](x0) = x0 + 7
+   orientation:
+    +(x,0()) = 3x + 15 >= x = x
+    
+    +(x,s(y)) = 3x + 3y + 24 >= 3x + 3y + 10 = s(+(y,x))
+    
+    +(0(),x) = 3x + 15 >= x = x
+    
+    +(s(y),x) = 3x + 3y + 24 >= 3x + 3y + 10 = s(+(x,y))
+   problem:
+    
+   Qed
+

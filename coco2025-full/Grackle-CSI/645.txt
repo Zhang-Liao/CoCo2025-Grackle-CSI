@@ -1,0 +1,44 @@
+YES
+
+Problem:
+ f(f(x)) -> f(g(f(x),f(x)))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(f(x)) -> f(g(f(x),f(x)))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:f(f(x)) -> f(g(f(x),f(x)))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(f(g(f(x6),f(x6)))) = f(g(f(f(x6)),f(f(x6))))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=2
+   
+   interpretation:
+                  [2 0]     [1 0]  
+    [g](x0, x1) = [0 0]x0 + [0 0]x1,
+    
+              [1 2]     [0]
+    [f](x0) = [1 2]x0 + [1]
+   orientation:
+              [3 6]    [2]    [3 6]    [0]                  
+    f(f(x)) = [3 6]x + [3] >= [3 6]x + [1] = f(g(f(x),f(x)))
+   problem:
+    
+   Qed
+

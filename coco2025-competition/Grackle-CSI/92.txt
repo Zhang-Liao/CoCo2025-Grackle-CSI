@@ -1,0 +1,55 @@
+YES
+
+Problem:
+ F(H(x),y) -> G(H(x))
+ H(I(x)) -> I(x)
+ F(I(x),y) -> G(I(x))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  F(H(x),y) -> G(H(x))
+  H(I(x)) -> I(x)
+  F(I(x),y) -> G(I(x))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:F(H(x),y) -> G(H(x))
+         H(I(x)) -> I(x)
+         F(I(x),y) -> G(I(x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  F(I(x63),y) = G(H(I(x63)))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [F](x0, x1) = 2x0 + 4x1 + 6,
+    
+    [I](x0) = x0 + 5,
+    
+    [H](x0) = x0 + 5,
+    
+    [G](x0) = 2x0 + 5
+   orientation:
+    F(H(x),y) = 2x + 4y + 16 >= 2x + 15 = G(H(x))
+    
+    H(I(x)) = x + 10 >= x + 5 = I(x)
+    
+    F(I(x),y) = 2x + 4y + 16 >= 2x + 15 = G(I(x))
+   problem:
+    
+   Qed
+

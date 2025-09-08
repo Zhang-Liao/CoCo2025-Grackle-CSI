@@ -1,0 +1,65 @@
+YES
+
+Problem:
+ -(0(),0()) -> 0()
+ -(s(x),0()) -> s(x)
+ -(x,s(y)) -> -(d(x),y)
+ d(s(x)) -> x
+ -(s(x),s(y)) -> -(x,y)
+ -(d(x),y) -> -(x,s(y))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  -(0(),0()) -> 0()
+  -(s(x),0()) -> s(x)
+  d(s(x)) -> x
+  -(s(x),s(y)) -> -(x,y)
+  -(x,s(y)) -> -(d(x),y)
+  -(d(x),y) -> -(x,s(y))
+  
+   T' = (P union S) with
+  
+   TRS P:-(x,s(y)) -> -(d(x),y)
+         -(d(x),y) -> -(x,s(y))
+  
+   TRS S:-(0(),0()) -> 0()
+         -(s(x),0()) -> s(x)
+         d(s(x)) -> x
+         -(s(x),s(y)) -> -(x,y)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  -(x200,y) = -(s(x200),s(y)), -(x201,y) = -(d(s(x201)),y)
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [-](x0, x1) = 2x0 + 2x1 + 1,
+    
+    [d](x0) = 2x0,
+    
+    [0] = 0,
+    
+    [s](x0) = x0 + 7
+   orientation:
+    -(0(),0()) = 1 >= 0 = 0()
+    
+    -(s(x),0()) = 2x + 15 >= x + 7 = s(x)
+    
+    d(s(x)) = 2x + 14 >= x = x
+    
+    -(s(x),s(y)) = 2x + 2y + 29 >= 2x + 2y + 1 = -(x,y)
+   problem:
+    
+   Qed
+

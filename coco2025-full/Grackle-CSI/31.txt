@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ f(g(x),h(x,y)) -> a()
+ g(b()) -> c()
+ h(x,d()) -> e()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(c(),h(b(),y)) *<- f(g(b()),h(b(),y)) ->* a()
+  Qed
+

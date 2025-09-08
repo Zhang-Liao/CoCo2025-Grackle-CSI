@@ -1,0 +1,55 @@
+YES
+
+Problem:
+ a() -> b()
+ f(a()) -> g(a())
+ f(b()) -> g(b())
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  a() -> b()
+  f(a()) -> g(a())
+  f(b()) -> g(b())
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:a() -> b()
+         f(a()) -> g(a())
+         f(b()) -> g(b())
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(b()) = g(a())
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [b] = 0,
+    
+    [g](x0) = 4x0,
+    
+    [a] = 1,
+    
+    [f](x0) = 4x0 + 7
+   orientation:
+    a() = 1 >= 0 = b()
+    
+    f(a()) = 11 >= 4 = g(a())
+    
+    f(b()) = 7 >= 0 = g(b())
+   problem:
+    
+   Qed
+

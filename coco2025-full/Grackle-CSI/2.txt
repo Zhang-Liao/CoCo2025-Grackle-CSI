@@ -1,0 +1,60 @@
+YES
+
+Problem:
+ f(x,y) -> f(g(x),g(x))
+ g(x) -> h(x)
+ F(g(x),x) -> F(x,g(x))
+ F(h(x),x) -> F(x,h(x))
+
+Proof:
+ sorted: (order-sorted)
+ 0:f(x,y) -> f(g(x),g(x))
+   g(x) -> h(x)
+ 1:g(x) -> h(x)
+   F(g(x),x) -> F(x,g(x))
+   F(h(x),x) -> F(x,h(x))
+ -----
+ sorts
+   [0>2, 1>3, 2>3]
+ sort attachment (strict)
+   f : 3 x 2 -> 0
+   g : 3 -> 3
+   h : 3 -> 3
+   F : 3 x 3 -> 1
+ -----
+ 0:f(x,y) -> f(g(x),g(x))
+   g(x) -> h(x)
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     f(x,y) -> f(g(x),g(x))
+     g(x) -> h(x)
+    original problem:
+     
+    critical peaks: 
+     Shift Processor (no label):
+      
+      Qed
+ 
+ 
+ 1:g(x) -> h(x)
+   F(g(x),x) -> F(x,g(x))
+   F(h(x),x) -> F(x,h(x))
+   Church Rosser Transformation Processor (ac):
+    g(x) -> h(x)
+    F(g(x),x) -> F(x,g(x))
+    F(h(x),x) -> F(x,h(x))
+    AC critical peaks: joinable
+    AC-KBO Processor:
+     precedence:
+      g > F ~ h
+      weight function:
+       w0 = 2
+       w(h) = w(g) = 2
+       w(F) = 0
+      problem:
+       
+      Qed
+ 
+

@@ -1,0 +1,34 @@
+NO
+
+Problem:
+ F(x,x) -> A()
+ F(x,G(x)) -> B()
+ C() -> G(C())
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 0
+  Redundant Rules Transformation:
+   F(x,x) -> A()
+   F(x,G(x)) -> B()
+   C() -> G(C())
+   C() -> G(G(C()))
+   F(F(x,x),A()) -> A()
+   F(A(),F(x,x)) -> A()
+   F(F(x,G(x)),B()) -> A()
+   F(B(),F(x,G(x))) -> A()
+   F(C(),G(C())) -> A()
+   F(G(C()),C()) -> A()
+   F(F(x,x),G(A())) -> B()
+   F(A(),G(F(x,x))) -> B()
+   F(C(),G(G(C()))) -> B()
+   F(C(),C()) -> B()
+   F(G(C()),G(C())) -> B()
+   Nonconfluence Processor:
+    terms: A() *<- F(C(),C()) ->* B()
+    Qed
+

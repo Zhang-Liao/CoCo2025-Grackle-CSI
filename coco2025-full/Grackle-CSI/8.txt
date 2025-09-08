@@ -1,0 +1,50 @@
+YES
+
+Problem:
+ +(s(x),y) -> s(+(x,y))
+ +(x,s(y)) -> s(+(x,y))
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(s(x),y) -> s(+(x,y))
+  +(x,s(y)) -> s(+(x,y))
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,y) -> +(y,x)
+  
+   TRS S:+(s(x),y) -> s(+(x,y))
+         +(x,s(y)) -> s(+(x,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  s(+(x78,s(y))) = s(+(s(x78),y)), s(+(s(x),x81)) = s(+(x,s(x81)))
+  
+   CP(S,P union P^-1) = 
+  s(+(x90,y)) = +(y,s(x90)), s(+(x92,x)) = +(x,s(x92)), s(+(x,x95)) = 
+  +(s(x95),x), s(+(y,x97)) = +(s(x97),y)
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 2x0 + 4x1 + 4,
+    
+    [s](x0) = x0 + 1
+   orientation:
+    +(s(x),y) = 2x + 4y + 6 >= 2x + 4y + 5 = s(+(x,y))
+    
+    +(x,s(y)) = 2x + 4y + 8 >= 2x + 4y + 5 = s(+(x,y))
+   problem:
+    
+   Qed
+

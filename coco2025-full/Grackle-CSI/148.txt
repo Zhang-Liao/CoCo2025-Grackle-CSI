@@ -1,0 +1,36 @@
+YES
+
+Problem:
+ f(0(),0()) -> f(0(),1())
+ f(1(),0()) -> f(0(),0())
+ f(x,y) -> f(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(0(),0()) -> f(0(),1())
+  f(1(),0()) -> f(0(),0())
+  f(x,y) -> f(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:f(0(),0()) -> f(0(),1())
+         f(1(),0()) -> f(0(),0())
+         f(x,y) -> f(y,x)
+  
+   TRS S:
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Qed
+

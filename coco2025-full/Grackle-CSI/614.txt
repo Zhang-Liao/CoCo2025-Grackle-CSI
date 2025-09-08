@@ -1,0 +1,13 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ a() -> c()
+ c() -> a()
+ c() -> h(a(),c())
+
+Proof:
+ Ground Confluence Processor:
+  confluent by decision procedure.
+

@@ -1,0 +1,51 @@
+YES
+
+Problem:
+ h(f(f(f(h(c(),h(b(),c()))))),h(f(f(b())),b())) -> f(h(b(),f(a())))
+ f(c()) -> b()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  h(f(f(f(h(c(),h(b(),c()))))),h(f(f(b())),b())) -> f(h(b(),f(a())))
+  f(c()) -> b()
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:h(f(f(f(h(c(),h(b(),c()))))),h(f(f(b())),b())) -> f(h(b(),f(a())))
+         f(c()) -> b()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [a] = 0,
+    
+    [b] = 0,
+    
+    [f](x0) = 2x0 + 1,
+    
+    [c] = 0,
+    
+    [h](x0, x1) = x0 + 4x1
+   orientation:
+    h(f(f(f(h(c(),h(b(),c()))))),h(f(f(b())),b())) = 19 >= 9 = f(h(b(),f(a())))
+    
+    f(c()) = 1 >= 0 = b()
+   problem:
+    
+   Qed
+

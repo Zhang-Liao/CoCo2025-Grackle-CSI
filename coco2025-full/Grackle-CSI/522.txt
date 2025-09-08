@@ -1,0 +1,14 @@
+NO
+
+Problem:
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ +(p(x),y) -> p(+(y,x))
+ p(s(x)) -> s(p(x))
+ s(p(x)) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: +(x72,y) *<- +(p(s(x72)),y) ->* p(+(y,s(x72)))
+  Qed
+

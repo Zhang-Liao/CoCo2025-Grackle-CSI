@@ -1,0 +1,108 @@
+YES
+
+Problem:
+ a(x) -> x
+ a(b(x)) -> c(b(b(a(a(x)))))
+ b(x) -> c(x)
+ c(c(x)) -> x
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  a(x) -> x
+  a(b(x)) -> c(b(b(a(a(x)))))
+  b(x) -> c(x)
+  c(c(x)) -> x
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:a(x) -> x
+         a(b(x)) -> c(b(b(a(a(x)))))
+         b(x) -> c(x)
+         c(c(x)) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  b(x) = c(b(b(a(a(x))))), c(b(b(a(a(x92))))) = b(x92), a(c(x)) = c(b(b(a(a(x))))), 
+  c(x94) = c(x94)
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  DP Processor:
+   DPs:
+    a#(b(x)) -> a#(x)
+    a#(b(x)) -> a#(a(x))
+    a#(b(x)) -> b#(a(a(x)))
+    a#(b(x)) -> b#(b(a(a(x))))
+    a#(b(x)) -> c#(b(b(a(a(x)))))
+    b#(x) -> c#(x)
+   TRS:
+    a(x) -> x
+    a(b(x)) -> c(b(b(a(a(x)))))
+    b(x) -> c(x)
+    c(c(x)) -> x
+   SCC Processor:
+    #sccs: 1
+    #rules: 2
+    #arcs: 36/36
+    DPs:
+     a#(b(x)) -> a#(a(x))
+     a#(b(x)) -> a#(x)
+    TRS:
+     a(x) -> x
+     a(b(x)) -> c(b(b(a(a(x)))))
+     b(x) -> c(x)
+     c(c(x)) -> x
+    Arctic Interpretation Processor:
+     dimension: 2
+     usable rules:
+      a(x) -> x
+      a(b(x)) -> c(b(b(a(a(x)))))
+      b(x) -> c(x)
+      c(c(x)) -> x
+     interpretation:
+                [0 0]     [0]
+      [b](x0) = [0 1]x0 + [1],
+      
+      [a#](x0) = [-& 0 ]x0 + [0],
+      
+                [0  1 ]     [0 ]
+      [a](x0) = [-& 0 ]x0 + [-&],
+      
+                [0  0 ]  
+      [c](x0) = [0  -&]x0
+     orientation:
+      a#(b(x)) = [0 1]x + [1] >= [-& 0 ]x + [0] = a#(a(x))
+      
+      a#(b(x)) = [0 1]x + [1] >= [-& 0 ]x + [0] = a#(x)
+      
+             [0  1 ]    [0 ]         
+      a(x) = [-& 0 ]x + [-&] >= x = x
+      
+                [1 2]    [2]    [1 2]    [2]                   
+      a(b(x)) = [0 1]x + [1] >= [0 1]x + [1] = c(b(b(a(a(x)))))
+      
+             [0 0]    [0]    [0  0 ]        
+      b(x) = [0 1]x + [1] >= [0  -&]x = c(x)
+      
+                [0 0]          
+      c(c(x)) = [0 0]x >= x = x
+     problem:
+      DPs:
+       
+      TRS:
+       a(x) -> x
+       a(b(x)) -> c(b(b(a(a(x)))))
+       b(x) -> c(x)
+       c(c(x)) -> x
+     Qed
+

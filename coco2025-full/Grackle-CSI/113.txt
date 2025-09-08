@@ -1,0 +1,1529 @@
+YES
+
+Problem:
+ a1() -> b1()
+ a1() -> c1()
+ b1() -> b2()
+ c1() -> c2()
+ a2() -> b2()
+ a2() -> c2()
+ b2() -> b3()
+ c2() -> c3()
+ a3() -> b3()
+ a3() -> c3()
+ b3() -> b4()
+ c3() -> c4()
+ a4() -> b4()
+ a4() -> c4()
+ b4() -> b5()
+ c4() -> c5()
+ a5() -> b5()
+ a5() -> c5()
+ b5() -> b6()
+ c5() -> c6()
+ a6() -> b6()
+ a6() -> c6()
+ b6() -> b7()
+ c6() -> c7()
+ a7() -> b7()
+ a7() -> c7()
+ b7() -> b8()
+ c7() -> c8()
+ a8() -> b8()
+ a8() -> c8()
+ b8() -> b9()
+ c8() -> c9()
+ a9() -> b9()
+ a9() -> c9()
+ b9() -> b10()
+ c9() -> c10()
+ a10() -> b11()
+ b10() -> b11()
+ c10() -> b11()
+
+Proof:
+ sorted: (order-sorted)
+ 0:a1() -> b1()
+   a1() -> c1()
+   b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 1:a2() -> b2()
+   a2() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 2:a3() -> b3()
+   a3() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 3:a4() -> b4()
+   a4() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 4:a5() -> b5()
+   a5() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 5:a6() -> b6()
+   a6() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 6:a7() -> b7()
+   a7() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 7:a8() -> b8()
+   a8() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 8:a9() -> b9()
+   a9() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+ 9:a10() -> b11()
+ -----
+ sorts
+   [0>1, 0>2, 1>5, 2>4, 3>4, 3>5, 4>7, 5>8, 6>7, 6>8, 7>10, 8>11, 9>10, 9>11, 10>13, 11>14, 12>13,
+    12>14, 13>16, 14>17, 15>16, 15>17, 16>19, 17>20, 18>19, 18>20, 19>22, 20>23, 21>22, 21>23,
+    22>25, 23>26, 24>25, 24>26, 25>28, 26>27, 27>30, 28>30, 29>30]
+ sort attachment (non-strict)
+   a1 : 0
+   b1 : 1
+   c1 : 2
+   b2 : 5
+   c2 : 4
+   a2 : 3
+   b3 : 8
+   c3 : 7
+   a3 : 6
+   b4 : 11
+   c4 : 10
+   a4 : 9
+   b5 : 14
+   c5 : 13
+   a5 : 12
+   b6 : 17
+   c6 : 16
+   a6 : 15
+   b7 : 20
+   c7 : 19
+   a7 : 18
+   b8 : 23
+   c8 : 22
+   a8 : 21
+   b9 : 26
+   c9 : 25
+   a9 : 24
+   b10 : 27
+   c10 : 28
+   a10 : 29
+   b11 : 30
+ -----
+ 0:a1() -> b1()
+   a1() -> c1()
+   b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     a1() -> b1()
+     a1() -> c1()
+     b1() -> b2()
+     c1() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> c7()
+     b7() -> b8()
+     c7() -> c8()
+     b8() -> b9()
+     c8() -> c9()
+     b9() -> b10()
+     c9() -> c10()
+     b10() -> b11()
+     c10() -> b11()
+    original problem:
+     b1() -> b2()
+     b2() -> b3()
+     b3() -> b4()
+     b4() -> b5()
+     b5() -> b6()
+     b6() -> b7()
+     b7() -> b8()
+     b8() -> b9()
+     b9() -> b10()
+     b10() -> b11()
+     c1() -> c2()
+     c2() -> c3()
+     c3() -> c4()
+     c4() -> c5()
+     c5() -> c6()
+     c6() -> c7()
+     c7() -> c8()
+     c8() -> c9()
+     c9() -> c10()
+     c10() -> b11()
+    critical peaks: 
+     Shift Processor (no label):
+      b1() -> b2()
+      b2() -> b3()
+      b3() -> b4()
+      b4() -> b5()
+      b5() -> b6()
+      b6() -> b7()
+      b7() -> b8()
+      b8() -> b9()
+      b9() -> b10()
+      b10() -> b11()
+      c1() -> c2()
+      c2() -> c3()
+      c3() -> c4()
+      c4() -> c5()
+      c5() -> c6()
+      c6() -> c7()
+      c7() -> c8()
+      c8() -> c9()
+      c9() -> c10()
+      c10() -> b11()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b1() -> b2()
+        b2() -> b3()
+        b3() -> b4()
+        b4() -> b5()
+        b5() -> b6()
+        b6() -> b7()
+        b7() -> b8()
+        b8() -> b9()
+        b9() -> b10()
+        b10() -> b11()
+        c1() -> c2()
+        c2() -> c3()
+        c3() -> c4()
+        c4() -> c5()
+        c5() -> c6()
+        c6() -> c7()
+        c7() -> c8()
+        c8() -> c9()
+        c9() -> c10()
+        c10() -> b11()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 1:a2() -> b2()
+   a2() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     a2() -> b2()
+     a2() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> c7()
+     b7() -> b8()
+     c7() -> c8()
+     b8() -> b9()
+     c8() -> c9()
+     b9() -> b10()
+     c9() -> c10()
+     b10() -> b11()
+     c10() -> b11()
+    original problem:
+     b2() -> b3()
+     b3() -> b4()
+     b4() -> b5()
+     b5() -> b6()
+     b6() -> b7()
+     b7() -> b8()
+     b8() -> b9()
+     b9() -> b10()
+     b10() -> b11()
+     c2() -> c3()
+     c3() -> c4()
+     c4() -> c5()
+     c5() -> c6()
+     c6() -> c7()
+     c7() -> c8()
+     c8() -> c9()
+     c9() -> c10()
+     c10() -> b11()
+    critical peaks: 
+     Shift Processor (no label):
+      b2() -> b3()
+      b3() -> b4()
+      b4() -> b5()
+      b5() -> b6()
+      b6() -> b7()
+      b7() -> b8()
+      b8() -> b9()
+      b9() -> b10()
+      b10() -> b11()
+      c2() -> c3()
+      c3() -> c4()
+      c4() -> c5()
+      c5() -> c6()
+      c6() -> c7()
+      c7() -> c8()
+      c8() -> c9()
+      c9() -> c10()
+      c10() -> b11()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b2() -> b3()
+        b3() -> b4()
+        b4() -> b5()
+        b5() -> b6()
+        b6() -> b7()
+        b7() -> b8()
+        b8() -> b9()
+        b9() -> b10()
+        b10() -> b11()
+        c2() -> c3()
+        c3() -> c4()
+        c4() -> c5()
+        c5() -> c6()
+        c6() -> c7()
+        c7() -> c8()
+        c8() -> c9()
+        c9() -> c10()
+        c10() -> b11()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 2:a3() -> b3()
+   a3() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     a3() -> b3()
+     a3() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> c7()
+     b7() -> b8()
+     c7() -> c8()
+     b8() -> b9()
+     c8() -> c9()
+     b9() -> b10()
+     c9() -> c10()
+     b10() -> b11()
+     c10() -> b11()
+    original problem:
+     b3() -> b4()
+     b4() -> b5()
+     b5() -> b6()
+     b6() -> b7()
+     b7() -> b8()
+     b8() -> b9()
+     b9() -> b10()
+     b10() -> b11()
+     c3() -> c4()
+     c4() -> c5()
+     c5() -> c6()
+     c6() -> c7()
+     c7() -> c8()
+     c8() -> c9()
+     c9() -> c10()
+     c10() -> b11()
+    critical peaks: 
+     Shift Processor (no label):
+      b3() -> b4()
+      b4() -> b5()
+      b5() -> b6()
+      b6() -> b7()
+      b7() -> b8()
+      b8() -> b9()
+      b9() -> b10()
+      b10() -> b11()
+      c3() -> c4()
+      c4() -> c5()
+      c5() -> c6()
+      c6() -> c7()
+      c7() -> c8()
+      c8() -> c9()
+      c9() -> c10()
+      c10() -> b11()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b3() -> b4()
+        b4() -> b5()
+        b5() -> b6()
+        b6() -> b7()
+        b7() -> b8()
+        b8() -> b9()
+        b9() -> b10()
+        b10() -> b11()
+        c3() -> c4()
+        c4() -> c5()
+        c5() -> c6()
+        c6() -> c7()
+        c7() -> c8()
+        c8() -> c9()
+        c9() -> c10()
+        c10() -> b11()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 3:a4() -> b4()
+   a4() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     a4() -> b4()
+     a4() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> c7()
+     b7() -> b8()
+     c7() -> c8()
+     b8() -> b9()
+     c8() -> c9()
+     b9() -> b10()
+     c9() -> c10()
+     b10() -> b11()
+     c10() -> b11()
+    original problem:
+     b4() -> b5()
+     b5() -> b6()
+     b6() -> b7()
+     b7() -> b8()
+     b8() -> b9()
+     b9() -> b10()
+     b10() -> b11()
+     c4() -> c5()
+     c5() -> c6()
+     c6() -> c7()
+     c7() -> c8()
+     c8() -> c9()
+     c9() -> c10()
+     c10() -> b11()
+    critical peaks: 
+     Shift Processor (no label):
+      b4() -> b5()
+      b5() -> b6()
+      b6() -> b7()
+      b7() -> b8()
+      b8() -> b9()
+      b9() -> b10()
+      b10() -> b11()
+      c4() -> c5()
+      c5() -> c6()
+      c6() -> c7()
+      c7() -> c8()
+      c8() -> c9()
+      c9() -> c10()
+      c10() -> b11()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b4() -> b5()
+        b5() -> b6()
+        b6() -> b7()
+        b7() -> b8()
+        b8() -> b9()
+        b9() -> b10()
+        b10() -> b11()
+        c4() -> c5()
+        c5() -> c6()
+        c6() -> c7()
+        c7() -> c8()
+        c8() -> c9()
+        c9() -> c10()
+        c10() -> b11()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 4:a5() -> b5()
+   a5() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     a5() -> b5()
+     a5() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> c7()
+     b7() -> b8()
+     c7() -> c8()
+     b8() -> b9()
+     c8() -> c9()
+     b9() -> b10()
+     c9() -> c10()
+     b10() -> b11()
+     c10() -> b11()
+    original problem:
+     b5() -> b6()
+     b6() -> b7()
+     b7() -> b8()
+     b8() -> b9()
+     b9() -> b10()
+     b10() -> b11()
+     c5() -> c6()
+     c6() -> c7()
+     c7() -> c8()
+     c8() -> c9()
+     c9() -> c10()
+     c10() -> b11()
+    critical peaks: 
+     Shift Processor (no label):
+      b5() -> b6()
+      b6() -> b7()
+      b7() -> b8()
+      b8() -> b9()
+      b9() -> b10()
+      b10() -> b11()
+      c5() -> c6()
+      c6() -> c7()
+      c7() -> c8()
+      c8() -> c9()
+      c9() -> c10()
+      c10() -> b11()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b5() -> b6()
+        b6() -> b7()
+        b7() -> b8()
+        b8() -> b9()
+        b9() -> b10()
+        b10() -> b11()
+        c5() -> c6()
+        c6() -> c7()
+        c7() -> c8()
+        c8() -> c9()
+        c9() -> c10()
+        c10() -> b11()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 5:a6() -> b6()
+   a6() -> c6()
+   b6() -> b7()
+   c6() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     a6() -> b6()
+     a6() -> c6()
+     b6() -> b7()
+     c6() -> c7()
+     b7() -> b8()
+     c7() -> c8()
+     b8() -> b9()
+     c8() -> c9()
+     b9() -> b10()
+     c9() -> c10()
+     b10() -> b11()
+     c10() -> b11()
+    original problem:
+     b6() -> b7()
+     b7() -> b8()
+     b8() -> b9()
+     b9() -> b10()
+     b10() -> b11()
+     c6() -> c7()
+     c7() -> c8()
+     c8() -> c9()
+     c9() -> c10()
+     c10() -> b11()
+    critical peaks: 
+     Shift Processor (no label):
+      b6() -> b7()
+      b7() -> b8()
+      b8() -> b9()
+      b9() -> b10()
+      b10() -> b11()
+      c6() -> c7()
+      c7() -> c8()
+      c8() -> c9()
+      c9() -> c10()
+      c10() -> b11()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b6() -> b7()
+        b7() -> b8()
+        b8() -> b9()
+        b9() -> b10()
+        b10() -> b11()
+        c6() -> c7()
+        c7() -> c8()
+        c8() -> c9()
+        c9() -> c10()
+        c10() -> b11()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 6:a7() -> b7()
+   a7() -> c7()
+   b7() -> b8()
+   c7() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    a7() -> b7()
+    a7() -> c7()
+    b7() -> b8()
+    c7() -> c8()
+    b8() -> b9()
+    c8() -> c9()
+    b9() -> b10()
+    c9() -> c10()
+    b10() -> b11()
+    c10() -> b11()
+    
+     T' = (P union S) with
+    
+     TRS P:
+    
+     TRS S:a7() -> b7()
+           a7() -> c7()
+           b7() -> b8()
+           c7() -> c8()
+           b8() -> b9()
+           c8() -> c9()
+           b9() -> b10()
+           c9() -> c10()
+           b10() -> b11()
+           c10() -> b11()
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    b7() = c7(), c7() = b7()
+    
+     CP(S,P union P^-1) = 
+    
+    
+     CP_in(P union P^-1,S) = 
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [b7] = 4,
+      
+      [b8] = 4,
+      
+      [c7] = 4,
+      
+      [b10] = 0,
+      
+      [c8] = 4,
+      
+      [c10] = 0,
+      
+      [a7] = 4,
+      
+      [c9] = 0,
+      
+      [b11] = 0,
+      
+      [b9] = 4
+     orientation:
+      a7() = 4 >= 4 = b7()
+      
+      a7() = 4 >= 4 = c7()
+      
+      b7() = 4 >= 4 = b8()
+      
+      c7() = 4 >= 4 = c8()
+      
+      b8() = 4 >= 4 = b9()
+      
+      c8() = 4 >= 0 = c9()
+      
+      b9() = 4 >= 0 = b10()
+      
+      c9() = 0 >= 0 = c10()
+      
+      b10() = 0 >= 0 = b11()
+      
+      c10() = 0 >= 0 = b11()
+     problem:
+      a7() -> b7()
+      a7() -> c7()
+      b7() -> b8()
+      c7() -> c8()
+      b8() -> b9()
+      c9() -> c10()
+      b10() -> b11()
+      c10() -> b11()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [b7] = 0,
+       
+       [b8] = 0,
+       
+       [c7] = 0,
+       
+       [b10] = 1,
+       
+       [c8] = 0,
+       
+       [c10] = 0,
+       
+       [a7] = 0,
+       
+       [c9] = 0,
+       
+       [b11] = 0,
+       
+       [b9] = 0
+      orientation:
+       a7() = 0 >= 0 = b7()
+       
+       a7() = 0 >= 0 = c7()
+       
+       b7() = 0 >= 0 = b8()
+       
+       c7() = 0 >= 0 = c8()
+       
+       b8() = 0 >= 0 = b9()
+       
+       c9() = 0 >= 0 = c10()
+       
+       b10() = 1 >= 0 = b11()
+       
+       c10() = 0 >= 0 = b11()
+      problem:
+       a7() -> b7()
+       a7() -> c7()
+       b7() -> b8()
+       c7() -> c8()
+       b8() -> b9()
+       c9() -> c10()
+       c10() -> b11()
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [b7] = 0,
+        
+        [b8] = 0,
+        
+        [c7] = 0,
+        
+        [c8] = 0,
+        
+        [c10] = 4,
+        
+        [a7] = 0,
+        
+        [c9] = 4,
+        
+        [b11] = 0,
+        
+        [b9] = 0
+       orientation:
+        a7() = 0 >= 0 = b7()
+        
+        a7() = 0 >= 0 = c7()
+        
+        b7() = 0 >= 0 = b8()
+        
+        c7() = 0 >= 0 = c8()
+        
+        b8() = 0 >= 0 = b9()
+        
+        c9() = 4 >= 4 = c10()
+        
+        c10() = 4 >= 0 = b11()
+       problem:
+        a7() -> b7()
+        a7() -> c7()
+        b7() -> b8()
+        c7() -> c8()
+        b8() -> b9()
+        c9() -> c10()
+       Matrix Interpretation Processor: dim=1
+        
+        interpretation:
+         [b7] = 0,
+         
+         [b8] = 0,
+         
+         [c7] = 0,
+         
+         [c8] = 0,
+         
+         [c10] = 0,
+         
+         [a7] = 0,
+         
+         [c9] = 1,
+         
+         [b9] = 0
+        orientation:
+         a7() = 0 >= 0 = b7()
+         
+         a7() = 0 >= 0 = c7()
+         
+         b7() = 0 >= 0 = b8()
+         
+         c7() = 0 >= 0 = c8()
+         
+         b8() = 0 >= 0 = b9()
+         
+         c9() = 1 >= 0 = c10()
+        problem:
+         a7() -> b7()
+         a7() -> c7()
+         b7() -> b8()
+         c7() -> c8()
+         b8() -> b9()
+        Matrix Interpretation Processor: dim=1
+         
+         interpretation:
+          [b7] = 4,
+          
+          [b8] = 0,
+          
+          [c7] = 4,
+          
+          [c8] = 4,
+          
+          [a7] = 4,
+          
+          [b9] = 0
+         orientation:
+          a7() = 4 >= 4 = b7()
+          
+          a7() = 4 >= 4 = c7()
+          
+          b7() = 4 >= 0 = b8()
+          
+          c7() = 4 >= 4 = c8()
+          
+          b8() = 0 >= 0 = b9()
+         problem:
+          a7() -> b7()
+          a7() -> c7()
+          c7() -> c8()
+          b8() -> b9()
+         Matrix Interpretation Processor: dim=1
+          
+          interpretation:
+           [b7] = 0,
+           
+           [b8] = 1,
+           
+           [c7] = 0,
+           
+           [c8] = 0,
+           
+           [a7] = 0,
+           
+           [b9] = 0
+          orientation:
+           a7() = 0 >= 0 = b7()
+           
+           a7() = 0 >= 0 = c7()
+           
+           c7() = 0 >= 0 = c8()
+           
+           b8() = 1 >= 0 = b9()
+          problem:
+           a7() -> b7()
+           a7() -> c7()
+           c7() -> c8()
+          Matrix Interpretation Processor: dim=1
+           
+           interpretation:
+            [b7] = 4,
+            
+            [c7] = 0,
+            
+            [c8] = 0,
+            
+            [a7] = 4
+           orientation:
+            a7() = 4 >= 4 = b7()
+            
+            a7() = 4 >= 0 = c7()
+            
+            c7() = 0 >= 0 = c8()
+           problem:
+            a7() -> b7()
+            c7() -> c8()
+           Matrix Interpretation Processor: dim=1
+            
+            interpretation:
+             [b7] = 0,
+             
+             [c7] = 1,
+             
+             [c8] = 0,
+             
+             [a7] = 0
+            orientation:
+             a7() = 0 >= 0 = b7()
+             
+             c7() = 1 >= 0 = c8()
+            problem:
+             a7() -> b7()
+            Matrix Interpretation Processor: dim=1
+             
+             interpretation:
+              [b7] = 0,
+              
+              [a7] = 1
+             orientation:
+              a7() = 1 >= 0 = b7()
+             problem:
+              
+             Qed
+
+
+7:a8() -> b8()
+  a8() -> c8()
+  b8() -> b9()
+  c8() -> c9()
+  b9() -> b10()
+  c9() -> c10()
+  b10() -> b11()
+  c10() -> b11()
+  AT confluence processor
+   Complete TRS T' of input TRS:
+   a8() -> b8()
+   a8() -> c8()
+   b8() -> b9()
+   c8() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   
+    T' = (P union S) with
+   
+    TRS P:
+   
+    TRS S:a8() -> b8()
+          a8() -> c8()
+          b8() -> b9()
+          c8() -> c9()
+          b9() -> b10()
+          c9() -> c10()
+          b10() -> b11()
+          c10() -> b11()
+   
+   S is left-linear and P is reversible.
+   
+    CP(S,S) = 
+   b8() = c8(), c8() = b8()
+   
+    CP(S,P union P^-1) = 
+   
+   
+    PCP_in(P union P^-1,S) = 
+   
+   
+   We have to check termination of S:
+   
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b8] = 4,
+     
+     [b10] = 0,
+     
+     [c8] = 4,
+     
+     [c10] = 0,
+     
+     [c9] = 4,
+     
+     [b11] = 0,
+     
+     [a8] = 4,
+     
+     [b9] = 4
+    orientation:
+     a8() = 4 >= 4 = b8()
+     
+     a8() = 4 >= 4 = c8()
+     
+     b8() = 4 >= 4 = b9()
+     
+     c8() = 4 >= 4 = c9()
+     
+     b9() = 4 >= 0 = b10()
+     
+     c9() = 4 >= 0 = c10()
+     
+     b10() = 0 >= 0 = b11()
+     
+     c10() = 0 >= 0 = b11()
+    problem:
+     a8() -> b8()
+     a8() -> c8()
+     b8() -> b9()
+     c8() -> c9()
+     b10() -> b11()
+     c10() -> b11()
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [b8] = 0,
+      
+      [b10] = 0,
+      
+      [c8] = 0,
+      
+      [c10] = 1,
+      
+      [c9] = 0,
+      
+      [b11] = 0,
+      
+      [a8] = 0,
+      
+      [b9] = 0
+     orientation:
+      a8() = 0 >= 0 = b8()
+      
+      a8() = 0 >= 0 = c8()
+      
+      b8() = 0 >= 0 = b9()
+      
+      c8() = 0 >= 0 = c9()
+      
+      b10() = 0 >= 0 = b11()
+      
+      c10() = 1 >= 0 = b11()
+     problem:
+      a8() -> b8()
+      a8() -> c8()
+      b8() -> b9()
+      c8() -> c9()
+      b10() -> b11()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [b8] = 0,
+       
+       [b10] = 1,
+       
+       [c8] = 0,
+       
+       [c9] = 0,
+       
+       [b11] = 0,
+       
+       [a8] = 0,
+       
+       [b9] = 0
+      orientation:
+       a8() = 0 >= 0 = b8()
+       
+       a8() = 0 >= 0 = c8()
+       
+       b8() = 0 >= 0 = b9()
+       
+       c8() = 0 >= 0 = c9()
+       
+       b10() = 1 >= 0 = b11()
+      problem:
+       a8() -> b8()
+       a8() -> c8()
+       b8() -> b9()
+       c8() -> c9()
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [b8] = 4,
+        
+        [c8] = 4,
+        
+        [c9] = 4,
+        
+        [a8] = 4,
+        
+        [b9] = 0
+       orientation:
+        a8() = 4 >= 4 = b8()
+        
+        a8() = 4 >= 4 = c8()
+        
+        b8() = 4 >= 0 = b9()
+        
+        c8() = 4 >= 4 = c9()
+       problem:
+        a8() -> b8()
+        a8() -> c8()
+        c8() -> c9()
+       Matrix Interpretation Processor: dim=1
+        
+        interpretation:
+         [b8] = 4,
+         
+         [c8] = 0,
+         
+         [c9] = 0,
+         
+         [a8] = 4
+        orientation:
+         a8() = 4 >= 4 = b8()
+         
+         a8() = 4 >= 0 = c8()
+         
+         c8() = 0 >= 0 = c9()
+        problem:
+         a8() -> b8()
+         c8() -> c9()
+        Matrix Interpretation Processor: dim=1
+         
+         interpretation:
+          [b8] = 0,
+          
+          [c8] = 1,
+          
+          [c9] = 0,
+          
+          [a8] = 0
+         orientation:
+          a8() = 0 >= 0 = b8()
+          
+          c8() = 1 >= 0 = c9()
+         problem:
+          a8() -> b8()
+         Matrix Interpretation Processor: dim=1
+          
+          interpretation:
+           [b8] = 0,
+           
+           [a8] = 1
+          orientation:
+           a8() = 1 >= 0 = b8()
+          problem:
+           
+          Qed
+
+
+8:a9() -> b9()
+  a9() -> c9()
+  b9() -> b10()
+  c9() -> c10()
+  b10() -> b11()
+  c10() -> b11()
+  AT confluence processor
+   Complete TRS T' of input TRS:
+   a9() -> b9()
+   a9() -> c9()
+   b9() -> b10()
+   c9() -> c10()
+   b10() -> b11()
+   c10() -> b11()
+   
+    T' = (P union S) with
+   
+    TRS P:
+   
+    TRS S:a9() -> b9()
+          a9() -> c9()
+          b9() -> b10()
+          c9() -> c10()
+          b10() -> b11()
+          c10() -> b11()
+   
+   S is left-linear and P is reversible.
+   
+    CP(S,S) = 
+   b9() = c9(), c9() = b9()
+   
+    CP(S,P union P^-1) = 
+   
+   
+    CP_in(P union P^-1,S) = 
+   
+   
+   We have to check termination of S:
+   
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [a9] = 4,
+     
+     [b10] = 4,
+     
+     [c10] = 0,
+     
+     [c9] = 4,
+     
+     [b11] = 0,
+     
+     [b9] = 4
+    orientation:
+     a9() = 4 >= 4 = b9()
+     
+     a9() = 4 >= 4 = c9()
+     
+     b9() = 4 >= 4 = b10()
+     
+     c9() = 4 >= 0 = c10()
+     
+     b10() = 4 >= 0 = b11()
+     
+     c10() = 0 >= 0 = b11()
+    problem:
+     a9() -> b9()
+     a9() -> c9()
+     b9() -> b10()
+     c10() -> b11()
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [a9] = 0,
+      
+      [b10] = 0,
+      
+      [c10] = 1,
+      
+      [c9] = 0,
+      
+      [b11] = 0,
+      
+      [b9] = 0
+     orientation:
+      a9() = 0 >= 0 = b9()
+      
+      a9() = 0 >= 0 = c9()
+      
+      b9() = 0 >= 0 = b10()
+      
+      c10() = 1 >= 0 = b11()
+     problem:
+      a9() -> b9()
+      a9() -> c9()
+      b9() -> b10()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [a9] = 4,
+       
+       [b10] = 0,
+       
+       [c9] = 4,
+       
+       [b9] = 4
+      orientation:
+       a9() = 4 >= 4 = b9()
+       
+       a9() = 4 >= 4 = c9()
+       
+       b9() = 4 >= 0 = b10()
+      problem:
+       a9() -> b9()
+       a9() -> c9()
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [a9] = 4,
+        
+        [c9] = 0,
+        
+        [b9] = 4
+       orientation:
+        a9() = 4 >= 4 = b9()
+        
+        a9() = 4 >= 0 = c9()
+       problem:
+        a9() -> b9()
+       Matrix Interpretation Processor: dim=1
+        
+        interpretation:
+         [a9] = 1,
+         
+         [b9] = 0
+        orientation:
+         a9() = 1 >= 0 = b9()
+        problem:
+         
+        Qed
+
+
+9:a10() -> b11()
+  AT confluence processor
+   Complete TRS T' of input TRS:
+   a10() -> b11()
+   
+    T' = (P union S) with
+   
+    TRS P:
+   
+    TRS S:a10() -> b11()
+   
+   S is left-linear and P is reversible.
+   
+    CP(S,S) = 
+   
+    CP(S,P union P^-1) = 
+   
+   
+    PCP_in(P union P^-1,S) = 
+   
+   
+   We have to check termination of S:
+   
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b11] = 0,
+     
+     [a10] = 1
+    orientation:
+     a10() = 1 >= 0 = b11()
+    problem:
+     
+    Qed
+
+
