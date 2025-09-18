@@ -1,0 +1,38 @@
+YES
+
+Problem:
+ +(0(),x) -> x
+ +(-(x),x) -> 0()
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+ -(0()) -> 0()
+ -(-(x)) -> x
+ -(+(x,y)) -> +(-(x),-(y))
+ *(1(),x) -> x
+ *(x,+(y,z)) -> +(*(x,y),*(x,z))
+ *(*(x,y),z) -> *(x,*(y,z))
+ *(x,y) -> *(y,x)
+ *(x,0()) -> 0()
+ *(x,-(y)) -> -(*(x,y))
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f5_AC(0(),x) -> x
+  f5_AC(-(x),x) -> 0()
+  -(0()) -> 0()
+  -(-(x)) -> x
+  -(f5_AC(x,y)) -> f5_AC(-(x),-(y))
+  f6_AC(1(),x) -> x
+  f6_AC(x,f5_AC(y,z)) -> f5_AC(f6_AC(x,y),f6_AC(x,z))
+  f6_AC(x,0()) -> 0()
+  f6_AC(x,-(y)) -> -(f6_AC(x,y))
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    f6_AC > - > 0 > 1 > f5_AC
+   status:
+    
+   problem:
+    
+   Qed
+

@@ -1,0 +1,145 @@
+YES
+
+Problem:
+ a(c(x)) -> a(a(x))
+ b(c(x)) -> c(b(x))
+ a(c(x)) -> a(b(x))
+ b(c(x)) -> a(c(x))
+ c(b(x)) -> b(c(x))
+ a(b(x)) -> b(a(x))
+ a(b(x)) -> c(a(x))
+ a(a(x)) -> a(c(x))
+ c(a(x)) -> a(b(x))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  a(c(x)) -> a(b(x))
+  b(c(x)) -> a(c(x))
+  a(b(x)) -> b(a(x))
+  a(a(x)) -> b(a(x))
+  c(b(x)) -> b(a(x))
+  c(a(x)) -> b(a(x))
+  a(c(x)) -> a(a(x))
+  b(c(x)) -> c(b(x))
+  c(b(x)) -> b(c(x))
+  a(b(x)) -> c(a(x))
+  a(a(x)) -> a(c(x))
+  c(a(x)) -> a(b(x))
+  
+   T' = (P union S) with
+  
+   TRS P:a(c(x)) -> a(a(x))
+         b(c(x)) -> c(b(x))
+         c(b(x)) -> b(c(x))
+         a(b(x)) -> c(a(x))
+         a(a(x)) -> a(c(x))
+         c(a(x)) -> a(b(x))
+  
+   TRS S:a(c(x)) -> a(b(x))
+         b(c(x)) -> a(c(x))
+         a(b(x)) -> b(a(x))
+         a(a(x)) -> b(a(x))
+         c(b(x)) -> b(a(x))
+         c(a(x)) -> b(a(x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  a(a(b(x605))) = b(a(c(x605))), c(a(b(x606))) = b(a(c(x606))), a(a(c(x607))) = 
+  b(a(c(x607))), c(a(c(x608))) = b(a(c(x608))), a(b(a(x609))) = b(a(b(x609))), 
+  c(b(a(x610))) = b(a(b(x610))), a(b(a(x611))) = b(a(a(x611))), c(b(a(x612))) = 
+  b(a(a(x612))), a(b(a(x613))) = a(b(b(x613))), b(b(a(x614))) = a(c(b(x614))), 
+  a(b(a(x615))) = a(b(a(x615))), b(b(a(x616))) = a(c(a(x616)))
+  
+   CP(S,P union P^-1) = 
+  a(b(x)) = a(a(x)), a(a(b(x690))) = a(c(c(x690))), c(a(b(x691))) = a(b(c(x691))), 
+  a(c(x)) = c(b(x)), c(a(c(x693))) = b(c(c(x693))), a(a(c(x694))) = c(a(c(x694))), 
+  b(a(x)) = c(a(x)), a(b(a(x696))) = a(c(b(x696))), c(b(a(x697))) = a(b(b(x697))), 
+  b(a(x)) = a(c(x)), a(b(a(x699))) = a(c(a(x699))), c(b(a(x700))) = a(b(a(x700))), 
+  a(b(a(x701))) = a(a(b(x701))), b(b(a(x702))) = c(b(b(x702))), b(a(x)) = 
+  b(c(x)), a(b(a(x704))) = a(a(a(x704))), b(b(a(x705))) = c(b(a(x705))), 
+  b(a(x)) = a(b(x))
+  
+  
+   CP_in(P union P^-1,S) = 
+  a(a(a(x743))) = b(a(c(x743))), c(a(a(x744))) = b(a(c(x744))), a(c(b(x745))) = 
+  b(a(c(x745))), c(c(b(x746))) = b(a(c(x746))), a(b(c(x747))) = a(b(b(x747))), 
+  b(b(c(x748))) = a(c(b(x748))), a(c(a(x749))) = b(a(b(x749))), c(c(a(x750))) = 
+  b(a(b(x750))), a(a(c(x751))) = b(a(a(x751))), c(a(c(x752))) = b(a(a(x752))), 
+  a(a(b(x753))) = a(b(a(x753))), b(a(b(x754))) = a(c(a(x754)))
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [a](x0) = x0,
+    
+    [c](x0) = 4x0 + 2,
+    
+    [b](x0) = x0
+   orientation:
+    a(c(x)) = 4x + 2 >= x = a(b(x))
+    
+    b(c(x)) = 4x + 2 >= 4x + 2 = a(c(x))
+    
+    a(b(x)) = x >= x = b(a(x))
+    
+    a(a(x)) = x >= x = b(a(x))
+    
+    c(b(x)) = 4x + 2 >= x = b(a(x))
+    
+    c(a(x)) = 4x + 2 >= x = b(a(x))
+   problem:
+    b(c(x)) -> a(c(x))
+    a(b(x)) -> b(a(x))
+    a(a(x)) -> b(a(x))
+   Matrix Interpretation Processor: dim=2
+    
+    interpretation:
+               [2 0]  
+     [a](x0) = [0 0]x0,
+     
+               [1 2]     [2]
+     [c](x0) = [2 1]x0 + [1],
+     
+               [1 3]  
+     [b](x0) = [0 0]x0
+    orientation:
+               [7 5]    [5]    [2 4]    [4]          
+     b(c(x)) = [0 0]x + [0] >= [0 0]x + [0] = a(c(x))
+     
+               [2 6]     [2 0]           
+     a(b(x)) = [0 0]x >= [0 0]x = b(a(x))
+     
+               [4 0]     [2 0]           
+     a(a(x)) = [0 0]x >= [0 0]x = b(a(x))
+    problem:
+     a(b(x)) -> b(a(x))
+     a(a(x)) -> b(a(x))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [a](x0) = 4x0 + 6,
+      
+      [b](x0) = 3x0 + 4
+     orientation:
+      a(b(x)) = 12x + 22 >= 12x + 22 = b(a(x))
+      
+      a(a(x)) = 16x + 30 >= 12x + 22 = b(a(x))
+     problem:
+      a(b(x)) -> b(a(x))
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [a](x0) = 3x0 + 1,
+       
+       [b](x0) = 4x0 + 3
+      orientation:
+       a(b(x)) = 12x + 10 >= 12x + 7 = b(a(x))
+      problem:
+       
+      Qed
+

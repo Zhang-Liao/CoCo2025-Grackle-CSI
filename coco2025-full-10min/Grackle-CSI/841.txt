@@ -1,0 +1,14 @@
+NO
+
+Problem:
+ a(a(x)) -> b(x)
+ b(a(x)) -> a(b(x))
+ b(b(c(x))) -> c(a(x))
+ b(b(x)) -> a(a(a(x)))
+ c(a(x)) -> b(a(c(x)))
+
+Proof:
+ Nonconfluence Processor:
+  terms: c(b(x58)) *<- c(a(a(x58))) ->* a(b(c(x58)))
+  Qed
+

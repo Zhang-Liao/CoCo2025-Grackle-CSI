@@ -1,0 +1,32 @@
+YES
+
+Problem:
+ -(+(x(),-(x()))) -> 0()
+ +(x(),-(x())) -> 0()
+ 0() -> -(0())
+
+Proof:
+ Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+  strict:
+   
+  weak:
+   -(+(x(),-(x()))) -> 0()
+   +(x(),-(x())) -> 0()
+   0() -> -(0())
+  original problem:
+   0() -> -(0())
+  critical peaks: 
+   Shift Processor (no label):
+    0() -> -(0())
+    Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+     strict:
+      
+     weak:
+      0() -> -(0())
+     original problem:
+      
+     critical peaks: 
+      Shift Processor (no label):
+       
+       Qed
+

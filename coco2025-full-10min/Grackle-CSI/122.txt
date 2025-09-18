@@ -1,0 +1,81 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+ s(s(x)) -> s(x)
+ s(x) -> s(s(x))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(x,y))
+  +(+(x,y),z) -> +(x,+(y,z))
+  +(x,y) -> +(y,x)
+  s(s(x)) -> s(x)
+  s(x) -> s(s(x))
+  
+   T' = (P union S) with
+  
+   TRS P:+(+(x,y),z) -> +(x,+(y,z))
+         +(x,y) -> +(y,x)
+         s(s(x)) -> s(x)
+         s(x) -> s(s(x))
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         +(0(),y) -> y
+         +(s(x),y) -> s(+(x,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x) = s(+(x,0())), s(+(0(),x364)) = s(x364), s(+(s(x),x366)) = 
+  s(+(x,s(x366))), s(y) = s(+(0(),y)), s(+(x369,0())) = s(x369), s(+(x371,s(y))) = 
+  s(+(s(x371),y))
+  
+   CP(S,P union P^-1) = 
+  +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), x = +(0(),x), +(x,y) = 
+  +(+(x,y),0()), y = +(0(),y), s(+(+(x,y),x433)) = +(x,+(y,s(x433))), 
+  +(s(+(x,x435)),z) = +(x,+(s(x435),z)), s(+(x,x437)) = +(s(x437),x), 
+  +(x,s(+(y,x439))) = +(+(x,y),s(x439)), s(+(y,x441)) = +(s(x441),y), 
+  +(y,z) = +(0(),+(y,z)), y = +(y,0()), +(y,z) = +(+(0(),y),z), +(x,z) = 
+  +(+(x,0()),z), x = +(x,0()), +(s(+(x447,y)),z) = +(s(x447),+(y,z)), 
+  s(+(x449,y)) = +(y,s(x449)), s(+(x451,+(y,z))) = +(+(s(x451),y),z), 
+  +(x,s(+(x453,z))) = +(+(x,s(x453)),z), s(+(x455,x)) = +(x,s(x455))
+  
+  
+   CP_in(P union P^-1,S) = 
+  +(x,s(x505)) = s(+(x,s(x505))), +(s(x506),y) = s(+(s(x506),y)), +(x,s(s(y))) = 
+  s(+(x,y)), +(s(s(x)),y) = s(+(x,y))
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 5x0 + 2x1,
+    
+    [0] = 5,
+    
+    [s](x0) = x0 + 6
+   orientation:
+    +(x,0()) = 5x + 10 >= x = x
+    
+    +(x,s(y)) = 5x + 2y + 12 >= 5x + 2y + 6 = s(+(x,y))
+    
+    +(0(),y) = 2y + 25 >= y = y
+    
+    +(s(x),y) = 5x + 2y + 30 >= 5x + 2y + 6 = s(+(x,y))
+   problem:
+    
+   Qed
+

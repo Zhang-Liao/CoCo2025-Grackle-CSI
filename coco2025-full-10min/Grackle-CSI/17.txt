@@ -1,0 +1,48 @@
+YES
+
+Problem:
+ g(x,x,y) -> y
+ g(x,y,y) -> x
+ f(x,y,x,y,z) -> f(a(),b(),z,z,z)
+ a() -> 0()
+ b() -> 0()
+
+Proof:
+ sorted: (order-sorted)
+ 0:f(x,y,x,y,z) -> f(a(),b(),z,z,z)
+   a() -> 0()
+   b() -> 0()
+ 1:g(x,x,y) -> y
+   g(x,y,y) -> x
+ -----
+ sorts
+   [0>2, 2>3, 2>4, 3>5, 4>5]
+ sort attachment (strict)
+   g : 1 x 1 x 1 -> 1
+   f : 2 x 2 x 2 x 2 x 2 -> 0
+   a : 3
+   b : 4
+   0 : 5
+ -----
+ 0:f(x,y,x,y,z) -> f(a(),b(),z,z,z)
+   a() -> 0()
+   b() -> 0()
+   Qed (SakaiOyamaguchiOgawa14)
+ 
+ 
+ 1:g(x,x,y) -> y
+   g(x,y,y) -> x
+   Church Rosser Transformation Processor (ac):
+    g(x,x,y) -> y
+    g(x,y,y) -> x
+    AC critical peaks: joinable
+    AC-RPO Processor:
+     precedence:
+      g
+     status:
+      g:lex  
+     problem:
+      
+     Qed
+ 
+

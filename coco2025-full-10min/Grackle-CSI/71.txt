@@ -1,0 +1,53 @@
+YES
+
+Problem:
+ F(c(x)) -> G(x)
+ G(x) -> F(x)
+ c(x) -> x
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  F(c(x)) -> G(x)
+  G(x) -> F(x)
+  c(x) -> x
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:F(c(x)) -> G(x)
+         G(x) -> F(x)
+         c(x) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  F(x) = G(x)
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [F](x0) = 6x0,
+    
+    [c](x0) = 2x0 + 5,
+    
+    [G](x0) = 6x0 + 1
+   orientation:
+    F(c(x)) = 12x + 30 >= 6x + 1 = G(x)
+    
+    G(x) = 6x + 1 >= 6x = F(x)
+    
+    c(x) = 2x + 5 >= x = x
+   problem:
+    
+   Qed
+

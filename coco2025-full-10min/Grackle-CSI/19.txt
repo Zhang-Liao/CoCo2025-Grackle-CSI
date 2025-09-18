@@ -1,0 +1,64 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ g(a()) -> f(g(a()))
+ g(b()) -> c()
+ a() -> b()
+ f(x) -> h(x,x)
+ h(x,y) -> c()
+
+Proof:
+ Church Rosser Transformation Processor (critical pair closing system, Thm 2.11):
+  g(b()) -> c()
+  f(x24) -> h(x24,x24)
+  h(x28,x26) -> c()
+  critical peaks: joinable
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [c] = 0,
+    
+    [g](x0) = 4x0 + 1/2,
+    
+    [b] = 0,
+    
+    [h](x0, x1) = 2x0 + x1,
+    
+    [f](x0) = 3x0
+   orientation:
+    g(b()) = 1/2 >= 0 = c()
+    
+    f(x24) = 3x24 >= 3x24 = h(x24,x24)
+    
+    h(x28,x26) = x26 + 2x28 >= 0 = c()
+   problem:
+    f(x24) -> h(x24,x24)
+    h(x28,x26) -> c()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [c] = 0,
+     
+     [h](x0, x1) = 3/2x0 + 4x1,
+     
+     [f](x0) = 11/2x0 + 4
+    orientation:
+     f(x24) = 11/2x24 + 4 >= 11/2x24 = h(x24,x24)
+     
+     h(x28,x26) = 4x26 + 3/2x28 >= 0 = c()
+    problem:
+     h(x28,x26) -> c()
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [c] = 0,
+      
+      [h](x0, x1) = 4x0 + 4x1 + 4
+     orientation:
+      h(x28,x26) = 4x26 + 4x28 + 4 >= 0 = c()
+     problem:
+      
+     Qed
+

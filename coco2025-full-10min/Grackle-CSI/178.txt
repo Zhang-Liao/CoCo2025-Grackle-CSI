@@ -1,0 +1,32 @@
+YES
+
+Problem:
+ +(0(),x) -> x
+ +(x,0()) -> x
+ +(1(),-(1())) -> 0()
+ +(-(1()),1()) -> 0()
+ -(0()) -> 0()
+ -(-(x)) -> x
+ -(+(x,y)) -> +(-(x),-(y))
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f4_AC(0(),x) -> x
+  f4_AC(x,0()) -> x
+  f4_AC(1(),-(1())) -> 0()
+  f4_AC(-(1()),1()) -> 0()
+  -(0()) -> 0()
+  -(-(x)) -> x
+  -(f4_AC(x,y)) -> f4_AC(-(x),-(y))
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    1 > 0 > - > f4_AC
+   status:
+    
+   problem:
+    
+   Qed
+

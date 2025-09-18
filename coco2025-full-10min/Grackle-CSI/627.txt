@@ -1,0 +1,70 @@
+YES
+
+Problem:
+ h(c(),c()) -> h(b(),f(b()))
+ f(h(a(),h(c(),a()))) -> c()
+ h(c(),b()) -> f(a())
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  h(c(),c()) -> h(b(),f(b()))
+  f(h(a(),h(c(),a()))) -> c()
+  h(c(),b()) -> f(a())
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:h(c(),c()) -> h(b(),f(b()))
+         f(h(a(),h(c(),a()))) -> c()
+         h(c(),b()) -> f(a())
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [a] = 0,
+    
+    [h](x0, x1) = x0 + 4x1 + 1,
+    
+    [f](x0) = 6x0,
+    
+    [c] = 0,
+    
+    [b] = 0
+   orientation:
+    h(c(),c()) = 1 >= 1 = h(b(),f(b()))
+    
+    f(h(a(),h(c(),a()))) = 30 >= 0 = c()
+    
+    h(c(),b()) = 1 >= 0 = f(a())
+   problem:
+    h(c(),c()) -> h(b(),f(b()))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [h](x0, x1) = x0 + x1 + 1,
+     
+     [f](x0) = x0 + 1,
+     
+     [c] = 7,
+     
+     [b] = 3
+    orientation:
+     h(c(),c()) = 15 >= 8 = h(b(),f(b()))
+    problem:
+     
+    Qed
+

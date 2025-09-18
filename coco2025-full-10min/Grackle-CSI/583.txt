@@ -1,0 +1,26 @@
+NO
+
+Problem:
+ b() -> f(f(b()))
+ c() -> b()
+ f(f(c())) -> a()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(f(f(f(b())))) *<- f(f(c())) ->* a()
+  Qed
+  
+  first automaton:
+   final states: {5}
+   transitions:
+    b() -> 6*
+    f(8) -> 9*
+    f(9) -> 5*
+    f(7) -> 6,8
+    f(6) -> 7*
+  
+  second automaton:
+   final states: {4}
+   transitions:
+    a() -> 4*
+

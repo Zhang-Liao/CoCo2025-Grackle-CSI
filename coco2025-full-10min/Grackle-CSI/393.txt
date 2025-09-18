@@ -1,0 +1,50 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ f(x,g(x),y) -> p(h(x),y)
+ f(x,y,z) -> f(x,g(x),z)
+ g(x) -> h(x)
+
+Proof:
+ Church Rosser Transformation Processor (no redundant rules):
+  strict:
+   
+  weak:
+   
+  critical peaks: 3
+   f(x,h(x),y) <-0|1[]- f(x,g(x),y) -2|[]-> p(h(x),y)
+   f(x,g(x),y) <-1|[]- f(x,g(x),y) -2|[]-> p(h(x),y)
+   p(h(x),z) <-2|[]- f(x,g(x),z) -1|[]-> f(x,g(x),z)
+  Redundant Rules Transformation:
+   g(x) -> h(x)
+   f(x,y,z) -> f(x,g(x),z)
+   f(x,g(x),y) -> p(h(x),y)
+   f(x,y,z) -> p(h(x),z)
+   Church Rosser Transformation Processor (no redundant rules):
+    strict:
+     
+    weak:
+     
+    critical peaks: 2
+     p(h(x),z) <-0|[]- f(x,y,z) -1|[]-> f(x,g(x),z)
+     f(x,g(x),z) <-1|[]- f(x,y,z) -0|[]-> p(h(x),z)
+    Redundant Rules Transformation:
+     f(x,y,z) -> p(h(x),z)
+     f(x,y,z) -> f(x,g(x),z)
+     g(x) -> h(x)
+     Church Rosser Transformation Processor (no redundant rules):
+      strict:
+       g(x) -> h(x)
+       f(x,y,z) -> f(x,g(x),z)
+       f(x,y,z) -> p(h(x),z)
+      weak:
+       
+      critical peaks: 2
+       f(x,g(x),z) <-1|[]- f(x,y,z) -2|[]-> p(h(x),z)
+       p(h(x),z) <-2|[]- f(x,y,z) -1|[]-> f(x,g(x),z)
+      Closedness Processor (*development*):
+       
+       Qed
+

@@ -1,0 +1,38 @@
+YES
+
+Problem:
+ f(x) -> g(a())
+ g(x) -> x
+ h(x,x) -> 0()
+ a() -> 1()
+
+Proof:
+ sorted: (order-sorted)(many-sorted)
+ 0:h(x,x) -> 0()
+ 1:f(x) -> g(a())
+   g(x) -> x
+   a() -> 1()
+ -----
+ sorts
+   [0>1, 2>3]
+ sort attachment (non-strict)
+   f : 3 -> 2
+   g : 2 -> 2
+   a : 2
+   h : 1 x 1 -> 0
+   0 : 0
+   1 : 2
+ -----
+ 0:h(x,x) -> 0()
+   Qed (ToyamaOyamaguchi95Cor22)
+ 
+ 
+ 1:f(x) -> g(a())
+   g(x) -> x
+   a() -> 1()
+   Church Rosser Transformation Processor:
+    
+    critical peaks: joinable
+    Qed
+ 
+

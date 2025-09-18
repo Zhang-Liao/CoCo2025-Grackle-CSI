@@ -1,0 +1,43 @@
+YES
+
+Problem:
+ or(true(),true()) -> true()
+ or(x,y) -> or(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  or(true(),true()) -> true()
+  or(x,y) -> or(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:or(x,y) -> or(y,x)
+  
+   TRS S:or(true(),true()) -> true()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  true() = or(true(),true())
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [or](x0, x1) = x0 + 2x1 + 1,
+    
+    [true] = 4
+   orientation:
+    or(true(),true()) = 13 >= 4 = true()
+   problem:
+    
+   Qed
+

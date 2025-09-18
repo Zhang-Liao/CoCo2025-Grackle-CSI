@@ -1,0 +1,65 @@
+YES
+
+Problem:
+ W(B(x)) -> W(x)
+ B(I(x)) -> J(x)
+ W(I(x)) -> W(J(x))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  W(B(x)) -> W(x)
+  B(I(x)) -> J(x)
+  W(I(x)) -> W(J(x))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:W(B(x)) -> W(x)
+         B(I(x)) -> J(x)
+         W(I(x)) -> W(J(x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  W(J(x38)) = W(I(x38))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [W](x0) = x0,
+    
+    [J](x0) = 2x0,
+    
+    [B](x0) = 2x0,
+    
+    [I](x0) = 2x0 + 1
+   orientation:
+    W(B(x)) = 2x >= x = W(x)
+    
+    B(I(x)) = 4x + 2 >= 2x = J(x)
+    
+    W(I(x)) = 2x + 1 >= 2x = W(J(x))
+   problem:
+    W(B(x)) -> W(x)
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [W](x0) = x0,
+     
+     [B](x0) = x0 + 5
+    orientation:
+     W(B(x)) = x + 5 >= x = W(x)
+    problem:
+     
+    Qed
+

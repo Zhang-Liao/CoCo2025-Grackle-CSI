@@ -1,0 +1,13 @@
+NO
+
+Problem:
+ F(x) -> A()
+ F(x) -> G(F(x))
+ G(F(x)) -> F(H(x))
+ G(F(x)) -> B()
+
+Proof:
+ Nonconfluence Processor:
+  terms: A() *<- F(x) ->* G(B())
+  Qed
+

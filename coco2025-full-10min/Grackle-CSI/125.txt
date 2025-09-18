@@ -1,0 +1,209 @@
+YES
+
+Problem:
+ not(T()) -> F()
+ not(F()) -> T()
+ or(x,T()) -> T()
+ or(x,F()) -> x
+ or(x,y) -> or(y,x)
+ or(or(x,y),z) -> or(x,or(y,z))
+ and(x,T()) -> x
+ and(x,F()) -> F()
+ and(x,y) -> and(y,x)
+ and(and(x,y),z) -> and(x,and(y,z))
+ imply(x,y) -> or(not(x),y)
+
+Proof:
+ sorted: (order-sorted)
+ 0:not(T()) -> F()
+   not(F()) -> T()
+   or(x,T()) -> T()
+   or(x,F()) -> x
+   or(x,y) -> or(y,x)
+   or(or(x,y),z) -> or(x,or(y,z))
+   imply(x,y) -> or(not(x),y)
+ 1:and(x,T()) -> x
+   and(x,F()) -> F()
+   and(x,y) -> and(y,x)
+   and(and(x,y),z) -> and(x,and(y,z))
+ -----
+ sorts
+   [0>2, 1>7, 1>8, 2>3, 2>4, 4>5, 5>6, 5>7, 5>8]
+ sort attachment (non-strict)
+   not : 5 -> 4
+   T : 8
+   F : 7
+   or : 2 x 2 -> 2
+   and : 1 x 1 -> 1
+   imply : 6 x 3 -> 0
+ -----
+ 0:not(T()) -> F()
+   not(F()) -> T()
+   or(x,T()) -> T()
+   or(x,F()) -> x
+   or(x,y) -> or(y,x)
+   or(or(x,y),z) -> or(x,or(y,z))
+   imply(x,y) -> or(not(x),y)
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    not(T()) -> F()
+    not(F()) -> T()
+    or(x,T()) -> T()
+    or(x,F()) -> x
+    imply(x,y) -> or(not(x),y)
+    or(T(),y) -> T()
+    or(F(),y) -> y
+    or(x,y) -> or(y,x)
+    or(or(x,y),z) -> or(x,or(y,z))
+    
+     T' = (P union S) with
+    
+     TRS P:or(x,y) -> or(y,x)
+           or(or(x,y),z) -> or(x,or(y,z))
+    
+     TRS S:not(T()) -> F()
+           not(F()) -> T()
+           or(x,T()) -> T()
+           or(x,F()) -> x
+           imply(x,y) -> or(not(x),y)
+           or(T(),y) -> T()
+           or(F(),y) -> y
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    T() = T(), F() = F()
+    
+     CP(S,P union P^-1) = 
+    T() = or(T(),x), T() = or(x,or(y,T())), or(T(),z) = or(x,or(T(),z)), 
+    T() = or(T(),y), or(x,T()) = or(or(x,y),T()), x = or(F(),x), or(x,y) = 
+    or(x,or(y,F())), or(x,z) = or(x,or(F(),z)), y = or(F(),y), or(x,y) = 
+    or(or(x,y),F()), T() = or(y,T()), or(T(),z) = or(T(),or(y,z)), T() = 
+    or(x,T()), T() = or(or(T(),y),z), or(x,T()) = or(or(x,T()),z), y = 
+    or(y,F()), or(y,z) = or(F(),or(y,z)), x = or(x,F()), or(y,z) = or(or(F(),y),z), 
+    or(x,z) = or(or(x,F()),z)
+    
+    
+     PCP_in(P union P^-1,S) = 
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [not](x0) = 3x0 + 6,
+      
+      [or](x0, x1) = x0 + 2x1,
+      
+      [imply](x0, x1) = 3x0 + 2x1 + 7,
+      
+      [T] = 1,
+      
+      [F] = 4
+     orientation:
+      not(T()) = 9 >= 4 = F()
+      
+      not(F()) = 18 >= 1 = T()
+      
+      or(x,T()) = x + 2 >= 1 = T()
+      
+      or(x,F()) = x + 8 >= x = x
+      
+      imply(x,y) = 3x + 2y + 7 >= 3x + 2y + 6 = or(not(x),y)
+      
+      or(T(),y) = 2y + 1 >= 1 = T()
+      
+      or(F(),y) = 2y + 4 >= y = y
+     problem:
+      or(T(),y) -> T()
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [or](x0, x1) = x0 + 4x1 + 1,
+       
+       [T] = 0
+      orientation:
+       or(T(),y) = 4y + 1 >= 0 = T()
+      problem:
+       
+      Qed
+  
+  
+  1:and(x,T()) -> x
+    and(x,F()) -> F()
+    and(x,y) -> and(y,x)
+    and(and(x,y),z) -> and(x,and(y,z))
+    AT confluence processor
+     Complete TRS T' of input TRS:
+     and(x,T()) -> x
+     and(x,F()) -> F()
+     and(T(),y) -> y
+     and(F(),y) -> F()
+     and(x,y) -> and(y,x)
+     and(and(x,y),z) -> and(x,and(y,z))
+     
+      T' = (P union S) with
+     
+      TRS P:and(x,y) -> and(y,x)
+            and(and(x,y),z) -> and(x,and(y,z))
+     
+      TRS S:and(x,T()) -> x
+            and(x,F()) -> F()
+            and(T(),y) -> y
+            and(F(),y) -> F()
+     
+     S is left-linear and P is reversible.
+     
+      CP(S,S) = 
+     T() = T(), F() = F()
+     
+      CP(S,P union P^-1) = 
+     x = and(T(),x), and(x,y) = and(x,and(y,T())), and(x,z) = and(x,and(T(),z)), 
+     y = and(T(),y), and(x,y) = and(and(x,y),T()), F() = and(F(),x), 
+     F() = and(x,and(y,F())), and(F(),z) = and(x,and(F(),z)), F() = and(F(),y), 
+     and(x,F()) = and(and(x,y),F()), y = and(y,T()), and(y,z) = and(T(),and(y,z)), 
+     x = and(x,T()), and(y,z) = and(and(T(),y),z), and(x,z) = and(and(x,T()),z), 
+     F() = and(y,F()), and(F(),z) = and(F(),and(y,z)), F() = and(x,F()), 
+     F() = and(and(F(),y),z), and(x,F()) = and(and(x,F()),z)
+     
+     
+      PCP_in(P union P^-1,S) = 
+     
+     
+     We have to check termination of S:
+     
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [and](x0, x1) = 5x0 + 5x1,
+       
+       [T] = 1,
+       
+       [F] = 0
+      orientation:
+       and(x,T()) = 5x + 5 >= x = x
+       
+       and(x,F()) = 5x >= 0 = F()
+       
+       and(T(),y) = 5y + 5 >= y = y
+       
+       and(F(),y) = 5y >= 0 = F()
+      problem:
+       and(x,F()) -> F()
+       and(F(),y) -> F()
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [and](x0, x1) = 2x0 + 4x1 + 6,
+        
+        [F] = 5
+       orientation:
+        and(x,F()) = 2x + 26 >= 5 = F()
+        
+        and(F(),y) = 4y + 16 >= 5 = F()
+       problem:
+        
+       Qed
+
+

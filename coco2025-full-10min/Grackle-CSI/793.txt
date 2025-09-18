@@ -1,0 +1,101 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ a(b(c(x))) -> c(c(c(b(b(b(a(a(a(x)))))))))
+ c(b(x)) -> a(a(a(x)))
+ a(x) -> x
+ b(x) -> x
+ c(x) -> x
+
+Proof:
+ Church Rosser Transformation Processor (okui):
+  
+  simultaneous critical peaks: 
+   a(b(a(a(a(x191)))))
+    <-[0,0]- a(b(c(b(x191)))) -[]->
+   c(c(c(b(b(b(a(a(a(b(x191))))))))))
+   
+   a(a(a(a(x193))))
+    <-[0|0,0]- a(b(c(b(x193)))) -[]->
+   c(c(c(b(b(b(a(a(a(b(x193))))))))))
+   
+   a(a(a(x196)))
+    <-[|0|0,0]- a(b(c(b(x196)))) -[]->
+   c(c(c(b(b(b(a(a(a(b(x196))))))))))
+   
+   b(a(a(a(x198))))
+    <-[|0,0]- a(b(c(b(x198)))) -[]->
+   c(c(c(b(b(b(a(a(a(b(x198))))))))))
+   
+   a(b(x))
+    <-[0,0]- a(b(c(x))) -[]->
+   c(c(c(b(b(b(a(a(a(x)))))))))
+   
+   a(x)
+    <-[0|0,0]- a(b(c(x))) -[]->
+   c(c(c(b(b(b(a(a(a(x)))))))))
+   
+   x
+    <-[|0|0,0]- a(b(c(x))) -[]->
+   c(c(c(b(b(b(a(a(a(x)))))))))
+   
+   b(x)
+    <-[|0,0]- a(b(c(x))) -[]->
+   c(c(c(b(b(b(a(a(a(x)))))))))
+   
+   a(c(x))
+    <-[0]- a(b(c(x))) -[]->
+   c(c(c(b(b(b(a(a(a(x)))))))))
+   
+   c(x)
+    <-[|0]- a(b(c(x))) -[]->
+   c(c(c(b(b(b(a(a(a(x)))))))))
+   
+   b(c(x))
+    <-[]- a(b(c(x))) -[]->
+   c(c(c(b(b(b(a(a(a(x)))))))))
+   
+   c(x)
+    <-[0]- c(b(x)) -[]->
+   a(a(a(x)))
+   
+   x
+    <-[|0]- c(b(x)) -[]->
+   a(a(a(x)))
+   
+   b(x)
+    <-[]- c(b(x)) -[]->
+   a(a(a(x)))
+   
+   c(c(c(b(b(b(a(a(a(b(x))))))))))
+    <-[]- a(b(c(b(x)))) -[0,0]->
+   a(b(a(a(a(x)))))
+   
+   c(c(c(b(b(b(a(a(a(x)))))))))
+    <-[|0,0,0]- a(b(c(b(x)))) -[0,0]->
+   a(b(a(a(a(x)))))
+   
+   c(c(c(b(b(b(a(a(a(x218)))))))))
+    <-[]- a(b(c(x218))) -[]->
+   b(c(x218))
+   
+   c(c(c(b(b(b(a(a(a(x219)))))))))
+    <-[]- a(b(c(x219))) -[0]->
+   a(c(x219))
+   
+   a(a(a(x)))
+    <-[]- c(b(x)) -[0]->
+   c(x)
+   
+   a(a(a(x221)))
+    <-[]- c(b(x221)) -[]->
+   b(x221)
+   
+   c(c(c(b(b(b(a(a(a(x)))))))))
+    <-[]- a(b(c(x))) -[0,0]->
+   a(b(x))
+   joinable
+  Qed
+

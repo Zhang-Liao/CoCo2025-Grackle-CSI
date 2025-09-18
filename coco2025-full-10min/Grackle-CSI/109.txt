@@ -1,0 +1,172 @@
+YES
+
+Problem:
+ a() -> b()
+ a() -> c()
+ a() -> e()
+ b() -> d()
+ c() -> a()
+ d() -> a()
+ d() -> e()
+ g(x) -> h(a())
+ h(x) -> e()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  a() -> e()
+  d() -> e()
+  g(x) -> h(a())
+  h(x) -> e()
+  b() -> e()
+  c() -> e()
+  a() -> b()
+  a() -> c()
+  b() -> d()
+  c() -> a()
+  d() -> a()
+  
+   T' = (P union S) with
+  
+   TRS P:a() -> b()
+         a() -> c()
+         b() -> d()
+         c() -> a()
+         d() -> a()
+  
+   TRS S:a() -> e()
+         d() -> e()
+         g(x) -> h(a())
+         h(x) -> e()
+         b() -> e()
+         c() -> e()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  e() = b(), e() = c(), e() = d(), e() = a()
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [d] = 0,
+    
+    [b] = 0,
+    
+    [e] = 0,
+    
+    [g](x0) = 2x0,
+    
+    [a] = 0,
+    
+    [h](x0) = 2x0,
+    
+    [c] = 1
+   orientation:
+    a() = 0 >= 0 = e()
+    
+    d() = 0 >= 0 = e()
+    
+    g(x) = 2x >= 0 = h(a())
+    
+    h(x) = 2x >= 0 = e()
+    
+    b() = 0 >= 0 = e()
+    
+    c() = 1 >= 0 = e()
+   problem:
+    a() -> e()
+    d() -> e()
+    g(x) -> h(a())
+    h(x) -> e()
+    b() -> e()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [d] = 0,
+     
+     [b] = 1,
+     
+     [e] = 0,
+     
+     [g](x0) = 2x0,
+     
+     [a] = 0,
+     
+     [h](x0) = 4x0
+    orientation:
+     a() = 0 >= 0 = e()
+     
+     d() = 0 >= 0 = e()
+     
+     g(x) = 2x >= 0 = h(a())
+     
+     h(x) = 4x >= 0 = e()
+     
+     b() = 1 >= 0 = e()
+    problem:
+     a() -> e()
+     d() -> e()
+     g(x) -> h(a())
+     h(x) -> e()
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [d] = 1,
+      
+      [e] = 0,
+      
+      [g](x0) = 4x0 + 5,
+      
+      [a] = 0,
+      
+      [h](x0) = x0 + 5
+     orientation:
+      a() = 0 >= 0 = e()
+      
+      d() = 1 >= 0 = e()
+      
+      g(x) = 4x + 5 >= 5 = h(a())
+      
+      h(x) = x + 5 >= 0 = e()
+     problem:
+      a() -> e()
+      g(x) -> h(a())
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [e] = 0,
+       
+       [g](x0) = 4x0 + 5,
+       
+       [a] = 4,
+       
+       [h](x0) = x0 + 1
+      orientation:
+       a() = 4 >= 0 = e()
+       
+       g(x) = 4x + 5 >= 5 = h(a())
+      problem:
+       g(x) -> h(a())
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [g](x0) = 4x0 + 4,
+        
+        [a] = 0,
+        
+        [h](x0) = 2x0
+       orientation:
+        g(x) = 4x + 4 >= 0 = h(a())
+       problem:
+        
+       Qed
+

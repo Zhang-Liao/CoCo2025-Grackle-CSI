@@ -1,0 +1,33 @@
+YES
+
+Problem:
+ f(x,x) -> c()
+ a() -> b()
+ b() -> a()
+
+Proof:
+ sorted: (order-sorted)(many-sorted)
+ 0:f(x,x) -> c()
+ 1:a() -> b()
+   b() -> a()
+ -----
+ sorts
+   [0>2]
+ sort attachment (non-strict)
+   f : 2 x 2 -> 0
+   c : 0
+   a : 1
+   b : 1
+ -----
+ 0:f(x,x) -> c()
+   Qed (ToyamaOyamaguchi95Cor22)
+ 
+ 
+ 1:a() -> b()
+   b() -> a()
+   Church Rosser Transformation Processor:
+    
+    critical peaks: joinable
+    Qed
+ 
+

@@ -1,0 +1,14 @@
+NO
+
+Problem:
+ b() -> h(b(),c())
+ c() -> a()
+ a() -> f(a())
+ b() -> c()
+ b() -> b()
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(b(),c()) *<- b() ->* f(a())
+  Qed
+

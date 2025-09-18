@@ -1,0 +1,110 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ *(k(),0()) -> 0()
+ *(k(),s(y)) -> +(k(),*(k(),y))
+ +(x,y) -> +(y,x)
+ +(+(x,y),z) -> +(x,+(y,z))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(x,y))
+  *(k(),0()) -> 0()
+  *(k(),s(y)) -> +(k(),*(k(),y))
+  +(x,y) -> +(y,x)
+  +(+(x,y),z) -> +(x,+(y,z))
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,y) -> +(y,x)
+         +(+(x,y),z) -> +(x,+(y,z))
+  
+   TRS S:+(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         +(0(),y) -> y
+         +(s(x),y) -> s(+(x,y))
+         *(k(),0()) -> 0()
+         *(k(),s(y)) -> +(k(),*(k(),y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x) = s(+(x,0())), s(+(0(),x366)) = s(x366), s(+(s(x),x368)) = 
+  s(+(x,s(x368))), s(y) = s(+(0(),y)), s(+(x371,0())) = s(x371), s(+(x373,s(y))) = 
+  s(+(s(x373),y))
+  
+   CP(S,P union P^-1) = 
+  x = +(0(),x), +(x,y) = +(x,+(y,0())), +(x,z) = +(x,+(0(),z)), y = +(0(),y), 
+  +(x,y) = +(+(x,y),0()), s(+(x,x423)) = +(s(x423),x), s(+(+(x,y),x425)) = 
+  +(x,+(y,s(x425))), +(s(+(x,x427)),z) = +(x,+(s(x427),z)), s(+(y,x429)) = 
+  +(s(x429),y), +(x,s(+(y,x431))) = +(+(x,y),s(x431)), y = +(y,0()), 
+  +(y,z) = +(0(),+(y,z)), x = +(x,0()), +(y,z) = +(+(0(),y),z), +(x,z) = 
+  +(+(x,0()),z), s(+(x437,y)) = +(y,s(x437)), +(s(+(x439,y)),z) = +(s(x439),+(y,z)), 
+  s(+(x441,x)) = +(x,s(x441)), s(+(x443,+(y,z))) = +(+(s(x443),y),z), 
+  +(x,s(+(x445,z))) = +(+(x,s(x445)),z)
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [*](x0, x1) = x0 + 4x1 + 2,
+    
+    [+](x0, x1) = x0 + x1 + 4,
+    
+    [k] = 2,
+    
+    [0] = 1,
+    
+    [s](x0) = x0 + 3
+   orientation:
+    +(x,0()) = x + 5 >= x = x
+    
+    +(x,s(y)) = x + y + 7 >= x + y + 7 = s(+(x,y))
+    
+    +(0(),y) = y + 5 >= y = y
+    
+    +(s(x),y) = x + y + 7 >= x + y + 7 = s(+(x,y))
+    
+    *(k(),0()) = 8 >= 1 = 0()
+    
+    *(k(),s(y)) = 4y + 16 >= 4y + 10 = +(k(),*(k(),y))
+   problem:
+    +(x,s(y)) -> s(+(x,y))
+    +(s(x),y) -> s(+(x,y))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [+](x0, x1) = 2x0 + x1 + 1,
+     
+     [s](x0) = x0 + 1
+    orientation:
+     +(x,s(y)) = 2x + y + 2 >= 2x + y + 2 = s(+(x,y))
+     
+     +(s(x),y) = 2x + y + 3 >= 2x + y + 2 = s(+(x,y))
+    problem:
+     +(x,s(y)) -> s(+(x,y))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [+](x0, x1) = x0 + 4x1,
+      
+      [s](x0) = x0 + 5
+     orientation:
+      +(x,s(y)) = x + 4y + 20 >= x + 4y + 5 = s(+(x,y))
+     problem:
+      
+     Qed
+

@@ -1,0 +1,149 @@
+YES
+
+Problem:
+ C(x) -> c(x)
+ c(c(x)) -> x
+ b(b(x)) -> B(x)
+ B(B(x)) -> b(x)
+ c(B(c(b(c(x))))) -> B(c(b(c(B(c(b(x)))))))
+ b(B(x)) -> x
+ B(b(x)) -> x
+ c(C(x)) -> x
+ C(c(x)) -> x
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  C(x) -> c(x)
+  c(c(x)) -> x
+  b(b(x)) -> B(x)
+  B(B(x)) -> b(x)
+  c(B(c(b(c(x))))) -> B(c(b(c(B(c(b(x)))))))
+  b(B(x)) -> x
+  B(b(x)) -> x
+  c(C(x)) -> x
+  C(c(x)) -> x
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:C(x) -> c(x)
+         c(c(x)) -> x
+         b(b(x)) -> B(x)
+         B(B(x)) -> b(x)
+         c(B(c(b(c(x))))) -> B(c(b(c(B(c(b(x)))))))
+         b(B(x)) -> x
+         B(b(x)) -> x
+         c(C(x)) -> x
+         C(c(x)) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  c(c(x)) = x, c(x384) = c(x384), c(B(c(b(x385)))) = B(c(b(c(B(c(b(c(x385)))))))), 
+  C(x386) = c(x386), b(B(x387)) = B(b(x387)), B(B(x388)) = b(x388), B(b(x389)) = 
+  b(B(x389)), b(b(x390)) = B(x390), c(B(c(b(c(B(c(b(x391)))))))) = B(c(b(c(x391)))), 
+  c(B(c(b(B(c(b(c(B(c(b(x392))))))))))) = B(c(b(c(B(c(b(B(c(b(c(x392))))))))))), 
+  C(B(c(b(c(B(c(b(x393)))))))) = B(c(b(c(x393)))), b(x394) = B(B(x394)), 
+  B(x395) = B(x395), B(x396) = b(b(x396)), b(x397) = b(x397), c(x398) = 
+  C(x398), c(B(c(b(x399)))) = B(c(b(c(B(c(b(C(x399)))))))), C(x400) = 
+  C(x400), x401 = c(c(x401)), c(x402) = c(x402)
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [c](x0) = 2x0 + 1,
+    
+    [B](x0) = x0,
+    
+    [C](x0) = 2x0 + 1,
+    
+    [b](x0) = x0
+   orientation:
+    C(x) = 2x + 1 >= 2x + 1 = c(x)
+    
+    c(c(x)) = 4x + 3 >= x = x
+    
+    b(b(x)) = x >= x = B(x)
+    
+    B(B(x)) = x >= x = b(x)
+    
+    c(B(c(b(c(x))))) = 8x + 7 >= 8x + 7 = B(c(b(c(B(c(b(x)))))))
+    
+    b(B(x)) = x >= x = x
+    
+    B(b(x)) = x >= x = x
+    
+    c(C(x)) = 4x + 3 >= x = x
+    
+    C(c(x)) = 4x + 3 >= x = x
+   problem:
+    C(x) -> c(x)
+    b(b(x)) -> B(x)
+    B(B(x)) -> b(x)
+    c(B(c(b(c(x))))) -> B(c(b(c(B(c(b(x)))))))
+    b(B(x)) -> x
+    B(b(x)) -> x
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [c](x0) = x0,
+     
+     [B](x0) = x0,
+     
+     [C](x0) = 2x0 + 4,
+     
+     [b](x0) = x0
+    orientation:
+     C(x) = 2x + 4 >= x = c(x)
+     
+     b(b(x)) = x >= x = B(x)
+     
+     B(B(x)) = x >= x = b(x)
+     
+     c(B(c(b(c(x))))) = x >= x = B(c(b(c(B(c(b(x)))))))
+     
+     b(B(x)) = x >= x = x
+     
+     B(b(x)) = x >= x = x
+    problem:
+     b(b(x)) -> B(x)
+     B(B(x)) -> b(x)
+     c(B(c(b(c(x))))) -> B(c(b(c(B(c(b(x)))))))
+     b(B(x)) -> x
+     B(b(x)) -> x
+    Bounds Processor:
+     bound: 1
+     enrichment: match
+     automaton:
+      final states: {2,4,3,1}
+      transitions:
+       B0(9) -> 4*
+       B0(2) -> 1*
+       B0(5) -> 6*
+       c0(6) -> 7*
+       c0(3) -> 5*
+       c0(8) -> 9*
+       b0(2) -> 3*
+       b0(7) -> 8*
+       f40() -> 2*
+       b1(10) -> 11*
+       4 -> 5,7
+       11 -> 6*
+       2 -> 3*
+       1 -> 3*
+       9 -> 10,8
+       3 -> 1*
+     problem:
+      
+     Qed
+

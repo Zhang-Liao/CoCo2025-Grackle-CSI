@@ -1,0 +1,10 @@
+YES
+
+Problem:
+ f(a()) -> g(h(a(),b()))
+ g(g(a())) -> f(b())
+ h(x,x) -> g(a())
+
+Proof:
+ Qed (ToyamaOyamaguchi95Cor22)
+

@@ -1,0 +1,11 @@
+NO
+
+Problem:
+ a() -> h(f(a()),c())
+ a() -> f(c())
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(f(h(f(f(c())),c())),c()) *<- a() ->* f(c())
+  Qed
+

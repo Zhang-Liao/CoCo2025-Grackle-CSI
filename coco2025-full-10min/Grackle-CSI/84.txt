@@ -1,0 +1,72 @@
+YES
+
+Problem:
+ f(g(x)) -> h(g(x),g(x))
+ f(s(x)) -> h(s(x),s(x))
+ g(x) -> s(x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(g(x)) -> h(g(x),g(x))
+  f(s(x)) -> h(s(x),s(x))
+  g(x) -> s(x)
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:f(g(x)) -> h(g(x),g(x))
+         f(s(x)) -> h(s(x),s(x))
+         g(x) -> s(x)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(s(x)) = h(g(x),g(x))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [f](x0) = 4x0 + 2,
+    
+    [s](x0) = x0,
+    
+    [g](x0) = x0 + 1,
+    
+    [h](x0, x1) = 2x0 + 2x1 + 2
+   orientation:
+    f(g(x)) = 4x + 6 >= 4x + 6 = h(g(x),g(x))
+    
+    f(s(x)) = 4x + 2 >= 4x + 2 = h(s(x),s(x))
+    
+    g(x) = x + 1 >= x = s(x)
+   problem:
+    f(g(x)) -> h(g(x),g(x))
+    f(s(x)) -> h(s(x),s(x))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [f](x0) = 6x0 + 4,
+     
+     [s](x0) = x0 + 3,
+     
+     [g](x0) = 2x0,
+     
+     [h](x0, x1) = 2x0 + 3x1 + 1
+    orientation:
+     f(g(x)) = 12x + 4 >= 10x + 1 = h(g(x),g(x))
+     
+     f(s(x)) = 6x + 22 >= 5x + 16 = h(s(x),s(x))
+    problem:
+     
+    Qed
+

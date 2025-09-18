@@ -1,0 +1,53 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ f(f(x)) -> x
+ f(x) -> f(f(x))
+
+Proof:
+ Church Rosser Transformation Processor (no redundant rules):
+  strict:
+   
+  weak:
+   
+  critical peaks: 4
+   f(f(f(x))) <-0|[]- f(f(x)) -1|[]-> x
+   f(f(f(x))) <-0|0[]- f(f(x)) -1|[]-> x
+   x9 <-1|[]- f(f(x9)) -0|[]-> f(f(f(x9)))
+   f(x10) <-1|0[]- f(f(f(x10))) -1|[]-> f(x10)
+  Redundant Rules Transformation:
+   f(x) -> f(f(x))
+   f(f(x)) -> x
+   f(x) -> f(f(f(x)))
+   f(x) -> x
+   Church Rosser Transformation Processor (no redundant rules):
+    strict:
+     f(x) -> x
+     f(x) -> f(f(f(x)))
+     f(f(x)) -> x
+     f(x) -> f(f(x))
+    weak:
+     
+    critical peaks: 16
+     x <-0|[]- f(x) -1|[]-> f(f(f(x)))
+     f(x) <-0|[]- f(f(x)) -2|[]-> x
+     f(x) <-0|0[]- f(f(x)) -2|[]-> x
+     x <-0|[]- f(x) -3|[]-> f(f(x))
+     f(f(f(x))) <-1|[]- f(x) -0|[]-> x
+     f(f(f(f(x)))) <-1|[]- f(f(x)) -2|[]-> x
+     f(f(f(f(x)))) <-1|0[]- f(f(x)) -2|[]-> x
+     f(f(f(x))) <-1|[]- f(x) -3|[]-> f(f(x))
+     x39 <-2|[]- f(f(x39)) -0|[]-> f(x39)
+     x40 <-2|[]- f(f(x40)) -1|[]-> f(f(f(f(x40))))
+     f(x41) <-2|0[]- f(f(f(x41))) -2|[]-> f(x41)
+     x42 <-2|[]- f(f(x42)) -3|[]-> f(f(f(x42)))
+     f(f(x)) <-3|[]- f(x) -0|[]-> x
+     f(f(x)) <-3|[]- f(x) -1|[]-> f(f(f(x)))
+     f(f(f(x))) <-3|[]- f(f(x)) -2|[]-> x
+     f(f(f(x))) <-3|0[]- f(f(x)) -2|[]-> x
+    Closedness Processor (*development*):
+     
+     Qed
+

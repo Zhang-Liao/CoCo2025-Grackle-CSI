@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ a(b(a(a(a(a(a(a(a(a(a(x))))))))))) -> a(a(a(a(a(a(a(a(a(a(a(b(a(b(x))))))))))))))
+
+Proof:
+ Nonconfluence Processor:
+  terms: a(a(a(a(a(a(a(a(a(a(a(a(a(a(a(a(a(a(a(a(a(b(a(b(a(a(b(a(b(a(b(a(b(x12))))))))))))))))))))))))))))))))) *<- 
+  a(b(a(a(a(a(a(a(a(a(a(b(a(a(a(a(a(a(a(a(a(x12))))))))))))))))))))) ->* 
+  a(a(a(a(a(a(a(a(a(a(a(b(a(b(b(a(a(a(a(a(a(a(a(a(x12))))))))))))))))))))))))
+  Qed
+

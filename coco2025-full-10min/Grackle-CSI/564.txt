@@ -1,0 +1,29 @@
+NO
+
+Problem:
+ b() -> a()
+ f(h(b(),f(a()))) -> f(c())
+ c() -> h(c(),c())
+ h(f(f(b())),a()) -> c()
+ h(a(),a()) -> a()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(h(a(),f(a()))) *<- f(h(b(),f(a()))) ->* f(c())
+  Qed
+  
+  first automaton:
+   final states: {10}
+   transitions:
+    h(13,12) -> 14*
+    a() -> 13,11
+    f(11) -> 12*
+    f(14) -> 10*
+  
+  second automaton:
+   final states: {15}
+   transitions:
+    h(16,16) -> 16*
+    c() -> 16*
+    f(16) -> 15*
+

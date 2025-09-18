@@ -1,0 +1,10 @@
+YES
+
+Problem:
+ f(x,x) -> a()
+ c() -> g(c())
+ g(x) -> f(x,x)
+
+Proof:
+ Qed (SakaiOyamaguchiOgawa14)
+

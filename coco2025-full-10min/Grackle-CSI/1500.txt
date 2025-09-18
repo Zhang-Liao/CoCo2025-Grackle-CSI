@@ -1,0 +1,162 @@
+YES
+
+Problem:
+ c() -> f(a(),h(b()))
+ f(h(f(f(a(),a()),h(a()))),g(f(x,g(b())))) -> c()
+ c() -> c()
+ g(g(a())) -> f(h(g(f(c(),c()))),f(f(g(c()),a()),g(f(a(),a()))))
+ f(x,y) -> f(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  c() -> f(a(),h(b()))
+  f(h(f(f(a(),a()),h(a()))),g(f(x,g(b())))) -> c()
+  g(g(a())) -> f(h(g(f(c(),c()))),f(f(g(c()),a()),g(f(a(),a()))))
+  f(g(f(x,g(b()))),h(f(f(a(),a()),h(a())))) -> f(h(b()),a())
+  f(h(f(h(a()),f(a(),a()))),g(f(x,g(b())))) -> f(h(b()),a())
+  f(h(f(f(a(),a()),h(a()))),g(f(g(b()),x))) -> f(h(b()),a())
+  f(g(f(g(b()),x)),h(f(f(a(),a()),h(a())))) -> f(a(),h(b()))
+  f(g(f(x,g(b()))),h(f(h(a()),f(a(),a())))) -> f(a(),h(b()))
+  f(h(f(h(a()),f(a(),a()))),g(f(g(b()),x))) -> f(a(),h(b()))
+  f(g(f(g(b()),x)),h(f(h(a()),f(a(),a())))) -> f(h(b()),a())
+  c() -> c()
+  f(x,y) -> f(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:c() -> c()
+         f(x,y) -> f(y,x)
+  
+   TRS S:c() -> f(a(),h(b()))
+         f(h(f(f(a(),a()),h(a()))),g(f(x,g(b())))) -> c()
+         g(g(a())) -> f(h(g(f(c(),c()))),f(f(g(c()),a()),g(f(a(),a()))))
+         f(g(f(x,g(b()))),h(f(f(a(),a()),h(a())))) -> f(h(b()),a())
+         f(h(f(h(a()),f(a(),a()))),g(f(x,g(b())))) -> f(h(b()),a())
+         f(h(f(f(a(),a()),h(a()))),g(f(g(b()),x))) -> f(h(b()),a())
+         f(g(f(g(b()),x)),h(f(f(a(),a()),h(a())))) -> f(a(),h(b()))
+         f(g(f(x,g(b()))),h(f(h(a()),f(a(),a())))) -> f(a(),h(b()))
+         f(h(f(h(a()),f(a(),a()))),g(f(g(b()),x))) -> f(a(),h(b()))
+         f(g(f(g(b()),x)),h(f(h(a()),f(a(),a())))) -> f(h(b()),a())
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  c() = f(h(b()),a()), f(h(b()),a()) = f(a(),h(b())), f(h(b()),a()) = 
+  c(), f(a(),h(b())) = f(h(b()),a())
+  
+   CP(S,P union P^-1) = 
+  f(a(),h(b())) = c(), c() = f(g(f(x3034,g(b()))),h(f(f(a(),a()),h(a())))), 
+  c() = f(g(f(x3035,g(b()))),h(f(f(a(),a()),h(a())))), f(h(b()),a()) = 
+  f(h(f(f(a(),a()),h(a()))),g(f(x3036,g(b())))), f(h(b()),a()) = f(h(f(f(a(),a()),h(a()))),
+                                                                   g(f(x3037,g(b())))), 
+  f(h(b()),a()) = f(g(f(x3038,g(b()))),h(f(h(a()),f(a(),a())))), f(h(b()),a()) = 
+  f(g(f(x3039,g(b()))),h(f(h(a()),f(a(),a())))), f(h(b()),a()) = f(g(f(g(b()),x3040)),
+                                                                   h(f(f(a(),a()),h(a())))), 
+  f(h(b()),a()) = f(g(f(g(b()),x3041)),h(f(f(a(),a()),h(a())))), f(a(),h(b())) = 
+  f(h(f(f(a(),a()),h(a()))),g(f(g(b()),x3042))), f(a(),h(b())) = f(h(f(f(a(),a()),h(a()))),
+                                                                   g(f(g(b()),x3043))), 
+  f(a(),h(b())) = f(h(f(h(a()),f(a(),a()))),g(f(x3044,g(b())))), f(a(),h(b())) = 
+  f(h(f(h(a()),f(a(),a()))),g(f(x3045,g(b())))), f(a(),h(b())) = f(g(f(g(b()),x3046)),
+                                                                   h(f(h(a()),f(a(),a())))), 
+  f(a(),h(b())) = f(g(f(g(b()),x3047)),h(f(h(a()),f(a(),a())))), f(h(b()),a()) = 
+  f(h(f(h(a()),f(a(),a()))),g(f(g(b()),x3048))), f(h(b()),a()) = f(h(f(h(a()),f(a(),a()))),
+                                                                   g(f(g(b()),x3049)))
+  
+  
+   CP_in(P union P^-1,S) = 
+  f(h(f(h(a()),f(a(),a()))),g(f(x,g(b())))) = c(), f(h(f(f(a(),a()),h(a()))),g(f(x,g(b())))) = 
+  c(), f(h(f(f(a(),a()),h(a()))),g(f(g(b()),x))) = c(), f(g(f(g(b()),x)),h(f(f(a(),a()),h(a())))) = 
+  f(h(b()),a()), f(g(f(x,g(b()))),h(f(h(a()),f(a(),a())))) = f(h(b()),a()), 
+  f(g(f(x,g(b()))),h(f(f(a(),a()),h(a())))) = f(h(b()),a()), f(h(f(f(a(),a()),h(a()))),
+                                                               g(f(x,g(b())))) = 
+  f(h(b()),a()), f(h(f(h(a()),f(a(),a()))),g(f(x,g(b())))) = f(h(b()),a()), 
+  f(h(f(h(a()),f(a(),a()))),g(f(g(b()),x))) = f(h(b()),a()), f(h(f(f(a(),a()),h(a()))),
+                                                               g(f(g(b()),x))) = 
+  f(h(b()),a()), f(g(f(x,g(b()))),h(f(f(a(),a()),h(a())))) = f(a(),h(b())), 
+  f(g(f(g(b()),x)),h(f(h(a()),f(a(),a())))) = f(a(),h(b())), f(g(f(g(b()),x)),
+                                                               h(f(f(a(),a()),h(a())))) = 
+  f(a(),h(b())), f(g(f(x,g(b()))),h(f(h(a()),f(a(),a())))) = f(a(),h(b())), 
+  f(h(f(f(a(),a()),h(a()))),g(f(g(b()),x))) = f(a(),h(b())), f(h(f(h(a()),f(a(),a()))),
+                                                               g(f(g(b()),x))) = 
+  f(a(),h(b())), f(h(f(h(a()),f(a(),a()))),g(f(x,g(b())))) = f(a(),h(b())), 
+  f(g(f(g(b()),x)),h(f(h(a()),f(a(),a())))) = f(h(b()),a())
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [f](x0, x1) = x0 + x1,
+    
+    [a] = 0,
+    
+    [h](x0) = x0,
+    
+    [g](x0) = 2x0 + 1,
+    
+    [c] = 0,
+    
+    [b] = 0
+   orientation:
+    c() = 0 >= 0 = f(a(),h(b()))
+    
+    f(h(f(f(a(),a()),h(a()))),g(f(x,g(b())))) = 2x + 3 >= 0 = c()
+    
+    g(g(a())) = 3 >= 3 = f(h(g(f(c(),c()))),f(f(g(c()),a()),g(f(a(),a()))))
+    
+    f(g(f(x,g(b()))),h(f(f(a(),a()),h(a())))) = 2x + 3 >= 0 = f(h(b()),a())
+    
+    f(h(f(h(a()),f(a(),a()))),g(f(x,g(b())))) = 2x + 3 >= 0 = f(h(b()),a())
+    
+    f(h(f(f(a(),a()),h(a()))),g(f(g(b()),x))) = 2x + 3 >= 0 = f(h(b()),a())
+    
+    f(g(f(g(b()),x)),h(f(f(a(),a()),h(a())))) = 2x + 3 >= 0 = f(a(),h(b()))
+    
+    f(g(f(x,g(b()))),h(f(h(a()),f(a(),a())))) = 2x + 3 >= 0 = f(a(),h(b()))
+    
+    f(h(f(h(a()),f(a(),a()))),g(f(g(b()),x))) = 2x + 3 >= 0 = f(a(),h(b()))
+    
+    f(g(f(g(b()),x)),h(f(h(a()),f(a(),a())))) = 2x + 3 >= 0 = f(h(b()),a())
+   problem:
+    c() -> f(a(),h(b()))
+    g(g(a())) -> f(h(g(f(c(),c()))),f(f(g(c()),a()),g(f(a(),a()))))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [f](x0, x1) = x0 + x1,
+     
+     [a] = 0,
+     
+     [h](x0) = x0,
+     
+     [g](x0) = 4x0 + 1,
+     
+     [c] = 0,
+     
+     [b] = 0
+    orientation:
+     c() = 0 >= 0 = f(a(),h(b()))
+     
+     g(g(a())) = 5 >= 3 = f(h(g(f(c(),c()))),f(f(g(c()),a()),g(f(a(),a()))))
+    problem:
+     c() -> f(a(),h(b()))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [f](x0, x1) = x0 + x1,
+      
+      [a] = 0,
+      
+      [h](x0) = x0,
+      
+      [c] = 1,
+      
+      [b] = 0
+     orientation:
+      c() = 1 >= 0 = f(a(),h(b()))
+     problem:
+      
+     Qed
+

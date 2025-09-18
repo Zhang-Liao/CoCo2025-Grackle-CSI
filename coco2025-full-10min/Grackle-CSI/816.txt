@@ -1,0 +1,16 @@
+NO
+
+Problem:
+ h(1(1(x))) -> 1(h(x))
+ 1(1(h(b(x)))) -> 1(1(s(b(x))))
+ 1(s(x)) -> s(1(x))
+ b(s(x)) -> b(h(x))
+ h(1(b(x))) -> t(1(1(b(x))))
+ 1(t(x)) -> t(1(1(1(x))))
+ b(t(x)) -> b(h(x))
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(s(1(1(b(x127))))) *<- h(1(1(h(b(x127))))) ->* 1(h(h(b(x127))))
+  Qed
+

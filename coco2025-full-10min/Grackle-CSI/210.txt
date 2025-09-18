@@ -1,0 +1,8 @@
+YES
+
+Problem:
+ f(g(x),g(x)) -> f(x,h(x,g(c())))
+
+Proof:
+ Qed (SakaiOyamaguchiOgawa14)
+

@@ -1,0 +1,54 @@
+YES
+
+Problem:
+ f(f(x,y),z) -> f(x,f(y,z))
+ f(1(),x) -> x
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(f(x,y),z) -> f(x,f(y,z))
+  f(1(),x) -> x
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:f(f(x,y),z) -> f(x,f(y,z))
+         f(1(),x) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(f(x39,f(x40,y)),z) = f(f(x39,x40),f(y,z)), f(y,z) = f(1(),f(y,z))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [1] = 7,
+    
+    [f](x0, x1) = x0 + x1
+   orientation:
+    f(f(x,y),z) = x + y + z >= x + y + z = f(x,f(y,z))
+    
+    f(1(),x) = x + 7 >= x = x
+   problem:
+    f(f(x,y),z) -> f(x,f(y,z))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [f](x0, x1) = 2x0 + x1 + 2
+    orientation:
+     f(f(x,y),z) = 4x + 2y + z + 6 >= 2x + 2y + z + 4 = f(x,f(y,z))
+    problem:
+     
+    Qed
+

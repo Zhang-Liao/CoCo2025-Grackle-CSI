@@ -1,0 +1,13 @@
+NO
+
+Problem:
+ +(0(),0()) -> 0()
+ +(s(0()),y) -> s(+(0(),y))
+ +(x,s(y)) -> s(+(y,x))
+ s(s(x)) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: +(y,0()) *<- +(s(0()),s(y)) ->* +(0(),y)
+  Qed
+

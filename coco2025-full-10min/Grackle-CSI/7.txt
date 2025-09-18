@@ -1,0 +1,10 @@
+NO
+
+Problem:
+ f(f(x)) -> g(x)
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(g(x3)) *<- f(f(f(x3))) ->* g(f(x3))
+  Qed
+

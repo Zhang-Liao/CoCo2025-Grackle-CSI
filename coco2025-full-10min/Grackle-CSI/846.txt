@@ -1,0 +1,52 @@
+NO
+
+Problem:
+ b(c(x)) -> b(a(x))
+ b(a(x)) -> c(b(x))
+ a(c(x)) -> a(b(x))
+ c(b(x)) -> a(a(x))
+ b(a(x)) -> b(c(x))
+ a(a(x)) -> b(a(x))
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 13
+   c(b(a(x73))) <-0|0[]- c(b(c(x73))) -3|[]-> a(a(c(x73)))
+   c(c(b(x74))) <-1|0[]- c(b(a(x74))) -3|[]-> a(a(a(x74)))
+   c(b(x)) <-1|[]- b(a(x)) -4|[]-> b(c(x))
+   b(a(b(x76))) <-2|0[]- b(a(c(x76))) -1|[]-> c(b(c(x76)))
+   b(a(b(x77))) <-2|0[]- b(a(c(x77))) -4|[]-> b(c(c(x77)))
+   a(a(b(x78))) <-2|0[]- a(a(c(x78))) -5|[]-> b(a(c(x78)))
+   b(a(a(x79))) <-3|0[]- b(c(b(x79))) -0|[]-> b(a(b(x79)))
+   a(a(a(x80))) <-3|0[]- a(c(b(x80))) -2|[]-> a(b(b(x80)))
+   b(c(x)) <-4|[]- b(a(x)) -1|[]-> c(b(x))
+   c(b(c(x82))) <-4|0[]- c(b(a(x82))) -3|[]-> a(a(a(x82)))
+   b(b(a(x83))) <-5|0[]- b(a(a(x83))) -1|[]-> c(b(a(x83)))
+   b(b(a(x84))) <-5|0[]- b(a(a(x84))) -4|[]-> b(c(a(x84)))
+   a(b(a(x85))) <-5|0[]- a(a(a(x85))) -5|[]-> b(a(a(x85)))
+  Redundant Rules Transformation:
+   b(c(x)) -> b(a(x))
+   b(a(x)) -> c(b(x))
+   a(c(x)) -> a(b(x))
+   c(b(x)) -> a(a(x))
+   b(a(x)) -> b(c(x))
+   a(a(x)) -> b(a(x))
+   c(b(a(x73))) -> a(a(c(x73)))
+   c(c(b(x74))) -> a(a(a(x74)))
+   c(b(x)) -> b(c(x))
+   b(a(b(x76))) -> c(b(c(x76)))
+   b(a(a(x79))) -> b(a(b(x79)))
+   a(a(a(x80))) -> a(b(b(x80)))
+   b(c(x)) -> c(b(x))
+   c(b(c(x82))) -> a(a(a(x82)))
+   b(b(a(x83))) -> c(b(a(x83)))
+   b(b(a(x84))) -> b(c(a(x84)))
+   a(b(a(x85))) -> b(a(a(x85)))
+   Nonconfluence Processor:
+    terms: c(a(b(b(x818)))) *<- c(c(b(c(x818)))) ->* a(b(b(b(x818))))
+    Qed
+

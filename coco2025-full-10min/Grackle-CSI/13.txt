@@ -1,0 +1,11 @@
+NO
+
+Problem:
+ f(f(x,y),z) -> f(x,f(y,z))
+ f(x,1()) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(x,z) *<- f(f(x,1()),z) ->* f(x,f(1(),z))
+  Qed
+

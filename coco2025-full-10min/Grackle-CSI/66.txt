@@ -1,0 +1,77 @@
+YES
+
+Problem:
+ f(i(x),g(a())) -> f(j(x,x),g(b()))
+ b() -> a()
+ i(x) -> j(x,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(i(x),g(a())) -> f(j(x,x),g(b()))
+  b() -> a()
+  i(x) -> j(x,x)
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:f(i(x),g(a())) -> f(j(x,x),g(b()))
+         b() -> a()
+         i(x) -> j(x,x)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(j(x,x),g(a())) = f(j(x,x),g(b()))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [j](x0, x1) = 3x0 + 4x1,
+    
+    [a] = 1,
+    
+    [f](x0, x1) = 4x0 + 2x1 + 1,
+    
+    [b] = 4,
+    
+    [i](x0) = 7x0 + 3,
+    
+    [g](x0) = 2x0 + 6
+   orientation:
+    f(i(x),g(a())) = 28x + 29 >= 28x + 29 = f(j(x,x),g(b()))
+    
+    b() = 4 >= 1 = a()
+    
+    i(x) = 7x + 3 >= 7x = j(x,x)
+   problem:
+    f(i(x),g(a())) -> f(j(x,x),g(b()))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [j](x0, x1) = x0 + 5x1 + 5,
+     
+     [a] = 4,
+     
+     [f](x0, x1) = x0 + 4x1,
+     
+     [b] = 2,
+     
+     [i](x0) = 6x0,
+     
+     [g](x0) = x0
+    orientation:
+     f(i(x),g(a())) = 6x + 16 >= 6x + 13 = f(j(x,x),g(b()))
+    problem:
+     
+    Qed
+

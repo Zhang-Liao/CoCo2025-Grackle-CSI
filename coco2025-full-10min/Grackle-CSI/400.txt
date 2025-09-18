@@ -1,0 +1,50 @@
+YES
+
+Problem:
+ f(g(x),g(x)) -> f(h(x),k(x))
+ f(h(x),k(x)) -> f(h(x),h(x))
+ f(h(x),h(x)) -> f(g(x),g(x))
+ g(x) -> h(x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  g(x) -> h(x)
+  f(g(x),g(x)) -> f(h(x),k(x))
+  f(h(x),k(x)) -> f(h(x),h(x))
+  f(h(x),h(x)) -> f(g(x),g(x))
+  
+   T' = (P union S) with
+  
+   TRS P:f(g(x),g(x)) -> f(h(x),k(x))
+         f(h(x),k(x)) -> f(h(x),h(x))
+         f(h(x),h(x)) -> f(g(x),g(x))
+  
+   TRS S:g(x) -> h(x)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  f(h(x),g(x)) = f(h(x),k(x)), f(g(x),h(x)) = f(h(x),k(x)), f(h(x),g(x)) = 
+  f(h(x),h(x)), f(g(x),h(x)) = f(h(x),h(x))
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [g](x0) = 4x0 + 1,
+    
+    [h](x0) = 4x0
+   orientation:
+    g(x) = 4x + 1 >= 4x = h(x)
+   problem:
+    
+   Qed
+

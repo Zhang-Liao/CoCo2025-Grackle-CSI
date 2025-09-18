@@ -1,0 +1,79 @@
+YES
+
+Problem:
+ f(f(f(x))) -> a()
+ f(f(a())) -> a()
+ f(a()) -> a()
+ f(f(g(g(x)))) -> f(a())
+ g(f(a())) -> a()
+ g(a()) -> a()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(f(f(x))) -> a()
+  f(f(a())) -> a()
+  f(a()) -> a()
+  f(f(g(g(x)))) -> f(a())
+  g(f(a())) -> a()
+  g(a()) -> a()
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:f(f(f(x))) -> a()
+         f(f(a())) -> a()
+         f(a()) -> a()
+         f(f(g(g(x)))) -> f(a())
+         g(f(a())) -> a()
+         g(a()) -> a()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(a()) = a(), f(f(a())) = a(), g(a()) = a(), f(f(f(a()))) = a(), f(f(g(a()))) = 
+  f(a())
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [a] = 0,
+    
+    [f](x0) = x0 + 1,
+    
+    [g](x0) = 4x0
+   orientation:
+    f(f(f(x))) = x + 3 >= 0 = a()
+    
+    f(f(a())) = 2 >= 0 = a()
+    
+    f(a()) = 1 >= 0 = a()
+    
+    f(f(g(g(x)))) = 16x + 2 >= 1 = f(a())
+    
+    g(f(a())) = 4 >= 0 = a()
+    
+    g(a()) = 0 >= 0 = a()
+   problem:
+    g(a()) -> a()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [a] = 2,
+     
+     [g](x0) = x0 + 1
+    orientation:
+     g(a()) = 3 >= 2 = a()
+    problem:
+     
+    Qed
+

@@ -1,0 +1,11 @@
+NO
+
+Problem:
+ a() -> a()
+ f(f(x,a()),a()) -> b()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(b(),a()) *<- f(f(f(x6,a()),a()),a()) ->* b()
+  Qed
+

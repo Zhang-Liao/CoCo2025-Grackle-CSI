@@ -1,0 +1,32 @@
+NO
+
+Problem:
+ a() -> a()
+ a() -> b()
+ a() -> f(a(),a())
+ f(b(),b()) -> f(a(),b())
+ f(x0,a()) -> f(b(),b())
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(f3(),f(a(),b())) *<- f(f3(),a()) ->* f(b(),b())
+  Qed
+  
+  first automaton:
+   final states: {12}
+   transitions:
+    f3() -> 16*
+    a() -> 14*
+    b() -> 14,13
+    f(16,15) -> 12*
+    f(14,13) -> 15*
+    f(14,14) -> 14*
+  
+  second automaton:
+   final states: {6}
+   transitions:
+    a() -> 8*
+    b() -> 8,7
+    f(8,7) -> 6*
+    f(8,8) -> 8*
+

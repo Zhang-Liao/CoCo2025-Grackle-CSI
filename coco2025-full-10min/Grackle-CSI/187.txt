@@ -1,0 +1,163 @@
+YES
+
+Problem:
+ not(T()) -> F()
+ not(F()) -> T()
+ not(not(x)) -> x
+ exor(x,T()) -> not(x)
+ exor(x,F()) -> x
+ exor(not(x),y) -> not(exor(x,y))
+ exor(exor(x,y),z) -> exor(x,exor(y,z))
+ exor(x,y) -> exor(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  not(T()) -> F()
+  not(F()) -> T()
+  not(not(x)) -> x
+  exor(x,T()) -> not(x)
+  exor(x,F()) -> x
+  exor(not(x),y) -> not(exor(x,y))
+  exor(T(),x) -> not(x)
+  exor(F(),x) -> x
+  exor(y,not(x)) -> not(exor(y,x))
+  exor(exor(x,y),z) -> exor(x,exor(y,z))
+  exor(x,y) -> exor(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:exor(exor(x,y),z) -> exor(x,exor(y,z))
+         exor(x,y) -> exor(y,x)
+  
+   TRS S:not(T()) -> F()
+         not(F()) -> T()
+         not(not(x)) -> x
+         exor(x,T()) -> not(x)
+         exor(x,F()) -> x
+         exor(not(x),y) -> not(exor(x,y))
+         exor(T(),x) -> not(x)
+         exor(F(),x) -> x
+         exor(y,not(x)) -> not(exor(y,x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  not(F()) = T(), exor(F(),y) = not(exor(T(),y)), exor(y,F()) = not(exor(y,T())), 
+  not(T()) = F(), exor(T(),y) = not(exor(F(),y)), exor(y,T()) = not(exor(y,F())), 
+  not(x811) = not(x811), exor(x812,y) = not(exor(not(x812),y)), exor(y,x813) = 
+  not(exor(y,not(x813))), not(not(x)) = not(exor(x,T())), not(T()) = 
+  not(T()), not(x) = not(exor(x,F())), T() = not(F()), F() = F(), not(exor(x820,T())) = 
+  not(not(x820)), not(exor(x822,F())) = not(x822), not(exor(x824,not(x))) = 
+  not(exor(not(x824),x)), not(not(x)) = not(exor(T(),x)), not(x) = not(exor(F(),x)), 
+  not(exor(not(x),x833)) = not(exor(x,not(x833))), not(exor(T(),x835)) = 
+  not(not(x835)), not(exor(F(),x837)) = not(x837)
+  
+   CP(S,P union P^-1) = 
+  not(exor(x,y)) = exor(x,exor(y,T())), exor(not(x),z) = exor(x,exor(T(),z)), 
+  not(x) = exor(T(),x), exor(x,not(y)) = exor(exor(x,y),T()), not(y) = 
+  exor(T(),y), exor(x,y) = exor(x,exor(y,F())), exor(x,z) = exor(x,exor(F(),z)), 
+  x = exor(F(),x), exor(x,y) = exor(exor(x,y),F()), y = exor(F(),y), 
+  exor(not(exor(x902,y)),z) = exor(not(x902),exor(y,z)), not(exor(x904,y)) = 
+  exor(y,not(x904)), not(exor(x906,exor(y,z))) = exor(exor(not(x906),y),z), 
+  exor(x,not(exor(x908,z))) = exor(exor(x,not(x908)),z), not(exor(x910,x)) = 
+  exor(x,not(x910)), exor(not(y),z) = exor(T(),exor(y,z)), not(y) = exor(y,T()), 
+  not(exor(y,z)) = exor(exor(T(),y),z), exor(x,not(z)) = exor(exor(x,T()),z), 
+  not(x) = exor(x,T()), exor(y,z) = exor(F(),exor(y,z)), y = exor(y,F()), 
+  exor(y,z) = exor(exor(F(),y),z), exor(x,z) = exor(exor(x,F()),z), x = 
+  exor(x,F()), not(exor(exor(x,y),x923)) = exor(x,exor(y,not(x923))), 
+  exor(not(exor(x,x925)),z) = exor(x,exor(not(x925),z)), not(exor(x,x927)) = 
+  exor(not(x927),x), exor(x,not(exor(y,x929))) = exor(exor(x,y),not(x929)), 
+  not(exor(y,x931)) = exor(not(x931),y)
+  
+  
+   CP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [not](x0) = x0,
+    
+    [exor](x0, x1) = x0 + 2x1 + 1,
+    
+    [T] = 0,
+    
+    [F] = 0
+   orientation:
+    not(T()) = 0 >= 0 = F()
+    
+    not(F()) = 0 >= 0 = T()
+    
+    not(not(x)) = x >= x = x
+    
+    exor(x,T()) = x + 1 >= x = not(x)
+    
+    exor(x,F()) = x + 1 >= x = x
+    
+    exor(not(x),y) = x + 2y + 1 >= x + 2y + 1 = not(exor(x,y))
+    
+    exor(T(),x) = 2x + 1 >= x = not(x)
+    
+    exor(F(),x) = 2x + 1 >= x = x
+    
+    exor(y,not(x)) = 2x + y + 1 >= 2x + y + 1 = not(exor(y,x))
+   problem:
+    not(T()) -> F()
+    not(F()) -> T()
+    not(not(x)) -> x
+    exor(not(x),y) -> not(exor(x,y))
+    exor(y,not(x)) -> not(exor(y,x))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [not](x0) = x0 + 4,
+     
+     [exor](x0, x1) = 3x0 + x1,
+     
+     [T] = 4,
+     
+     [F] = 0
+    orientation:
+     not(T()) = 8 >= 0 = F()
+     
+     not(F()) = 4 >= 4 = T()
+     
+     not(not(x)) = x + 8 >= x = x
+     
+     exor(not(x),y) = 3x + y + 12 >= 3x + y + 4 = not(exor(x,y))
+     
+     exor(y,not(x)) = x + 3y + 4 >= x + 3y + 4 = not(exor(y,x))
+    problem:
+     not(F()) -> T()
+     exor(y,not(x)) -> not(exor(y,x))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [not](x0) = x0 + 5,
+      
+      [exor](x0, x1) = x0 + x1,
+      
+      [T] = 0,
+      
+      [F] = 3
+     orientation:
+      not(F()) = 8 >= 0 = T()
+      
+      exor(y,not(x)) = x + y + 5 >= x + y + 5 = not(exor(y,x))
+     problem:
+      exor(y,not(x)) -> not(exor(y,x))
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [not](x0) = x0 + 1,
+       
+       [exor](x0, x1) = x0 + 4x1 + 7
+      orientation:
+       exor(y,not(x)) = 4x + y + 11 >= 4x + y + 8 = not(exor(y,x))
+      problem:
+       
+      Qed
+

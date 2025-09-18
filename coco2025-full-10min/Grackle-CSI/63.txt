@@ -1,0 +1,32 @@
+NO
+
+Problem:
+ h(f(),a(),a()) -> h(g(),a(),a())
+ h(g(),a(),a()) -> h(f(),a(),a())
+ a() -> a'()
+ h(x,a'(),y) -> h(x,y,y)
+ h(x,y,a'()) -> h(x,y,y)
+
+Proof:
+ Nonconfluence Processor:
+  terms: h(g(),a'(),a'()) *<- h(g(),a(),a()) ->* h(f(),a'(),a'())
+  Qed
+  
+  first automaton:
+   final states: {33}
+   transitions:
+    g() -> 36*
+    a'() -> 35,34
+    h(36,35,35) -> 33*
+    h(36,34,34) -> 33*
+    h(36,35,34) -> 33*
+  
+  second automaton:
+   final states: {29}
+   transitions:
+    f() -> 32*
+    a'() -> 31,30
+    h(32,30,30) -> 29*
+    h(32,31,31) -> 29*
+    h(32,31,30) -> 29*
+

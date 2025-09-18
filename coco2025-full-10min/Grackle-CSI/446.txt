@@ -1,0 +1,35 @@
+YES
+
+Problem:
+ *(e(),x) -> x
+ *(i(x),x) -> e()
+ i(e()) -> e()
+ i(i(x)) -> x
+ i(*(x,y)) -> *(i(x),i(y))
+ f(*(x,y)) -> *(f(x),f(y))
+ f(e()) -> e()
+ f(i(x)) -> i(f(x))
+ *(*(x,y),z) -> *(x,*(y,z))
+ *(x,*(y,z)) -> *(*(x,y),z)
+ *(x,y) -> *(y,x)
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f4_AC(e(),x) -> x
+  f4_AC(i(x),x) -> e()
+  i(e()) -> e()
+  i(i(x)) -> x
+  i(f4_AC(x,y)) -> f4_AC(i(x),i(y))
+  f(f4_AC(x,y)) -> f4_AC(f(x),f(y))
+  f(e()) -> e()
+  f(i(x)) -> i(f(x))
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    f > i > f4_AC > e
+   status:
+    
+   problem:
+    
+   Qed
+

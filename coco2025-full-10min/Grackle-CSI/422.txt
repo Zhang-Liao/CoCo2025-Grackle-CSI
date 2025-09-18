@@ -1,0 +1,74 @@
+YES
+
+Problem:
+ f(a(),a(),b(),b()) -> f(c(),c(),c(),c())
+ a() -> b()
+ a() -> c()
+ b() -> a()
+ b() -> c()
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(a(),a(),b(),b()) -> f(c(),c(),c(),c())
+  a() -> c()
+  b() -> c()
+  a() -> b()
+  b() -> a()
+  
+   T' = (P union S) with
+  
+   TRS P:a() -> b()
+         b() -> a()
+  
+   TRS S:f(a(),a(),b(),b()) -> f(c(),c(),c(),c())
+         a() -> c()
+         b() -> c()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  f(c(),a(),b(),b()) = f(c(),c(),c(),c()), f(a(),c(),b(),b()) = f(c(),c(),c(),c()), 
+  f(a(),a(),c(),b()) = f(c(),c(),c(),c()), f(a(),a(),b(),c()) = f(c(),c(),c(),c())
+  
+   CP(S,P union P^-1) = 
+  c() = b(), c() = a()
+  
+  
+   CP_in(P union P^-1,S) = 
+  f(b(),a(),b(),b()) = f(c(),c(),c(),c()), f(a(),b(),b(),b()) = f(c(),c(),c(),c()), 
+  f(a(),a(),a(),b()) = f(c(),c(),c(),c()), f(a(),a(),b(),a()) = f(c(),c(),c(),c())
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [b] = 4,
+    
+    [c] = 2,
+    
+    [a] = 2,
+    
+    [f](x0, x1, x2, x3) = 2x0 + 3x1 + 2x2 + x3 + 6
+   orientation:
+    f(a(),a(),b(),b()) = 28 >= 22 = f(c(),c(),c(),c())
+    
+    a() = 2 >= 2 = c()
+    
+    b() = 4 >= 2 = c()
+   problem:
+    a() -> c()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [c] = 0,
+     
+     [a] = 1
+    orientation:
+     a() = 1 >= 0 = c()
+    problem:
+     
+    Qed
+

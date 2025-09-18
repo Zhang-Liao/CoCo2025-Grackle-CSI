@@ -1,0 +1,41 @@
+NO
+
+Problem:
+ c(a(x)) -> b(c(x))
+ c(b(x)) -> b(b(x))
+ c(c(x)) -> a(c(x))
+ a(c(x)) -> c(b(x))
+ b(a(x)) -> c(b(x))
+ b(b(x)) -> a(c(x))
+ c(c(x)) -> c(b(x))
+
+Proof:
+ Nonconfluence Processor:
+  terms: b(a(c(f16()))) *<- b(b(a(f16()))) ->* a(b(c(f16())))
+  Qed
+  
+  first automaton:
+   final states: {230}
+   transitions:
+    a(233) -> 230*
+    a(232) -> 233*
+    c(233) -> 230*
+    c(4657) -> 233*
+    c(231) -> 232*
+    c(232) -> 233*
+    c(10936) -> 230*
+    f16() -> 231*
+    b(10936) -> 230*
+    b(231) -> 4657*
+    b(232) -> 10936*
+    b(233) -> 230*
+    b(4657) -> 233*
+  
+  second automaton:
+   final states: {210}
+   transitions:
+    a(213) -> 210*
+    c(211) -> 212*
+    f16() -> 211*
+    b(212) -> 213*
+

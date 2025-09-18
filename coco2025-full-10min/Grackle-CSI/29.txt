@@ -1,0 +1,26 @@
+YES
+
+Problem:
+ -(+(x,-(x))) -> 0()
+ +(x,-(x)) -> 0()
+ -(+(0(),0())) -> 0()
+ +(0(),0()) -> 0()
+ -(0()) -> 0()
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  -(+(x,-(x))) -> 0()
+  +(x,-(x)) -> 0()
+  -(+(0(),0())) -> 0()
+  +(0(),0()) -> 0()
+  -(0()) -> 0()
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    + > 0 > -
+   status:
+    +:lex  
+   problem:
+    
+   Qed
+

@@ -1,0 +1,86 @@
+YES
+
+Problem:
+ f(g(x),g(y)) -> f(g(x),h(y))
+ f(h(x),g(y)) -> f(g(x),g(y))
+ f(g(x),h(y)) -> f(x,y)
+ f(h(x),h(y)) -> f(y,x)
+ f(x,y) -> f(y,x)
+ g(x) -> h(x)
+ h(x) -> g(x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  f(g(x),h(y)) -> f(x,y)
+  f(h(x),h(y)) -> f(y,x)
+  f(g(x),g(y)) -> f(y,x)
+  f(h(x),g(y)) -> f(x,y)
+  f(g(x),g(y)) -> f(g(x),h(y))
+  f(h(x),g(y)) -> f(g(x),g(y))
+  f(x,y) -> f(y,x)
+  g(x) -> h(x)
+  h(x) -> g(x)
+  
+   T' = (P union S) with
+  
+   TRS P:f(g(x),g(y)) -> f(g(x),h(y))
+         f(h(x),g(y)) -> f(g(x),g(y))
+         f(x,y) -> f(y,x)
+         g(x) -> h(x)
+         h(x) -> g(x)
+  
+   TRS S:f(g(x),h(y)) -> f(x,y)
+         f(h(x),h(y)) -> f(y,x)
+         f(g(x),g(y)) -> f(y,x)
+         f(h(x),g(y)) -> f(x,y)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  f(x836,x837) = f(h(x837),g(x836)), f(x,y) = f(g(x),g(y)), f(x840,x841) = 
+  f(h(x841),g(x840)), f(x843,x842) = f(h(x843),h(x842)), f(x845,x844) = 
+  f(h(x845),h(x844)), f(y,x) = f(g(x),h(y)), f(x849,x848) = f(g(x849),g(x848)), 
+  f(y,x) = f(h(x),g(y)), f(x853,x852) = f(g(x853),g(x852)), f(x856,x857) = 
+  f(g(x857),h(x856)), f(x858,x859) = f(g(x859),h(x858))
+  
+  
+   CP_in(P union P^-1,S) = 
+  f(h(x),h(y)) = f(x,y), f(h(x),g(y)) = f(y,x), f(g(x),h(y)) = f(y,x), 
+  f(g(x),g(y)) = f(x,y)
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [f](x0, x1) = x0 + 4x1,
+    
+    [g](x0) = 6x0 + 4,
+    
+    [h](x0) = 7x0
+   orientation:
+    f(g(x),h(y)) = 6x + 28y + 4 >= x + 4y = f(x,y)
+    
+    f(h(x),h(y)) = 7x + 28y >= 4x + y = f(y,x)
+    
+    f(g(x),g(y)) = 6x + 24y + 20 >= 4x + y = f(y,x)
+    
+    f(h(x),g(y)) = 7x + 24y + 16 >= x + 4y = f(x,y)
+   problem:
+    f(h(x),h(y)) -> f(y,x)
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [f](x0, x1) = 2x0 + x1,
+     
+     [h](x0) = 3x0 + 1
+    orientation:
+     f(h(x),h(y)) = 6x + 3y + 3 >= x + 2y = f(y,x)
+    problem:
+     
+    Qed
+

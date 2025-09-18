@@ -1,0 +1,13 @@
+NO
+
+Problem:
+ f(g(x,a(),b())) -> x
+ p(a()) -> c()
+ g(f(h(c(),d())),x,y) -> h(p(x),q(x))
+ q(b()) -> d()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(h(c(),q(a()))) *<- f(g(f(h(c(),d())),a(),b())) ->* f(h(c(),d()))
+  Qed
+

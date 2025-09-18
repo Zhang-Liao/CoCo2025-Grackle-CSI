@@ -1,0 +1,63 @@
+YES
+
+Problem:
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ s(s(x)) -> x
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(x,y))
+  s(s(x)) -> x
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:+(0(),y) -> y
+         +(s(x),y) -> s(+(x,y))
+         s(s(x)) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  +(x52,y) = s(+(s(x52),y)), s(x53) = s(x53)
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = x0 + x1 + 2,
+    
+    [0] = 1,
+    
+    [s](x0) = x0 + 4
+   orientation:
+    +(0(),y) = y + 3 >= y = y
+    
+    +(s(x),y) = x + y + 6 >= x + y + 6 = s(+(x,y))
+    
+    s(s(x)) = x + 8 >= x = x
+   problem:
+    +(s(x),y) -> s(+(x,y))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [+](x0, x1) = 4x0 + x1,
+     
+     [s](x0) = x0 + 5
+    orientation:
+     +(s(x),y) = 4x + y + 20 >= 4x + y + 5 = s(+(x,y))
+    problem:
+     
+    Qed
+

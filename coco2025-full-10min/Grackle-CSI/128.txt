@@ -1,0 +1,71 @@
+YES
+
+Problem:
+ and3(x,y,F()) -> F()
+ and3(T(),T(),T()) -> T()
+ and3(x,y,z) -> and3(y,z,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  and3(x,y,F()) -> F()
+  and3(T(),T(),T()) -> T()
+  and3(y,F(),x) -> F()
+  and3(F(),y,z) -> F()
+  and3(x,y,z) -> and3(y,z,x)
+  
+   T' = (P union S) with
+  
+   TRS P:and3(x,y,z) -> and3(y,z,x)
+  
+   TRS S:and3(x,y,F()) -> F()
+         and3(T(),T(),T()) -> T()
+         and3(y,F(),x) -> F()
+         and3(F(),y,z) -> F()
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  F() = F()
+  
+   CP(S,P union P^-1) = 
+  F() = and3(y,F(),x), F() = and3(F(),y,z), T() = and3(T(),T(),T()), 
+  F() = and3(F(),z,x), F() = and3(x,y,F()), F() = and3(y,z,F()), F() = 
+  and3(x,F(),z)
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [and3](x0, x1, x2) = 2x0 + 2x1 + 4x2,
+    
+    [F] = 3,
+    
+    [T] = 0
+   orientation:
+    and3(x,y,F()) = 2x + 2y + 12 >= 3 = F()
+    
+    and3(T(),T(),T()) = 0 >= 0 = T()
+    
+    and3(y,F(),x) = 4x + 2y + 6 >= 3 = F()
+    
+    and3(F(),y,z) = 2y + 4z + 6 >= 3 = F()
+   problem:
+    and3(T(),T(),T()) -> T()
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [and3](x0, x1, x2) = 5x0 + x1 + x2 + 1,
+     
+     [T] = 4
+    orientation:
+     and3(T(),T(),T()) = 29 >= 4 = T()
+    problem:
+     
+    Qed
+

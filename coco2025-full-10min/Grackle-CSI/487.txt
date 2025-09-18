@@ -1,0 +1,98 @@
+YES
+
+Problem:
+ s(p(x)) -> x
+ p(s(x)) -> x
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ +(x,p(y)) -> p(+(x,y))
+ -(0(),0()) -> 0()
+ -(x,s(y)) -> p(-(x,y))
+ -(x,p(y)) -> s(-(x,y))
+ -(p(x),y) -> p(-(x,y))
+ -(s(x),y) -> s(-(x,y))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  s(p(x)) -> x
+  p(s(x)) -> x
+  +(x,0()) -> x
+  +(x,s(y)) -> s(+(x,y))
+  +(x,p(y)) -> p(+(x,y))
+  -(0(),0()) -> 0()
+  -(x,s(y)) -> p(-(x,y))
+  -(x,p(y)) -> s(-(x,y))
+  -(p(x),y) -> p(-(x,y))
+  -(s(x),y) -> s(-(x,y))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:s(p(x)) -> x
+         p(s(x)) -> x
+         +(x,0()) -> x
+         +(x,s(y)) -> s(+(x,y))
+         +(x,p(y)) -> p(+(x,y))
+         -(0(),0()) -> 0()
+         -(x,s(y)) -> p(-(x,y))
+         -(x,p(y)) -> s(-(x,y))
+         -(p(x),y) -> p(-(x,y))
+         -(s(x),y) -> s(-(x,y))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  p(x656) = p(x656), +(x,x657) = s(+(x,p(x657))), -(x,x658) = p(-(x,p(x658))), 
+  -(x659,y) = s(-(p(x659),y)), s(x660) = s(x660), +(x,x661) = p(+(x,s(x661))), 
+  -(x,x662) = s(-(x,s(x662))), -(x663,y) = p(-(s(x663),y)), p(-(p(x),x665)) = 
+  p(-(x,s(x665))), p(-(s(x),x667)) = s(-(x,s(x667))), s(-(p(x),x669)) = 
+  p(-(x,p(x669))), s(-(s(x),x671)) = s(-(x,p(x671))), p(-(x672,s(y))) = 
+  p(-(p(x672),y)), p(-(x674,p(y))) = s(-(p(x674),y)), s(-(x676,s(y))) = 
+  p(-(s(x676),y)), s(-(x678,p(y))) = s(-(s(x678),y))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [-](x0, x1) = 2x0 + 2x1 + 6,
+    
+    [s](x0) = x0 + 3,
+    
+    [+](x0, x1) = 4x0 + 4x1 + 3,
+    
+    [p](x0) = x0 + 4,
+    
+    [0] = 1
+   orientation:
+    s(p(x)) = x + 7 >= x = x
+    
+    p(s(x)) = x + 7 >= x = x
+    
+    +(x,0()) = 4x + 7 >= x = x
+    
+    +(x,s(y)) = 4x + 4y + 15 >= 4x + 4y + 6 = s(+(x,y))
+    
+    +(x,p(y)) = 4x + 4y + 19 >= 4x + 4y + 7 = p(+(x,y))
+    
+    -(0(),0()) = 10 >= 1 = 0()
+    
+    -(x,s(y)) = 2x + 2y + 12 >= 2x + 2y + 10 = p(-(x,y))
+    
+    -(x,p(y)) = 2x + 2y + 14 >= 2x + 2y + 9 = s(-(x,y))
+    
+    -(p(x),y) = 2x + 2y + 14 >= 2x + 2y + 10 = p(-(x,y))
+    
+    -(s(x),y) = 2x + 2y + 12 >= 2x + 2y + 9 = s(-(x,y))
+   problem:
+    
+   Qed
+

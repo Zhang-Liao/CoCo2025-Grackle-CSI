@@ -1,0 +1,47 @@
+YES
+
+Problem:
+ nats() -> cons(0(),inc(nats()))
+ inc(cons(x,y)) -> cons(s(x),inc(y))
+ inc(tl(nats())) -> tl(inc(nats()))
+ hd(cons(x,y)) -> x
+ tl(cons(x,y)) -> y
+ d(cons(x,y)) -> cons(x,cons(x,d(y)))
+
+Proof:
+ Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+  strict:
+   
+  weak:
+   nats() -> cons(0(),inc(nats()))
+   inc(cons(x,y)) -> cons(s(x),inc(y))
+   inc(tl(nats())) -> tl(inc(nats()))
+   hd(cons(x,y)) -> x
+   tl(cons(x,y)) -> y
+   d(cons(x,y)) -> cons(x,cons(x,d(y)))
+  original problem:
+   tl(cons(0(),x99)) -> x99
+   nats() -> cons(0(),inc(nats()))
+   inc(cons(0(),x101)) -> cons(s(0()),inc(x101))
+   tl(cons(s(0()),x104)) -> x104
+  critical peaks: 
+   Shift Processor (no label):
+    tl(cons(0(),x99)) -> x99
+    nats() -> cons(0(),inc(nats()))
+    inc(cons(0(),x101)) -> cons(s(0()),inc(x101))
+    tl(cons(s(0()),x104)) -> x104
+    Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+     strict:
+      
+     weak:
+      tl(cons(0(),x99)) -> x99
+      nats() -> cons(0(),inc(nats()))
+      inc(cons(0(),x101)) -> cons(s(0()),inc(x101))
+      tl(cons(s(0()),x104)) -> x104
+     original problem:
+      
+     critical peaks: 
+      Shift Processor (no label):
+       
+       Qed
+

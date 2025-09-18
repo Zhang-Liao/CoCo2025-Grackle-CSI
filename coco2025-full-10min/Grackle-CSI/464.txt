@@ -1,0 +1,23 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ g(f(b(),x)) -> g(h(h(f(f(h(k(k(x,x),x)),h(k(k(x,x),x))),h(k(k(x,x),x))))))
+ f(x,b()) -> h(f(f(x,x),x))
+ k(x,b()) -> f(x,b())
+
+Proof:
+ Church Rosser Transformation Processor (okui):
+  
+  simultaneous critical peaks: 
+   g(h(f(f(b(),b()),b())))
+    <-[0]- g(f(b(),b())) -[]->
+   g(h(h(f(f(h(k(k(b(),b()),b())),h(k(k(b(),b()),b()))),h(k(k(b(),b()),b()))))))
+   
+   g(h(h(f(f(h(k(k(b(),b()),b())),h(k(k(b(),b()),b()))),h(k(k(b(),b()),b()))))))
+    <-[]- g(f(b(),b())) -[0]->
+   g(h(f(f(b(),b()),b())))
+   joinable
+  Qed
+

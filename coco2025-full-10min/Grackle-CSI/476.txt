@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ f(g(f(x))) -> g(f(g(x)))
+ f(c()) -> c()
+ g(c()) -> c()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(g(g(f(g(x8))))) *<- f(g(f(g(f(x8))))) ->* g(f(g(g(f(x8)))))
+  Qed
+

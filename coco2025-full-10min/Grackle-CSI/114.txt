@@ -1,0 +1,674 @@
+YES
+
+Problem:
+ a1() -> b1()
+ a1() -> c1()
+ b1() -> b2()
+ c1() -> c2()
+ a2() -> b2()
+ a2() -> c2()
+ b2() -> b3()
+ c2() -> c3()
+ a3() -> b3()
+ a3() -> c3()
+ b3() -> b4()
+ c3() -> c4()
+ a4() -> b4()
+ a4() -> c4()
+ b4() -> b5()
+ c4() -> c5()
+ a5() -> b5()
+ a5() -> c5()
+ b5() -> b6()
+ c5() -> c6()
+ a6() -> b6()
+ a6() -> c6()
+ b6() -> b7()
+ c6() -> b7()
+ b7() -> b1()
+ b7() -> c1()
+
+Proof:
+ sorted: (order-sorted)
+ 0:a1() -> b1()
+   a1() -> c1()
+   b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+ 1:b1() -> b2()
+   c1() -> c2()
+   a2() -> b2()
+   a2() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+ 2:b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   a3() -> b3()
+   a3() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+ 3:b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   a4() -> b4()
+   a4() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+ 4:b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   a5() -> b5()
+   a5() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+ 5:b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   a6() -> b6()
+   a6() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+ -----
+ sorts
+   [0>6, 1>6, 2>6, 3>6, 4>6, 5>6]
+ sort attachment (non-strict)
+   a1 : 0
+   b1 : 6
+   c1 : 6
+   b2 : 6
+   c2 : 6
+   a2 : 1
+   b3 : 6
+   c3 : 6
+   a3 : 2
+   b4 : 6
+   c4 : 6
+   a4 : 3
+   b5 : 6
+   c5 : 6
+   a5 : 4
+   b6 : 6
+   c6 : 6
+   a6 : 5
+   b7 : 6
+ -----
+ 0:a1() -> b1()
+   a1() -> c1()
+   b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     a1() -> b1()
+     a1() -> c1()
+     b1() -> b2()
+     c1() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> b7()
+     b7() -> b1()
+     b7() -> c1()
+    original problem:
+     b1() -> b2()
+     b2() -> b3()
+     b3() -> b4()
+     b4() -> b5()
+     b5() -> b6()
+     b6() -> b7()
+     c1() -> c2()
+     c2() -> c3()
+     c3() -> c4()
+     c4() -> c5()
+     c5() -> c6()
+     c6() -> b7()
+    critical peaks: 
+     Shift Processor (no label):
+      b1() -> b2()
+      b2() -> b3()
+      b3() -> b4()
+      b4() -> b5()
+      b5() -> b6()
+      b6() -> b7()
+      c1() -> c2()
+      c2() -> c3()
+      c3() -> c4()
+      c4() -> c5()
+      c5() -> c6()
+      c6() -> b7()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b1() -> b2()
+        b2() -> b3()
+        b3() -> b4()
+        b4() -> b5()
+        b5() -> b6()
+        b6() -> b7()
+        c1() -> c2()
+        c2() -> c3()
+        c3() -> c4()
+        c4() -> c5()
+        c5() -> c6()
+        c6() -> b7()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 1:b1() -> b2()
+   c1() -> c2()
+   a2() -> b2()
+   a2() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     b1() -> b2()
+     c1() -> c2()
+     a2() -> b2()
+     a2() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> b7()
+     b7() -> b1()
+     b7() -> c1()
+    original problem:
+     b2() -> b3()
+     b3() -> b4()
+     b4() -> b5()
+     b5() -> b6()
+     b6() -> b7()
+     c2() -> c3()
+     c3() -> c4()
+     c4() -> c5()
+     c5() -> c6()
+     c6() -> b7()
+     b1() -> b2()
+     c1() -> c2()
+    critical peaks: 
+     Shift Processor (no label):
+      b2() -> b3()
+      b3() -> b4()
+      b4() -> b5()
+      b5() -> b6()
+      b6() -> b7()
+      c2() -> c3()
+      c3() -> c4()
+      c4() -> c5()
+      c5() -> c6()
+      c6() -> b7()
+      b1() -> b2()
+      c1() -> c2()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b2() -> b3()
+        b3() -> b4()
+        b4() -> b5()
+        b5() -> b6()
+        b6() -> b7()
+        c2() -> c3()
+        c3() -> c4()
+        c4() -> c5()
+        c5() -> c6()
+        c6() -> b7()
+        b1() -> b2()
+        c1() -> c2()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 2:b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   a3() -> b3()
+   a3() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     b1() -> b2()
+     c1() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     a3() -> b3()
+     a3() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> b7()
+     b7() -> b1()
+     b7() -> c1()
+    original problem:
+     b3() -> b4()
+     b4() -> b5()
+     b5() -> b6()
+     b6() -> b7()
+     c3() -> c4()
+     c4() -> c5()
+     c5() -> c6()
+     c6() -> b7()
+     b1() -> b2()
+     b2() -> b3()
+     c1() -> c2()
+     c2() -> c3()
+    critical peaks: 
+     Shift Processor (no label):
+      b3() -> b4()
+      b4() -> b5()
+      b5() -> b6()
+      b6() -> b7()
+      c3() -> c4()
+      c4() -> c5()
+      c5() -> c6()
+      c6() -> b7()
+      b1() -> b2()
+      b2() -> b3()
+      c1() -> c2()
+      c2() -> c3()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b3() -> b4()
+        b4() -> b5()
+        b5() -> b6()
+        b6() -> b7()
+        c3() -> c4()
+        c4() -> c5()
+        c5() -> c6()
+        c6() -> b7()
+        b1() -> b2()
+        b2() -> b3()
+        c1() -> c2()
+        c2() -> c3()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 3:b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   a4() -> b4()
+   a4() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     b1() -> b2()
+     c1() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     a4() -> b4()
+     a4() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> b7()
+     b7() -> b1()
+     b7() -> c1()
+    original problem:
+     b4() -> b5()
+     b5() -> b6()
+     b6() -> b7()
+     c4() -> c5()
+     c5() -> c6()
+     c6() -> b7()
+     b1() -> b2()
+     b2() -> b3()
+     b3() -> b4()
+     c1() -> c2()
+     c2() -> c3()
+     c3() -> c4()
+    critical peaks: 
+     Shift Processor (no label):
+      b4() -> b5()
+      b5() -> b6()
+      b6() -> b7()
+      c4() -> c5()
+      c5() -> c6()
+      c6() -> b7()
+      b1() -> b2()
+      b2() -> b3()
+      b3() -> b4()
+      c1() -> c2()
+      c2() -> c3()
+      c3() -> c4()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b4() -> b5()
+        b5() -> b6()
+        b6() -> b7()
+        c4() -> c5()
+        c5() -> c6()
+        c6() -> b7()
+        b1() -> b2()
+        b2() -> b3()
+        b3() -> b4()
+        c1() -> c2()
+        c2() -> c3()
+        c3() -> c4()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 4:b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   a5() -> b5()
+   a5() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     b1() -> b2()
+     c1() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     a5() -> b5()
+     a5() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     b6() -> b7()
+     c6() -> b7()
+     b7() -> b1()
+     b7() -> c1()
+    original problem:
+     b5() -> b6()
+     b6() -> b7()
+     c5() -> c6()
+     c6() -> b7()
+     b1() -> b2()
+     b2() -> b3()
+     b3() -> b4()
+     b4() -> b5()
+     c1() -> c2()
+     c2() -> c3()
+     c3() -> c4()
+     c4() -> c5()
+    critical peaks: 
+     Shift Processor (no label):
+      b5() -> b6()
+      b6() -> b7()
+      c5() -> c6()
+      c6() -> b7()
+      b1() -> b2()
+      b2() -> b3()
+      b3() -> b4()
+      b4() -> b5()
+      c1() -> c2()
+      c2() -> c3()
+      c3() -> c4()
+      c4() -> c5()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b5() -> b6()
+        b6() -> b7()
+        c5() -> c6()
+        c6() -> b7()
+        b1() -> b2()
+        b2() -> b3()
+        b3() -> b4()
+        b4() -> b5()
+        c1() -> c2()
+        c2() -> c3()
+        c3() -> c4()
+        c4() -> c5()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+ 
+ 5:b1() -> b2()
+   c1() -> c2()
+   b2() -> b3()
+   c2() -> c3()
+   b3() -> b4()
+   c3() -> c4()
+   b4() -> b5()
+   c4() -> c5()
+   b5() -> b6()
+   c5() -> c6()
+   a6() -> b6()
+   a6() -> c6()
+   b6() -> b7()
+   c6() -> b7()
+   b7() -> b1()
+   b7() -> c1()
+   Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+    strict:
+     
+    weak:
+     b1() -> b2()
+     c1() -> c2()
+     b2() -> b3()
+     c2() -> c3()
+     b3() -> b4()
+     c3() -> c4()
+     b4() -> b5()
+     c4() -> c5()
+     b5() -> b6()
+     c5() -> c6()
+     a6() -> b6()
+     a6() -> c6()
+     b6() -> b7()
+     c6() -> b7()
+     b7() -> b1()
+     b7() -> c1()
+    original problem:
+     b6() -> b7()
+     c6() -> b7()
+     b1() -> b2()
+     b2() -> b3()
+     b3() -> b4()
+     b4() -> b5()
+     b5() -> b6()
+     c1() -> c2()
+     c2() -> c3()
+     c3() -> c4()
+     c4() -> c5()
+     c5() -> c6()
+    critical peaks: 
+     Shift Processor (no label):
+      b6() -> b7()
+      c6() -> b7()
+      b1() -> b2()
+      b2() -> b3()
+      b3() -> b4()
+      b4() -> b5()
+      b5() -> b6()
+      c1() -> c2()
+      c2() -> c3()
+      c3() -> c4()
+      c4() -> c5()
+      c5() -> c6()
+      Church Rosser Transformation Processor (critical pair closing system, Thm 2.4):
+       strict:
+        
+       weak:
+        b6() -> b7()
+        c6() -> b7()
+        b1() -> b2()
+        b2() -> b3()
+        b3() -> b4()
+        b4() -> b5()
+        b5() -> b6()
+        c1() -> c2()
+        c2() -> c3()
+        c3() -> c4()
+        c4() -> c5()
+        c5() -> c6()
+       original problem:
+        
+       critical peaks: 
+        Shift Processor (no label):
+         
+         Qed
+ 
+

@@ -1,0 +1,71 @@
+NO
+
+Problem:
+ a() -> b()
+ a() -> f(a())
+ b() -> f(f(b()))
+ f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(f(
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f
+                                                                    (
+                                                                    f(f(f(f(f(f(f(f(f(b()))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+ -> b()
+
+Proof:
+ Nonconfluence Processor:
+  terms: b() *<- a() ->* f(b())
+  Qed
+  
+  first automaton:
+   final states: {68}
+   transitions:
+    b() -> 68*
+    f(603) -> 68*
+    f(68) -> 603*
+  
+  second automaton:
+   final states: {143}
+   transitions:
+    b() -> 144*
+    f(144) -> 143*
+    f(143) -> 144*
+

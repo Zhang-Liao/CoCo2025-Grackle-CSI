@@ -1,0 +1,20 @@
+NO
+
+Problem:
+ -(x,x) -> 0()
+ -(s(x),s(y)) -> -(x,y)
+ +(x,y) -> +(y,x)
+ +(0(),x) -> x
+ +(x,0()) -> x
+ +(s(x),y) -> s(+(x,y))
+ +(x,s(y)) -> s(+(y,x))
+ +(p(x),y) -> p(+(x,y))
+ +(x,p(y)) -> p(+(y,x))
+ s(p(x)) -> x
+ p(s(x)) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: -(x414,s(y)) *<- -(s(p(x414)),s(y)) ->* -(p(x414),y)
+  Qed
+

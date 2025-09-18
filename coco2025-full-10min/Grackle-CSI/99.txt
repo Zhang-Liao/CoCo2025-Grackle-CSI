@@ -1,0 +1,32 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ H(I(x)) -> K(J(x))
+ J(x) -> K(J(x))
+ I(x) -> I(J(x))
+ J(x) -> J(K(J(x)))
+
+Proof:
+ Church Rosser Transformation Processor (okui):
+  
+  simultaneous critical peaks: 
+   H(I(J(x)))
+    <-[0]- H(I(x)) -[]->
+   K(J(x))
+   
+   J(K(J(x)))
+    <-[]- J(x) -[]->
+   K(J(x))
+   
+   K(J(x))
+    <-[]- H(I(x)) -[0]->
+   H(I(J(x)))
+   
+   K(J(x))
+    <-[]- J(x) -[]->
+   J(K(J(x)))
+   joinable
+  Qed
+

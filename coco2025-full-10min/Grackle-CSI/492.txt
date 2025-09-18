@@ -1,0 +1,70 @@
+YES
+
+Problem:
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(y,x))
+ +(x,y) -> +(y,x)
+ +(+(x,x),x) -> +(x,+(x,x))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(0(),y) -> y
+  +(s(x),y) -> s(+(y,x))
+  +(x,0()) -> x
+  +(x,s(x41)) -> s(+(x41,x))
+  +(x,y) -> +(y,x)
+  +(+(x,x),x) -> +(x,+(x,x))
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,y) -> +(y,x)
+         +(+(x,x),x) -> +(x,+(x,x))
+  
+   TRS S:+(0(),y) -> y
+         +(s(x),y) -> s(+(y,x))
+         +(x,0()) -> x
+         +(x,s(x41)) -> s(+(x41,x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x41) = s(+(x41,0())), s(+(0(),x247)) = s(x247), s(+(s(x41),x249)) = 
+  s(+(x41,s(x249))), s(x) = s(+(0(),x)), s(+(x254,0())) = s(x254), s(+(x256,s(x))) = 
+  s(+(s(x256),x))
+  
+   CP(S,P union P^-1) = 
+  y = +(y,0()), +(0(),0()) = +(0(),+(0(),0())), x = +(x,0()), +(0(),0()) = 
+  +(+(0(),0()),0()), s(+(y,x298)) = +(y,s(x298)), +(s(+(s(x300),x300)),s(x300)) = 
+  +(s(x300),+(s(x300),s(x300))), s(+(x,x302)) = +(x,s(x302)), s(+(+(s(x304),s(x304)),x304)) = 
+  +(+(s(x304),s(x304)),s(x304)), +(s(x306),s(+(s(x306),x306))) = +(+(s(x306),s(x306)),s(x306)), 
+  x = +(0(),x), y = +(0(),y), s(+(x314,x)) = +(s(x314),x), s(+(x316,+(s(x316),s(x316)))) = 
+  +(s(x316),+(s(x316),s(x316))), +(s(+(x318,s(x318))),s(x318)) = +(s(x318),+(s(x318),s(x318))), 
+  s(+(x320,y)) = +(s(x320),y), +(s(x322),s(+(x322,s(x322)))) = +(+(s(x322),s(x322)),s(x322))
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 3x0 + 3x1 + 3,
+    
+    [0] = 4,
+    
+    [s](x0) = x0 + 7
+   orientation:
+    +(0(),y) = 3y + 15 >= y = y
+    
+    +(s(x),y) = 3x + 3y + 24 >= 3x + 3y + 10 = s(+(y,x))
+    
+    +(x,0()) = 3x + 15 >= x = x
+    
+    +(x,s(x41)) = 3x + 3x41 + 24 >= 3x + 3x41 + 10 = s(+(x41,x))
+   problem:
+    
+   Qed
+

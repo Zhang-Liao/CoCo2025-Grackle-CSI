@@ -1,0 +1,56 @@
+YES
+
+Problem:
+ H(H(x)) -> K(x)
+ H(K(x)) -> K(H(x))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  H(H(x)) -> K(x)
+  H(K(x)) -> K(H(x))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:H(H(x)) -> K(x)
+         H(K(x)) -> K(H(x))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  H(K(x19)) = K(H(x19)), H(K(H(x20))) = K(K(x20))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [K](x0) = 4x0 + 6,
+    
+    [H](x0) = 5x0 + 1
+   orientation:
+    H(H(x)) = 25x + 6 >= 4x + 6 = K(x)
+    
+    H(K(x)) = 20x + 31 >= 20x + 10 = K(H(x))
+   problem:
+    H(H(x)) -> K(x)
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [K](x0) = 4x0,
+     
+     [H](x0) = 2x0 + 1
+    orientation:
+     H(H(x)) = 4x + 3 >= 4x = K(x)
+    problem:
+     
+    Qed
+

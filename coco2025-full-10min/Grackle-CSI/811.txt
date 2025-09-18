@@ -1,0 +1,16 @@
+NO
+
+Problem:
+ r(e(x)) -> w(r(x))
+ i(t(x)) -> e(r(x))
+ e(w(x)) -> r(i(x))
+ t(e(x)) -> r(e(x))
+ w(r(x)) -> i(t(x))
+ e(r(x)) -> e(w(x))
+ r(i(t(e(r(x))))) -> e(w(r(i(t(e(x))))))
+
+Proof:
+ Nonconfluence Processor:
+  terms: r(i(r(x121))) *<- e(r(e(x121))) ->* r(i(e(x121)))
+  Qed
+

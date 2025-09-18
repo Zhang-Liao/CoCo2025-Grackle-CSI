@@ -1,0 +1,91 @@
+NO
+
+Problem:
+ f(x,x) -> a()
+ c() -> h(c(),g(c()))
+ h(x,g(x)) -> f(x,h(x,g(c())))
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 0
+  Redundant Rules Transformation:
+   f(x,x) -> a()
+   c() -> h(c(),g(c()))
+   h(x,g(x)) -> f(x,h(x,g(c())))
+   c() -> f(c(),h(c(),g(c())))
+   f(f(x,x),a()) -> a()
+   f(a(),f(x,x)) -> a()
+   f(c(),h(c(),g(c()))) -> a()
+   f(h(c(),g(c())),c()) -> a()
+   Church Rosser Transformation Processor:
+    strict:
+     
+    weak:
+     
+    critical peaks: 18
+     f(a(),a()) <-0|0[]- f(f(x,x),a()) -4|[]-> a()
+     f(a(),a()) <-0|1[]- f(a(),f(x,x)) -5|[]-> a()
+     h(c(),g(c())) <-1|[]- c() -3|[]-> f(c(),h(c(),g(c())))
+     f(h(c(),g(c())),h(c(),g(c()))) <-1|0[]- f(c(),h(c(),g(c()))) -6|[]-> a()
+     f(c(),h(h(c(),g(c())),g(c()))) <-1|1,0[]- f(c(),h(c(),g(c()))) -6|[]-> a()
+     f(c(),h(c(),g(h(c(),g(c()))))) <-1|1,1,0[]- f(c(),h(c(),g(c()))) -6|[]-> a()
+     f(h(h(c(),g(c())),g(c())),c()) <-1|0,0[]- f(h(c(),g(c())),c()) -7|[]-> a()
+     f(h(c(),g(h(c(),g(c())))),c()) <-1|0,1,0[]- f(h(c(),g(c())),c()) -7|[]-> a()
+     f(h(c(),g(c())),h(c(),g(c()))) <-1|1[]- f(h(c(),g(c())),c()) -7|[]-> a()
+     f(c(),f(c(),h(c(),g(c())))) <-2|1[]- f(c(),h(c(),g(c()))) -6|[]-> a()
+     f(f(c(),h(c(),g(c()))),c()) <-2|0[]- f(h(c(),g(c())),c()) -7|[]-> a()
+     f(c(),h(c(),g(c()))) <-3|[]- c() -1|[]-> h(c(),g(c()))
+     f(f(c(),h(c(),g(c()))),h(c(),g(c()))) <-3|0[]- f(c(),h(c(),g(c()))) -6|[]-> a()
+     f(c(),h(f(c(),h(c(),g(c()))),g(c()))) <-3|1,0[]- f(c(),h(c(),g(c()))) -6|[]-> a()
+     f(c(),h(c(),g(f(c(),h(c(),g(c())))))) <-3|1,1,0[]- f(c(),h(c(),g(c()))) -6|[]-> a()
+     f(h(f(c(),h(c(),g(c()))),g(c())),c()) <-3|0,0[]- f(h(c(),g(c())),c()) -7|[]-> a()
+     f(h(c(),g(f(c(),h(c(),g(c()))))),c()) <-3|0,1,0[]- f(h(c(),g(c())),c()) -7|[]-> a()
+     f(h(c(),g(c())),f(c(),h(c(),g(c())))) <-3|1[]- f(h(c(),g(c())),c()) -7|[]-> a()
+    Redundant Rules Transformation:
+     f(x,x) -> a()
+     c() -> h(c(),g(c()))
+     h(x,g(x)) -> f(x,h(x,g(c())))
+     c() -> f(c(),h(c(),g(c())))
+     f(f(x,x),a()) -> a()
+     f(a(),f(x,x)) -> a()
+     f(c(),h(c(),g(c()))) -> a()
+     f(h(c(),g(c())),c()) -> a()
+     h(c(),g(c())) -> a()
+     c() -> a()
+     f(c(),c()) -> a()
+     Nonconfluence Processor:
+      terms: h(a(),g(c())) *<- h(c(),g(c())) ->* a()
+      Qed
+      
+      first automaton:
+       final states: {624,15}
+       transitions:
+        g(16) -> 17*
+        g(623) -> 17*
+        g(624) -> 17*
+        f(16,16) -> 16*
+        f(624,623) -> 16*
+        f(623,15) -> 624*
+        f(623,623) -> 16*
+        f(624,16) -> 16*
+        f(624,624) -> 16*
+        f(623,16) -> 16*
+        f(623,624) -> 624*
+        f(16,623) -> 16*
+        f(16,624) -> 16*
+        a() -> 623*
+        h(16,17) -> 16*
+        h(623,17) -> 624*
+        h(624,17) -> 16*
+        h(18,17) -> 15*
+        c() -> 16*
+      
+      second automaton:
+       final states: {4}
+       transitions:
+        a() -> 4*
+

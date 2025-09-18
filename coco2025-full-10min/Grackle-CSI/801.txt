@@ -1,0 +1,11 @@
+NO
+
+Problem:
+ a(a(x)) -> b(b(b(x)))
+ b(b(b(b(x)))) -> a(a(a(x)))
+
+Proof:
+ Nonconfluence Processor:
+  terms: a(b(b(b(x13)))) *<- a(a(a(x13))) ->* b(b(b(a(x13))))
+  Qed
+

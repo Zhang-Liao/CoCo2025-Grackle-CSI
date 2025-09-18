@@ -1,0 +1,50 @@
+YES
+
+Problem:
+ b(b(c(a(b(c(x)))))) -> a(b(b(c(b(c(a(x)))))))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  b(b(c(a(b(c(x)))))) -> a(b(b(c(b(c(a(x)))))))
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:b(b(c(a(b(c(x)))))) -> a(b(b(c(b(c(a(x)))))))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=3
+   
+   interpretation:
+              [1 1 0]  
+    [b](x0) = [0 0 1]x0
+              [0 1 0]  ,
+    
+              [1 0 0]  
+    [c](x0) = [0 0 0]x0
+              [0 0 1]  ,
+    
+              [1 0 0]     [0]
+    [a](x0) = [0 0 0]x0 + [0]
+              [0 0 0]     [1]
+   orientation:
+                          [1 0 0]    [1]    [1 0 0]    [0]                         
+    b(b(c(a(b(c(x)))))) = [0 0 0]x + [0] >= [0 0 0]x + [0] = a(b(b(c(b(c(a(x)))))))
+                          [0 0 0]    [1]    [0 0 0]    [1]                         
+   problem:
+    
+   Qed
+

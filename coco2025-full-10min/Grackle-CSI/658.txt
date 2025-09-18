@@ -1,0 +1,11 @@
+NO
+
+Problem:
+ f(a(),b(),x) -> f(x,x,x)
+ a() -> c()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(c(),b(),x) *<- f(a(),b(),x) ->* f(x,x,x)
+  Qed
+

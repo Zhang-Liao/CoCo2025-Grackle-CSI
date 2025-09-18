@@ -1,0 +1,13 @@
+NO
+
+Problem:
+ min(0(),y) -> 0()
+ min(x,0()) -> 0()
+ min(s(x),s(y)) -> min(x,y)
+ min(x,x) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: x46 *<- min(s(x46),s(x46)) ->* s(x46)
+  Qed
+

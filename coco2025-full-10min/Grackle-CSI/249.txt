@@ -1,0 +1,180 @@
+YES
+
+Problem:
+ -(x,x) -> 0()
+ -(x,0()) -> x
+ +(x,y) -> +(y,x)
+ +(0(),x) -> x
+ +(x,0()) -> x
+ +(s(x),y) -> s(+(x,y))
+ +(x,s(y)) -> s(+(y,x))
+ +(p(x),y) -> p(+(x,y))
+ +(x,p(y)) -> p(+(y,x))
+ s(p(x)) -> x
+ p(s(x)) -> x
+
+Proof:
+ sorted: (order-sorted)
+ 0:-(x,x) -> 0()
+   -(x,0()) -> x
+ 1:+(x,y) -> +(y,x)
+   +(0(),x) -> x
+   +(x,0()) -> x
+   +(s(x),y) -> s(+(x,y))
+   +(x,s(y)) -> s(+(y,x))
+   +(p(x),y) -> p(+(x,y))
+   +(x,p(y)) -> p(+(y,x))
+   s(p(x)) -> x
+   p(s(x)) -> x
+ -----
+ sorts
+   [0>1, 1>3, 2>3]
+ sort attachment (non-strict)
+   - : 1 x 1 -> 0
+   0 : 3
+   + : 2 x 2 -> 2
+   s : 2 -> 2
+   p : 2 -> 2
+ -----
+ 0:-(x,x) -> 0()
+   -(x,0()) -> x
+   Church Rosser Transformation Processor (ac):
+    -(x,x) -> 0()
+    -(x,0()) -> x
+    AC critical peaks: joinable
+    AC-KBO Processor:
+     precedence:
+      - > 0
+      weight function:
+       w0 = 1
+       w(0) = 6
+       w(-) = 4
+      problem:
+       
+      Qed
+ 
+ 
+ 1:+(x,y) -> +(y,x)
+   +(0(),x) -> x
+   +(x,0()) -> x
+   +(s(x),y) -> s(+(x,y))
+   +(x,s(y)) -> s(+(y,x))
+   +(p(x),y) -> p(+(x,y))
+   +(x,p(y)) -> p(+(y,x))
+   s(p(x)) -> x
+   p(s(x)) -> x
+   AT confluence processor
+    Complete TRS T' of input TRS:
+    +(0(),x) -> x
+    +(x,0()) -> x
+    +(s(x),y) -> s(+(x,y))
+    +(x,s(y)) -> s(+(y,x))
+    +(p(x),y) -> p(+(x,y))
+    +(x,p(y)) -> p(+(y,x))
+    s(p(x)) -> x
+    p(s(x)) -> x
+    +(x,y) -> +(y,x)
+    
+     T' = (P union S) with
+    
+     TRS P:+(x,y) -> +(y,x)
+    
+     TRS S:+(0(),x) -> x
+           +(x,0()) -> x
+           +(s(x),y) -> s(+(x,y))
+           +(x,s(y)) -> s(+(y,x))
+           +(p(x),y) -> p(+(x,y))
+           +(x,p(y)) -> p(+(y,x))
+           s(p(x)) -> x
+           p(s(x)) -> x
+    
+    S is left-linear and P is reversible.
+    
+     CP(S,S) = 
+    0() = 0(), s(y) = s(+(y,0())), p(y) = p(+(y,0())), s(x) = s(+(x,0())), 
+    p(x) = p(+(x,0())), s(+(x506,0())) = s(x506), s(+(x508,s(y))) = s(+(y,s(x508))), 
+    s(+(x510,p(y))) = p(+(y,s(x510))), s(+(x513,0())) = s(x513), s(+(x515,s(x))) = 
+    s(+(x,s(x515))), s(+(x517,p(x))) = p(+(x,s(x517))), p(+(x518,0())) = 
+    p(x518), p(+(x520,s(y))) = s(+(y,p(x520))), p(+(x522,p(y))) = p(+(y,p(x522))), 
+    p(+(x525,0())) = p(x525), p(+(x527,s(x))) = s(+(x,p(x527))), p(+(x529,p(x))) = 
+    p(+(x,p(x529))), +(x530,y) = s(+(p(x530),y)), +(x,x531) = s(+(p(x531),x)), 
+    p(x532) = p(x532), +(x533,y) = p(+(s(x533),y)), +(x,x534) = p(+(s(x534),x)), 
+    s(x535) = s(x535)
+    
+     CP(S,P union P^-1) = 
+    y = +(y,0()), x = +(x,0()), x = +(0(),x), y = +(0(),y), s(+(x564,y)) = 
+    +(y,s(x564)), s(+(x566,x)) = +(x,s(x566)), s(+(x569,x)) = +(s(x569),x), 
+    s(+(x571,y)) = +(s(x571),y), p(+(x572,y)) = +(y,p(x572)), p(+(x574,x)) = 
+    +(x,p(x574)), p(+(x577,x)) = +(p(x577),x), p(+(x579,y)) = +(p(x579),y)
+    
+    
+     PCP_in(P union P^-1,S) = 
+    
+    
+    We have to check termination of S:
+    
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [p](x0) = x0,
+      
+      [0] = 0,
+      
+      [s](x0) = x0 + 5,
+      
+      [+](x0, x1) = x0 + x1 + 5
+     orientation:
+      +(0(),x) = x + 5 >= x = x
+      
+      +(x,0()) = x + 5 >= x = x
+      
+      +(s(x),y) = x + y + 10 >= x + y + 10 = s(+(x,y))
+      
+      +(x,s(y)) = x + y + 10 >= x + y + 10 = s(+(y,x))
+      
+      +(p(x),y) = x + y + 5 >= x + y + 5 = p(+(x,y))
+      
+      +(x,p(y)) = x + y + 5 >= x + y + 5 = p(+(y,x))
+      
+      s(p(x)) = x + 5 >= x = x
+      
+      p(s(x)) = x + 5 >= x = x
+     problem:
+      +(s(x),y) -> s(+(x,y))
+      +(x,s(y)) -> s(+(y,x))
+      +(p(x),y) -> p(+(x,y))
+      +(x,p(y)) -> p(+(y,x))
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [p](x0) = x0 + 4,
+       
+       [s](x0) = x0,
+       
+       [+](x0, x1) = 4x0 + 4x1
+      orientation:
+       +(s(x),y) = 4x + 4y >= 4x + 4y = s(+(x,y))
+       
+       +(x,s(y)) = 4x + 4y >= 4x + 4y = s(+(y,x))
+       
+       +(p(x),y) = 4x + 4y + 16 >= 4x + 4y + 4 = p(+(x,y))
+       
+       +(x,p(y)) = 4x + 4y + 16 >= 4x + 4y + 4 = p(+(y,x))
+      problem:
+       +(s(x),y) -> s(+(x,y))
+       +(x,s(y)) -> s(+(y,x))
+      Matrix Interpretation Processor: dim=1
+       
+       interpretation:
+        [s](x0) = x0 + 1,
+        
+        [+](x0, x1) = 2x0 + 2x1
+       orientation:
+        +(s(x),y) = 2x + 2y + 2 >= 2x + 2y + 1 = s(+(x,y))
+        
+        +(x,s(y)) = 2x + 2y + 2 >= 2x + 2y + 1 = s(+(y,x))
+       problem:
+        
+       Qed
+ 
+

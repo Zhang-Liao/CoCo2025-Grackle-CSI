@@ -1,0 +1,104 @@
+YES
+
+Problem:
+ b(c(x)) -> a(x)
+ b(b(x)) -> a(c(x))
+ a(x) -> c(b(x))
+ c(c(c(x))) -> b(x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  b(c(x)) -> a(x)
+  b(b(x)) -> a(c(x))
+  a(x) -> c(b(x))
+  c(c(c(x))) -> b(x)
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:b(c(x)) -> a(x)
+         b(b(x)) -> a(c(x))
+         a(x) -> c(b(x))
+         c(c(c(x))) -> b(x)
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  b(a(x70)) = a(c(c(x70))), b(a(c(x71))) = a(c(b(x71))), b(b(x72)) = 
+  a(c(c(x72))), c(b(x73)) = b(c(x73)), c(c(b(x74))) = b(c(c(x74)))
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [b](x0) = x0 + 4,
+    
+    [c](x0) = x0 + 2,
+    
+    [a](x0) = x0 + 6
+   orientation:
+    b(c(x)) = x + 6 >= x + 6 = a(x)
+    
+    b(b(x)) = x + 8 >= x + 8 = a(c(x))
+    
+    a(x) = x + 6 >= x + 6 = c(b(x))
+    
+    c(c(c(x))) = x + 6 >= x + 4 = b(x)
+   problem:
+    b(c(x)) -> a(x)
+    b(b(x)) -> a(c(x))
+    a(x) -> c(b(x))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b](x0) = 2x0 + 7,
+     
+     [c](x0) = x0,
+     
+     [a](x0) = 2x0 + 7
+    orientation:
+     b(c(x)) = 2x + 7 >= 2x + 7 = a(x)
+     
+     b(b(x)) = 4x + 21 >= 2x + 7 = a(c(x))
+     
+     a(x) = 2x + 7 >= 2x + 7 = c(b(x))
+    problem:
+     b(c(x)) -> a(x)
+     a(x) -> c(b(x))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [b](x0) = 2x0 + 1,
+      
+      [c](x0) = 2x0 + 2,
+      
+      [a](x0) = 4x0 + 5
+     orientation:
+      b(c(x)) = 4x + 5 >= 4x + 5 = a(x)
+      
+      a(x) = 4x + 5 >= 4x + 4 = c(b(x))
+     problem:
+      b(c(x)) -> a(x)
+     Matrix Interpretation Processor: dim=1
+      
+      interpretation:
+       [b](x0) = 2x0 + 1,
+       
+       [c](x0) = 2x0 + 1,
+       
+       [a](x0) = 4x0
+      orientation:
+       b(c(x)) = 4x + 3 >= 4x = a(x)
+      problem:
+       
+      Qed
+

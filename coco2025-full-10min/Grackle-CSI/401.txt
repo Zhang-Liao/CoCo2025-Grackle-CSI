@@ -1,0 +1,36 @@
+YES
+
+Problem:
+ f(x,h(x)) -> f(h(x),h(x))
+ f(x,k(y,z)) -> f(h(y),h(y))
+ h(x) -> k(x,x)
+ k(a(),a()) -> h(b())
+ a() -> b()
+
+Proof:
+ Church Rosser Transformation Processor:
+  strict:
+   
+  weak:
+   
+  critical peaks: 4
+   f(x,k(x,x)) <-2|1[]- f(x,h(x)) -0|[]-> f(h(x),h(x))
+   f(x,h(b())) <-3|1[]- f(x,k(a(),a())) -1|[]-> f(h(a()),h(a()))
+   k(b(),a()) <-4|0[]- k(a(),a()) -3|[]-> h(b())
+   k(a(),b()) <-4|1[]- k(a(),a()) -3|[]-> h(b())
+  Redundant Rules Transformation:
+   f(x,k(y,z)) -> f(h(y),h(y))
+   h(x) -> k(x,x)
+   a() -> b()
+   Church Rosser Transformation Processor (no redundant rules):
+    strict:
+     a() -> b()
+     h(x) -> k(x,x)
+     f(x,k(y,z)) -> f(h(y),h(y))
+    weak:
+     
+    critical peaks: 0
+    Closedness Processor (*feeble*):
+     
+     Qed
+

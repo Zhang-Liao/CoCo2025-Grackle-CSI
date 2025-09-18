@@ -1,0 +1,10 @@
+NO
+
+Problem:
+ f(a(),f(a(),x)) -> b()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(a(),b()) *<- f(a(),f(a(),f(a(),x5))) ->* b()
+  Qed
+

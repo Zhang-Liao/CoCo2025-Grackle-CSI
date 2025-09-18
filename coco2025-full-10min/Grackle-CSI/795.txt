@@ -1,0 +1,11 @@
+YES
+
+Problem:
+ a(a(b(a(b(a(b(a(b(x))))))))) -> a(b(a(b(a(b(a(b(a(a(a(a(a(b(x))))))))))))))
+
+Proof:
+ Church Rosser Transformation Processor:
+  
+  critical peaks: joinable
+  Qed
+

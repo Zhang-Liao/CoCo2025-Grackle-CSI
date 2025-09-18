@@ -1,0 +1,34 @@
+YES
+
+Problem:
+ +(x,0()) -> x
+ +(x,s(y)) -> s(+(x,y))
+ +(0(),y) -> y
+ +(s(x),y) -> s(+(x,y))
+ *(x,0()) -> 0()
+ *(x,s(y)) -> +(*(x,y),x)
+ *(0(),y) -> 0()
+ *(s(x),y) -> +(*(x,y),y)
+ +(+(x,y),z) -> +(x,+(y,z))
+ +(x,y) -> +(y,x)
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f4_AC(x,0()) -> x
+  f4_AC(x,s(y)) -> s(f4_AC(x,y))
+  f4_AC(0(),y) -> y
+  f4_AC(s(x),y) -> s(f4_AC(x,y))
+  *(x,0()) -> 0()
+  *(x,s(y)) -> f4_AC(*(x,y),x)
+  *(0(),y) -> 0()
+  *(s(x),y) -> f4_AC(*(x,y),y)
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    * > 0 > f4_AC > s
+   status:
+    *:lex  
+   problem:
+    
+   Qed
+

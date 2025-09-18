@@ -1,0 +1,43 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ f(h(x,d()),y) -> f(h(y,d()),x)
+ h(c(),x) -> h(x,x)
+
+Proof:
+ Church Rosser Transformation Processor (no redundant rules):
+  strict:
+   
+  weak:
+   
+  critical peaks: 1
+   f(h(d(),d()),y) <-0|0[]- f(h(c(),d()),y) -1|[]-> f(h(y,d()),c())
+  Redundant Rules Transformation:
+   h(c(),x) -> h(x,x)
+   f(h(x,d()),y) -> f(h(y,d()),x)
+   f(h(y,d()),c()) -> f(h(y,d()),d())
+   f(h(y,d()),c()) -> f(h(d(),d()),y)
+   Church Rosser Transformation Processor (no redundant rules):
+    strict:
+     f(h(y,d()),c()) -> f(h(d(),d()),y)
+     f(h(y,d()),c()) -> f(h(y,d()),d())
+     f(h(x,d()),y) -> f(h(y,d()),x)
+     h(c(),x) -> h(x,x)
+    weak:
+     
+    critical peaks: 9
+     f(h(d(),d()),y) <-0|[]- f(h(y,d()),c()) -1|[]-> f(h(y,d()),d())
+     f(h(d(),d()),x) <-0|[]- f(h(x,d()),c()) -2|[]-> f(h(c(),d()),x)
+     f(h(y,d()),d()) <-1|[]- f(h(y,d()),c()) -0|[]-> f(h(d(),d()),y)
+     f(h(x,d()),d()) <-1|[]- f(h(x,d()),c()) -2|[]-> f(h(c(),d()),x)
+     f(h(c(),d()),y) <-2|[]- f(h(y,d()),c()) -0|[]-> f(h(d(),d()),y)
+     f(h(c(),d()),y) <-2|[]- f(h(y,d()),c()) -1|[]-> f(h(y,d()),d())
+     f(h(d(),d()),c()) <-3|0[]- f(h(c(),d()),c()) -0|[]-> f(h(d(),d()),c())
+     f(h(d(),d()),c()) <-3|0[]- f(h(c(),d()),c()) -1|[]-> f(h(c(),d()),d())
+     f(h(d(),d()),y) <-3|0[]- f(h(c(),d()),y) -2|[]-> f(h(y,d()),c())
+    Closedness Processor (*upside-parallel*):
+     
+     Qed
+

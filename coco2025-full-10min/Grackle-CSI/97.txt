@@ -1,0 +1,12 @@
+NO
+
+Problem:
+ I(x) -> I(B(x))
+ F(E(x),x) -> G(x)
+ E(x) -> x
+
+Proof:
+ Nonconfluence Processor:
+  terms: F(x,x) *<- F(E(x),x) ->* G(x)
+  Qed
+

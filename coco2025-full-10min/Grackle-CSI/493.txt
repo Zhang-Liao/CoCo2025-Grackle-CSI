@@ -1,0 +1,16 @@
+NO
+
+Problem:
+ br(0(),y,z) -> y
+ br(s(x),y,z) -> z
+ p(0()) -> 0()
+ p(s(x)) -> x
+ +(x,y) -> br(x,y,+(p(x),s(y)))
+ +(x,y) -> br(y,x,+(s(x),p(y)))
+
+Proof:
+ Nonconfluence Processor:
+  terms: br(x,y,br(s(y),p(x),br(p(s(y)),s(p(x)),+(s(s(p(x))),p(p(s(y))))))) *<- 
+  +(x,y) ->* br(y,x,br(p(y),s(x),br(p(p(y)),s(s(x)),+(s(s(s(x))),p(p(p(y)))))))
+  Qed
+

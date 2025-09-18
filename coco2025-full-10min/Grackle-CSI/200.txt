@@ -1,0 +1,77 @@
+YES
+
+Problem:
+ +(0(),y) -> y
+ +(x,0()) -> x
+ +(s(x),y) -> s(+(x,y))
+ +(x,s(y)) -> +(s(y),x)
+ +(x,+(y,z)) -> +(+(x,y),z)
+ +(x,y) -> +(y,x)
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  +(0(),y) -> y
+  +(x,0()) -> x
+  +(s(x),y) -> s(+(x,y))
+  +(x,s(x109)) -> s(+(x,x109))
+  +(x,s(y)) -> +(s(y),x)
+  +(x,+(y,z)) -> +(+(x,y),z)
+  +(x,y) -> +(y,x)
+  
+   T' = (P union S) with
+  
+   TRS P:+(x,s(y)) -> +(s(y),x)
+         +(x,+(y,z)) -> +(+(x,y),z)
+         +(x,y) -> +(y,x)
+  
+   TRS S:+(0(),y) -> y
+         +(x,0()) -> x
+         +(s(x),y) -> s(+(x,y))
+         +(x,s(x109)) -> s(+(x,x109))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  0() = 0(), s(x109) = s(+(0(),x109)), s(x) = s(+(x,0())), s(+(x379,0())) = 
+  s(x379), s(+(x381,s(x109))) = s(+(s(x381),x109)), s(+(0(),x384)) = 
+  s(x384), s(+(s(x),x386)) = s(+(x,s(x386)))
+  
+   CP(S,P union P^-1) = 
+  s(y) = +(s(y),0()), +(y,z) = +(+(0(),y),z), +(x,z) = +(+(x,0()),z), 
+  y = +(y,0()), +(y,z) = +(0(),+(y,z)), x = +(x,0()), +(x,y) = +(+(x,y),0()), 
+  x = +(0(),x), s(y) = +(0(),s(y)), +(x,y) = +(x,+(y,0())), +(x,z) = 
+  +(x,+(0(),z)), y = +(0(),y), s(+(x459,s(y))) = +(s(y),s(x459)), s(+(x461,+(y,z))) = 
+  +(+(s(x461),y),z), +(x,s(+(x463,z))) = +(+(x,s(x463)),z), s(+(x465,y)) = 
+  +(y,s(x465)), s(+(y,x)) = +(x,s(y)), +(s(+(x469,y)),z) = +(s(x469),+(y,z)), 
+  s(+(x471,x)) = +(x,s(x471)), s(+(x,y)) = +(s(y),x), +(x,s(+(y,x476))) = 
+  +(+(x,y),s(x476)), s(+(x,x478)) = +(s(x478),x), s(+(s(y),x480)) = +(s(x480),s(y)), 
+  s(+(+(x,y),x482)) = +(x,+(y,s(x482))), +(s(+(x,x484)),z) = +(x,+(s(x484),z)), 
+  s(+(y,x486)) = +(s(x486),y)
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [+](x0, x1) = 4x0 + 6x1 + 2,
+    
+    [0] = 0,
+    
+    [s](x0) = x0 + 3
+   orientation:
+    +(0(),y) = 6y + 2 >= y = y
+    
+    +(x,0()) = 4x + 2 >= x = x
+    
+    +(s(x),y) = 4x + 6y + 14 >= 4x + 6y + 5 = s(+(x,y))
+    
+    +(x,s(x109)) = 4x + 6x109 + 20 >= 4x + 6x109 + 5 = s(+(x,x109))
+   problem:
+    
+   Qed
+

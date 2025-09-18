@@ -1,0 +1,56 @@
+NO
+
+Problem:
+ b() -> f(a())
+ a() -> c()
+ a() -> a()
+ h(c(),f(f(f(a())))) -> h(f(f(c())),h(b(),a()))
+ f(f(f(f(h(h(c(),h(f(c()),f(f(h(h(h(h(f(a()),a()),c()),a()),h(h(h(b(),a()),
+                                                                f(h(f(h(f(b()),f(f(b())))),a()))),
+                                                              h(c(),f
+                                                                    (
+                                                                    h
+                                                                    (
+                                                                    b(),f(f(h(h(c(),f(a())),a())))))))))))),
+           f(f(b())))))))
+ -> c()
+
+Proof:
+ Nonconfluence Processor:
+  terms: f(f(f(f(h(h(c(),h(f(c()),f(f(h(h(h(h(f(c()),a()),c()),a()),h
+                                                                    (
+                                                                    h
+                                                                    (
+                                                                    h(f(a()),a()),
+                                                                    f
+                                                                    (
+                                                                    h(f(h(f(b()),f(f(b())))),a()))),
+                                                                    h
+                                                                    (
+                                                                    c(),
+                                                                    f
+                                                                    (
+                                                                    h
+                                                                    (
+                                                                    b(),f(f(h(h(c(),f(a())),a())))))))))))),
+                   f(f(b()))))))) *<- f(f(f(f(h(h(c(),h(f(c()),f(f(h(
+                                                                    h(h(h(f(a()),a()),c()),a()),
+                                                                    h
+                                                                    (
+                                                                    h
+                                                                    (
+                                                                    h(b(),a()),
+                                                                    f
+                                                                    (
+                                                                    h(f(h(f(b()),f(f(b())))),a()))),
+                                                                    h
+                                                                    (
+                                                                    c(),
+                                                                    f
+                                                                    (
+                                                                    h
+                                                                    (
+                                                                    b(),f(f(h(h(c(),f(a())),a())))))))))))),
+                                                f(f(b()))))))) ->* c()
+  Qed
+

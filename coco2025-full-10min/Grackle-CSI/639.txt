@@ -1,0 +1,25 @@
+NO
+
+Problem:
+ a() -> a()
+ g(g(a())) -> b()
+ g(g(x)) -> g(g(g(b())))
+
+Proof:
+ Nonconfluence Processor:
+  terms: g(g(g(b()))) *<- g(g(a())) ->* b()
+  Qed
+  
+  first automaton:
+   final states: {6}
+   transitions:
+    g(8) -> 9*
+    g(9) -> 9,6
+    g(7) -> 8*
+    b() -> 7*
+  
+  second automaton:
+   final states: {16}
+   transitions:
+    b() -> 16*
+

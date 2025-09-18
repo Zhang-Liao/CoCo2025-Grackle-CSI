@@ -1,0 +1,35 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+YES
+
+Problem:
+ a(x) -> x
+ a(a(x)) -> b(c(x))
+ b(x) -> x
+ c(x) -> x
+ c(b(x)) -> b(a(c(x)))
+
+Proof:
+ Church Rosser Transformation Processor (critical pair closing system, Thm 2.11):
+  a(x47) -> x47
+  c(x48) -> x48
+  b(x49) -> x49
+  critical peaks: joinable
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [c](x0) = x0 + 1/2,
+    
+    [a](x0) = x0 + 1/2,
+    
+    [b](x0) = x0 + 1/2
+   orientation:
+    a(x47) = x47 + 1/2 >= x47 = x47
+    
+    c(x48) = x48 + 1/2 >= x48 = x48
+    
+    b(x49) = x49 + 1/2 >= x49 = x49
+   problem:
+    
+   Qed
+

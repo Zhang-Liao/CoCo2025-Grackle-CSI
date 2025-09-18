@@ -1,0 +1,9 @@
+YES
+
+Problem:
+ f(x,x) -> s(s(x))
+ infty() -> s(infty())
+
+Proof:
+ Qed (SakaiOyamaguchiOgawa14)
+

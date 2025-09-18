@@ -1,0 +1,41 @@
+You used a processor that relies on Yices internally.
+However, Yices is not supported by this build of TTT2.
+NO
+
+Problem:
+ h(h(b(),h(h(c(),h(a(),f(h(f(c()),c())))),h(h(h(h(a(),c()),h(f(a()),b())),b()),f(f(a()))))),
+   f(h(a(),c())))
+ -> c()
+ c() ->
+ h(f(h(f(h(b(),h(c(),b()))),f(a()))),h(c(),h(f(h(b(),h(a(),h(h(h(c(),c()),a()),b())))),c())))
+ c() -> h(h(c(),h(a(),f(h(c(),c())))),a())
+ a() -> c()
+ b() -> h(c(),h(a(),c()))
+
+Proof:
+ Uncurry Processor:
+  f5(f5(h(),f5(f5(h(),b()),f5(f5(h(),f5(f5(h(),c()),f5(f5(h(),a()),f5
+                                                                   (f(),f5(f5(h(),f5(f(),c())),c()))))),
+                              f5(f5(h(),f5(f5(h(),f5(f5(h(),f5(f5(h(),a()),c())),
+                                                     f5(f5(h(),f5(f(),a())),b()))),
+                                           b())),f5(f(),f5(f(),a())))))),
+     f5(f(),f5(f5(h(),a()),c())))
+  -> c()
+  c() ->
+  f5(f5(h(),f5(f(),f5(f5(h(),f5(f(),f5(f5(h(),b()),f5(f5(h(),c()),b())))),f5(f(),a())))),
+     f5(f5(h(),c()),f5(f5(h(),f5(f(),f5(f5(h(),b()),f5(f5(h(),a()),f5
+                                                                   (f5
+                                                                    (
+                                                                    h(),
+                                                                    f5
+                                                                    (
+                                                                    f5(h(),f5(f5(h(),c()),c())),
+                                                                    a())),
+                                                                    b()))))),
+                       c())))
+  c() -> f5(f5(h(),f5(f5(h(),c()),f5(f5(h(),a()),f5(f(),f5(f5(h(),c()),c()))))),a())
+  a() -> c()
+  b() -> f5(f5(h(),c()),f5(f5(h(),a()),c()))
+  Ground Confluence Processor:
+   non-confluent by decision procedure.
+

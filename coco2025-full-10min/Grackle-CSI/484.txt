@@ -1,0 +1,46 @@
+YES
+
+Problem:
+ s(p(x)) -> x
+ p(s(x)) -> x
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  s(p(x)) -> x
+  p(s(x)) -> x
+  
+   T' = (P union S) with
+  
+   TRS P:
+  
+   TRS S:s(p(x)) -> x
+         p(s(x)) -> x
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  p(x19) = p(x19), s(x20) = s(x20)
+  
+   CP(S,P union P^-1) = 
+  
+  
+   PCP_in(P union P^-1,S) = 
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [s](x0) = x0 + 2,
+    
+    [p](x0) = x0 + 1
+   orientation:
+    s(p(x)) = x + 3 >= x = x
+    
+    p(s(x)) = x + 3 >= x = x
+   problem:
+    
+   Qed
+

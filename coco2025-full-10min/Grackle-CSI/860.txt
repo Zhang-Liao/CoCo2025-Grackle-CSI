@@ -1,0 +1,138 @@
+YES
+
+Problem:
+ b(c(x)) -> a(a(x))
+ c(b(x)) -> a(c(x))
+ a(b(x)) -> a(a(x))
+ b(b(x)) -> a(b(x))
+ b(c(x)) -> b(c(x))
+ c(a(x)) -> a(b(x))
+ a(c(x)) -> c(b(x))
+ b(a(x)) -> c(a(x))
+
+Proof:
+ AT confluence processor
+  Complete TRS T' of input TRS:
+  b(c(x)) -> a(a(x))
+  a(b(x)) -> a(a(x))
+  b(b(x)) -> a(b(x))
+  c(a(x)) -> a(b(x))
+  b(a(x)) -> c(a(x))
+  c(c(b(x67))) -> a(a(a(x67)))
+  a(c(c(x242))) -> a(a(a(x242)))
+  a(c(b(x244))) -> a(a(a(x244)))
+  a(a(c(x244))) -> a(a(a(x244)))
+  c(b(x)) -> a(c(x))
+  b(c(x)) -> b(c(x))
+  a(c(x)) -> c(b(x))
+  
+   T' = (P union S) with
+  
+   TRS P:c(b(x)) -> a(c(x))
+         b(c(x)) -> b(c(x))
+         a(c(x)) -> c(b(x))
+  
+   TRS S:b(c(x)) -> a(a(x))
+         a(b(x)) -> a(a(x))
+         b(b(x)) -> a(b(x))
+         c(a(x)) -> a(b(x))
+         b(a(x)) -> c(a(x))
+         c(c(b(x67))) -> a(a(a(x67)))
+         a(c(c(x242))) -> a(a(a(x242)))
+         a(c(b(x244))) -> a(a(a(x244)))
+         a(a(c(x244))) -> a(a(a(x244)))
+  
+  S is left-linear and P is reversible.
+  
+   CP(S,S) = 
+  a(a(a(x1110))) = a(a(c(x1110))), b(a(a(x1111))) = a(b(c(x1111))), c(c(a(a(x1112)))) = 
+  a(a(a(c(x1112)))), a(c(a(a(x1113)))) = a(a(a(c(x1113)))), c(a(a(x1114))) = 
+  a(b(b(x1114))), b(a(a(x1115))) = c(a(b(x1115))), a(a(b(x1116))) = a(a(b(x1116))), 
+  b(a(b(x1117))) = a(b(b(x1117))), c(c(a(b(x1118)))) = a(a(a(b(x1118)))), 
+  a(c(a(b(x1119)))) = a(a(a(b(x1119)))), b(a(b(x1120))) = a(a(a(x1120))), 
+  a(c(a(b(x1121)))) = a(a(a(a(x1121)))), a(a(a(b(x1122)))) = a(a(a(a(x1122)))), 
+  a(c(a(x1123))) = a(a(a(x1123))), b(c(a(x1124))) = a(b(a(x1124))), c(c(c(a(x1125)))) = 
+  a(a(a(a(x1125)))), a(c(c(a(x1126)))) = a(a(a(a(x1126)))), b(a(a(a(x1127)))) = 
+  a(a(c(b(x1127)))), a(a(a(a(x1128)))) = a(a(a(b(x1128)))), a(c(a(a(a(x1129))))) = 
+  a(a(a(c(b(x1129))))), a(a(a(a(a(x1130))))) = a(a(a(c(b(x1130))))), 
+  c(a(a(a(x1131)))) = a(b(c(c(x1131)))), b(a(a(a(x1132)))) = c(a(c(c(x1132)))), 
+  a(a(a(a(x1133)))) = a(a(a(c(x1133)))), c(a(a(a(x1134)))) = a(b(c(b(x1134)))), 
+  b(a(a(a(x1135)))) = c(a(c(b(x1135)))), a(a(a(a(x1136)))) = a(a(a(b(x1136)))), 
+  c(a(a(a(x1137)))) = a(b(a(c(x1137)))), b(a(a(a(x1138)))) = c(a(a(c(x1138))))
+  
+   CP(S,P union P^-1) = 
+  c(a(a(x1193))) = a(c(c(x1193))), a(a(x)) = b(c(x)), c(a(b(x1195))) = 
+  a(c(b(x1195))), b(a(b(x1196))) = b(c(a(x1196))), a(a(b(x1197))) = c(b(a(x1197))), 
+  c(c(a(x1198))) = a(c(a(x1198))), b(a(a(a(x1199)))) = b(c(c(b(x1199)))), 
+  a(a(a(a(x1200)))) = c(b(c(b(x1200)))), a(a(a(x1201))) = c(b(c(x1201))), 
+  a(a(a(x1202))) = c(b(b(x1202)))
+  
+  
+   CP_in(P union P^-1,S) = 
+  b(a(c(x1242))) = a(a(b(x1242))), c(a(c(x67))) = a(a(a(x67))), a(c(a(c(x1244)))) = 
+  a(a(a(b(x1244)))), a(a(c(x244))) = a(a(a(x244))), a(a(a(c(x1246)))) = 
+  a(a(a(b(x1246)))), a(b(c(x1247))) = a(a(c(x1247))), b(b(c(x1248))) = 
+  a(b(c(x1248))), c(c(b(c(x1249)))) = a(a(a(c(x1249)))), a(c(b(c(x1250)))) = 
+  a(a(a(c(x1250)))), c(c(b(x1251))) = a(b(c(x1251))), b(c(b(x1252))) = 
+  c(a(c(x1252))), a(c(b(x244))) = a(a(a(x244)))
+  
+  
+  We have to check termination of S:
+  
+  Matrix Interpretation Processor: dim=1
+   
+   interpretation:
+    [b](x0) = 3x0 + 1,
+    
+    [c](x0) = 3x0 + 1,
+    
+    [a](x0) = x0
+   orientation:
+    b(c(x)) = 9x + 4 >= x = a(a(x))
+    
+    a(b(x)) = 3x + 1 >= x = a(a(x))
+    
+    b(b(x)) = 9x + 4 >= 3x + 1 = a(b(x))
+    
+    c(a(x)) = 3x + 1 >= 3x + 1 = a(b(x))
+    
+    b(a(x)) = 3x + 1 >= 3x + 1 = c(a(x))
+    
+    c(c(b(x67))) = 27x67 + 13 >= x67 = a(a(a(x67)))
+    
+    a(c(c(x242))) = 9x242 + 4 >= x242 = a(a(a(x242)))
+    
+    a(c(b(x244))) = 9x244 + 4 >= x244 = a(a(a(x244)))
+    
+    a(a(c(x244))) = 3x244 + 1 >= x244 = a(a(a(x244)))
+   problem:
+    c(a(x)) -> a(b(x))
+    b(a(x)) -> c(a(x))
+   Matrix Interpretation Processor: dim=1
+    
+    interpretation:
+     [b](x0) = 2x0 + 1,
+     
+     [c](x0) = 2x0,
+     
+     [a](x0) = x0 + 1
+    orientation:
+     c(a(x)) = 2x + 2 >= 2x + 2 = a(b(x))
+     
+     b(a(x)) = 2x + 3 >= 2x + 2 = c(a(x))
+    problem:
+     c(a(x)) -> a(b(x))
+    Matrix Interpretation Processor: dim=1
+     
+     interpretation:
+      [b](x0) = x0,
+      
+      [c](x0) = x0 + 1,
+      
+      [a](x0) = x0 + 2
+     orientation:
+      c(a(x)) = x + 3 >= x + 2 = a(b(x))
+     problem:
+      
+     Qed
+

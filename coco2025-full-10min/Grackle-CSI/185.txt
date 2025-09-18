@@ -1,0 +1,26 @@
+YES
+
+Problem:
+ +(0(),y) -> y
+ +(x,0()) -> x
+ +(s(x),y) -> s(+(y,x))
+ +(x,s(y)) -> s(+(y,x))
+ +(x,+(y,z)) -> +(+(x,y),z)
+ +(x,y) -> +(y,x)
+
+Proof:
+ Church Rosser Transformation Processor (ac):
+  f3_AC(0(),y) -> y
+  f3_AC(x,0()) -> x
+  f3_AC(s(x),y) -> s(f3_AC(y,x))
+  f3_AC(x,s(y)) -> s(f3_AC(y,x))
+  AC critical peaks: joinable
+  AC-RPO Processor:
+   precedence:
+    0 > f3_AC > s
+   status:
+    
+   problem:
+    
+   Qed
+

@@ -1,0 +1,12 @@
+YES
+
+Problem:
+ a() -> a()
+ b() -> h(f(f(f(b()))),h(b(),f(a())))
+
+Proof:
+ Church Rosser Transformation Processor:
+  
+  critical peaks: joinable
+  Qed
+
