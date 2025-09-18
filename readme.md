@@ -2,7 +2,7 @@
 
 Grackle-CSI solves the largest number of problems in the term rewrite system (TRS) category of [CoCo2025](https://project-coco.uibk.ac.at/2025/).  
 
-CoCo is the annual international competition on confluence analysis, a core topic in term rewrite systems—with deep ties to computability theory going back to Church & Turing.
+CoCo is the annual international competition on confluence analysis, a core topic in term rewriting—with deep ties to computability theory going back to Alozon Church & Alan Turing.
 TRS is the most classic and important category in CoCo.
 
 Grackle-CSI uses machine learning techniques to automatically invent strategies for the confluence tool CSI.
@@ -10,7 +10,7 @@ Grackle-CSI uses machine learning techniques to automatically invent strategies 
 This is the first time AI techniques have been combined with term rewrite tools, marking a milestone in applying AI to formal reasoning.
 Just like AI has transformed Go playing and protein discovery, it now shows strong potential in automated reasoning and formal mathematics.
 
-Confluence analysis is closely related to program equivalence, termination, and automated proof systems. AI can open new pathways for advances across these areas.
+Confluence analysis is closely related to program equivalence, termination, and automated theorem proving. AI can open new pathways for advances across these areas.
 We see this as a step toward the future of AI + formal methods: combining symbolic rigor with data-driven learning to tackle problems beyond human reach.
 
 
