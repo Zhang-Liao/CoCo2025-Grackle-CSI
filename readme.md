@@ -18,7 +18,7 @@ It contains 100 term rewrite systems (TRSs) randomly chosen from the ARI-COPS da
 | ACP    | 48 | 26| 74   | **3rd** |
 
 **Results of CoCo's full run**.
-The Timeout is one minute.
+The timeout is one minute.
 
 | Solver | YES | NO | Total | Rank |
 | ---- |-----|----| ------|------|
