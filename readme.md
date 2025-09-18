@@ -24,12 +24,21 @@ It contains 100 term rewrite systems (TRSs) randomly chosen from the ARI-COPS da
 | CSI    | 51 | 33  | 84 | **1st** |
 | ACP    | 48 | 26| 74   | **3rd** |
 
-**Results on CoCo's full run**.
+**Results on CoCo's full run 1**.
+The Timeout is one minute.
+
 | Solver | YES | NO | Total | Rank |
 | ---- |-----|----| ------|------|
 | Grackle-CSI | 277  | 206 | 483     | **1st** |
 | CSI    | 272 | 205  | 477 | **2nd** |
 | ACP    | 257 | 164 | 421  | **3rd** |
+
+**Results on CoCo's full run 10min**.
+| Solver | YES | NO | Total | Rank |
+| ---- |-----|----| ------|------|
+| Grackle-CSI | 277  | 206 | 483     | **1st** |
+| CSI    | 274 | 205  | 479 | **2nd** |
+| ACP    | 258 | 168 | 426  | **3rd** |
 
 
 During the competition, Grackle-CSI only gets the first place in the non-confluence analysis (NO category) since it sometimes output warnings as shown in the screenshot below. However, the answer is only acceptable in CoCo's statistics when the first line of output is YES or NO.
