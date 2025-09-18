@@ -9,13 +9,6 @@ Grackle-CSI uses machine learning techniques to automatically strategies for con
 
 ## Results
 
-<!--
-Solver |             | YES | NO | MAYBE | Total | Rank |
-| ---- |-------------|-----|----|-------| ------|------|
-| Competition | 50  | 34 | 16    | 100   | **1st** |
-| Full Run    | 277 | 206| 86    | 569   | **1st** |
--->
-
 **Results of CoCo competition**.
 It contains 100 term rewrite systems (TRSs) randomly chosen from the ARI-COPS database.
 | Solver | YES | NO | Total | Rank |
@@ -24,7 +17,7 @@ It contains 100 term rewrite systems (TRSs) randomly chosen from the ARI-COPS da
 | CSI    | 51 | 33  | 84 | **1st** |
 | ACP    | 48 | 26| 74   | **3rd** |
 
-**Results on CoCo's full run 1**.
+**Results of CoCo's full run**.
 The Timeout is one minute.
 
 | Solver | YES | NO | Total | Rank |
@@ -33,7 +26,7 @@ The Timeout is one minute.
 | CSI    | 272 | 205  | 477 | **2nd** |
 | ACP    | 257 | 164 | 421  | **3rd** |
 
-**Results on CoCo's full run 10min**.
+**Results of CoCo's full run 10min**.
 | Solver | YES | NO | Total | Rank |
 | ---- |-----|----| ------|------|
 | Grackle-CSI | 277  | 206 | 483     | **1st** |
@@ -41,7 +34,8 @@ The Timeout is one minute.
 | ACP    | 258 | 168 | 426  | **3rd** |
 
 
-During the competition, Grackle-CSI only gets the first place in the non-confluence analysis (NO category) since it sometimes output warnings as shown in the screenshot below. However, the answer is only acceptable in CoCo's statistics when the first line of output is YES or NO.
+During the competition, Grackle-CSI only gets the first place in the non-confluence analysis (NO category) since iResultst sometimes output warnings as shown in the screenshot below. 
+However, the answer is only acceptable in CoCo's statistics when the first line of output is YES or NO.
 
 <div align = "center">
 <img src = "yes.png" width = "400" height = "330">
@@ -58,6 +52,8 @@ To obtain the statistics, run
 `python coco2025.py --results_dir coco2025-competition/  --stats_file  coco2025_competition_stats.json`
 
 `python coco2025.py --results_dir coco2025-full/  --stats_file  coco2025_full_stats.json`
+
+`python coco2025.py --results_dir coco2025-full-10min/  --stats_file  coco2025_full_10min_stats.json`
 
 ## Reference
 
