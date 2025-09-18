@@ -34,7 +34,7 @@ The timeout is one minute.
 | ACP    | 258 | 168 | 426  | **3rd** |
 
 
-During the competition, Grackle-CSI only gets the first place in the non-confluence analysis (NO category) since iResultst sometimes output warnings as shown in the screenshot below. 
+During the competition, Grackle-CSI only gets the first place in the non-confluence analysis (NO category) since it sometimes output warnings as shown in the screenshot below. 
 However, the answer is only acceptable in CoCo's statistics when the first line of output is YES or NO.
 
 <div align = "center">
