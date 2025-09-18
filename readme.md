@@ -1,11 +1,18 @@
 # Grackle-CSI in CoCo2025
 
-Grackle-CSI solves the largest number of problems in [CoCo2025](https://project-coco.uibk.ac.at/2025/).
-CoCo is the annual confluence competition for rewrite systems.
+Grackle-CSI solves the largest number of problems in the term rewrite system (TRS) category of [CoCo2025](https://project-coco.uibk.ac.at/2025/).  
 
-Rewrite system is tightly related with lambda calculus and Alan Turing and Alonzo Church's research on computability theory.
+CoCo is the annual international competition on confluence analysis, a core topic in term rewrite systems—with deep ties to computability theory going back to Church & Turing.
+TRS is the most classic and important category in CoCo.
 
-Grackle-CSI uses machine learning techniques to automatically strategies for confluence tool CSI.
+Grackle-CSI uses machine learning techniques to automatically invent strategies for the confluence tool CSI.
+
+This is the first time AI techniques have been combined with term rewrite tools, marking a milestone in applying AI to formal reasoning.
+Just like AI has transformed Go playing and protein discovery, it now shows strong potential in automated reasoning and formal mathematics.
+
+Confluence analysis is closely related to program equivalence, termination, and automated proof systems. AI can open new pathways for advances across these areas.
+We see this as a step toward the future of AI + formal methods: combining symbolic rigor with data-driven learning to tackle problems beyond human reach.
+
 
 ## Results
 
@@ -34,8 +41,7 @@ The timeout is one minute.
 | ACP    | 258 | 168 | 426  | **3rd** |
 
 
-During the competition, Grackle-CSI only gets the first place in the non-confluence analysis (NO category) since it sometimes output warnings as shown in the screenshot below. 
-However, the answer is only acceptable in CoCo's statistics when the first line of output is YES or NO.
+During the competition, Grackle-CSI ranked first only in the non-confluence analysis (NO category), since it occasionally produced warnings (as shown in the screenshot below). However, in CoCo’s statistics, an answer is considered valid only when the first line of output is either YES or NO.
 
 <div align = "center">
 <img src = "yes.png" width = "400" height = "330">
@@ -44,8 +50,7 @@ However, the answer is only acceptable in CoCo's statistics when the first line 
 
 ## Run
 
-The statistics shown in the repo will not ignored the proofs when there are warnings.
-The logs of problem solving are downloaded from [CoCo25's full run statistics](https://ari-cops.uibk.ac.at/CoCo/2025/full-run/TRS/) and [CoCo25's FUll competition statistics](https://ari-cops.uibk.ac.at/CoCo/2025/full-run/TRS/).
+The statistics in the repository do not ignore proofs that have warnings. The logs of problem solving were downloaded from [CoCo25's full run statistics](https://ari-cops.uibk.ac.at/CoCo/2025/full-run/TRS/), [CoCo25's competition statistics](https://ari-cops.uibk.ac.at/CoCo/2025/full-run/TRS/) and [CoCo25's 10 mintue-full run statistics](https://ari-cops.uibk.ac.at/CoCo/2025/full-run10m/TRS/).
 
 To obtain the statistics, run
 
